@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Владислав Слащевский — Операционный и технический специалист | EdTech</title>
+    <meta name="description" content="Операционный и технический специалист с 4+ годами опыта в EdTech и Digital. Аналитика, автоматизация, автоворонки, процессы.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Владислав Слащевский — Operations & Technical Specialist">
+    <meta property="og:description" content="Выстраиваю системы, аналитику и процессы для онлайн-бизнеса">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    g: { 950:'#07080c', 900:'#0a0c10', 800:'#0f1218', 700:'#161a24', 600:'#1e2330', 500:'#282e3e', 400:'#3a4258' },
+                    em: { 600:'#047857', 500:'#059669', 400:'#10b981', 300:'#34d399', 200:'#6ee7b7', 100:'#a7f3d0' }
+                },
+                fontFamily: { sans:['Inter','system-ui','sans-serif'] }
+            }
+        }
+    }
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',system-ui,sans-serif;background:#07080c;color:#e2e8f0;overflow-x:hidden}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:#0a0c10}
+        ::-webkit-scrollbar-thumb{background:#282e3e;border-radius:3px}
+        ::-webkit-scrollbar-thumb:hover{background:#3a4258}
+        .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);transition:all .3s ease}
+        .glass:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
+        .glass-strong{background:rgba(255,255,255,0.05);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.08)}
+        .gradient-text{background:linear-gradient(135deg,#10b981,#34d399,#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-text-warm{background:linear-gradient(135deg,#f59e0b,#fbbf24,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .glow-em{box-shadow:0 0 40px rgba(16,185,129,0.15),0 0 80px rgba(16,185,129,0.05)}
+        .glow-btn{box-shadow:0 0 20px rgba(16,185,129,0.3),0 4px 15px rgba(16,185,129,0.2)}
+        .bg-orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}
+        @keyframes orb-drift{0%,100%{transform:translate(0,0)}25%{transform:translate(30px,-40px)}50%{transform:translate(-20px,30px)}75%{transform:translate(40px,20px)}}
+        @keyframes float-1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+        @keyframes float-2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
+        @keyframes float-3{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        @keyframes fade-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fade-in{from{opacity:0}to{opacity:1}}
+        @keyframes slide-right{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes draw-line{from{stroke-dashoffset:var(--dash-length)}to{stroke-dashoffset:0}}
+        @keyframes grow-bar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+        @keyframes pulse-ring{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.8);opacity:0}}
+        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+        .anim-fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+        .anim-fade-up.visible{opacity:1;transform:translateY(0)}
+        .anim-slide-right{opacity:0;transform:translateX(-30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+        .anim-slide-right.visible{opacity:1;transform:translateX(0)}
+        .chart-line{stroke-dasharray:var(--dash-length);stroke-dashoffset:var(--dash-length);transition:stroke-dashoffset 2s cubic-bezier(.16,1,.3,1)}
+        .chart-line.visible{stroke-dashoffset:0}
+        .chart-area{opacity:0;transition:opacity 1.5s ease .8s}
+        .chart-area.visible{opacity:1}
+        .chart-dot{opacity:0;transition:opacity .3s ease}
+        .chart-dot.visible{opacity:1}
+        .bar-grow{transform-origin:bottom;transform:scaleY(0);transition:transform 1s cubic-bezier(.16,1,.3,1)}
+        .bar-grow.visible{transform:scaleY(1)}
+        .btn-primary{background:linear-gradient(135deg,#059669,#10b981);color:#fff;border:none;padding:12px 28px;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(16,185,129,0.3)}
+        .btn-secondary{background:rgba(255,255,255,0.05);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);padding:12px 28px;border-radius:12px;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+        .btn-secondary:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);transform:translateY(-2px)}
+        .kpi-card{position:relative;overflow:hidden}
+        .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#10b981,transparent);opacity:0;transition:opacity .3s}
+        .kpi-card:hover::before{opacity:1}
+        .case-card{cursor:pointer;overflow:hidden}
+        .case-card .case-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1),padding .3s}
+        .case-card.open .case-body{max-height:800px;padding-top:20px}
+        .case-card .chevron{transition:transform .3s}
+        .case-card.open .chevron{transform:rotate(180deg)}
+        .skill-badge{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:500;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);transition:all .3s;cursor:default;white-space:nowrap}
+        .skill-badge:hover{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#34d399;transform:translateY(-2px)}
+        .workflow-step{position:relative}
+        .workflow-line{height:2px;background:rgba(255,255,255,0.06);flex:1;margin:0 -1px}
+        .workflow-line .fill{height:100%;background:linear-gradient(90deg,#059669,#34d399);width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+        .workflow-line.visible .fill{width:100%}
+        .toast{position:fixed;bottom:30px;right:30px;z-index:9999;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:500;animation:fade-up .4s ease forwards;pointer-events:none}
+        .loading-screen{position:fixed;inset:0;background:#07080c;display:flex;align-items:center;justify-content:center;z-index:99999}
+        .loading-spinner{width:40px;height:40px;border:2px solid rgba(255,255,255,0.1);border-top-color:#10b981;border-radius:50%;animation:spin .8s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .mobile-menu{position:fixed;inset:0;z-index:100;background:rgba(7,8,12,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+        .mobile-menu.open{transform:translateX(0)}
+        @media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}.hero-dash{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}}
+        @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="loading-screen"><div class="loading-spinner"></div></div>
+    </div>
+
+    <div class="bg-orb" style="width:700px;height:700px;background:#059669;top:-300px;left:-300px;opacity:0.07;animation:orb-drift 25s ease-in-out infinite"></div>
+    <div class="bg-orb" style="width:500px;height:500px;background:#10b981;bottom:-200px;right:-200px;opacity:0.05;animation:orb-drift 30s ease-in-out infinite reverse"></div>
+    <div class="bg-orb" style="width:400px;height:400px;background:#047857;top:50%;left:50%;opacity:0.04;animation:orb-drift 35s ease-in-out infinite 5s"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+    /* ==============================
+       ПЕРЕВОДЫ
+    ============================== */
+    const tr = {
+        ru: {
+            nav: { about:'Обо мне', impact:'Результаты', cases:'Кейсы', skills:'Навыки', workflow:'Процесс', exp:'Опыт', edu:'Образование', contact:'Контакт' },
+            hero: {
+                name:'Владислав Слащевский',
+                pos:'Операционный и технический специалист',
+                posSub:'EdTech / Digital Projects',
+                headline:'\u00ABВыстраиваю системы, аналитику и процессы для онлайн-бизнеса\u00BB',
+                desc:'Превращаю хаос в управляемую систему и помогаю онлайн-проектам расти за счёт аналитики, автоматизации и выстроенных процессов.',
+                sub:'4+ года опыта в операционке, аналитике, автоворонках, автоматизации и технической инфраструктуре онлайн-проектов.',
+                tg:'Написать в Telegram', interview:'Назначить собеседование', cv:'Скачать CV'
+            },
+            about: {
+                title:'Обо мне',
+                text1:'Я \u2014 Владислав Слащевский, операционный и технический специалист с опытом 4+ лет в онлайн-проектах.',
+                text2:'Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения.',
+                text3:'Умею создавать порядок в хаосе, быстро погружаться в продукт и брать ответственность за стабильность бизнес-процессов.',
+                expTitle:'Опыт включает:',
+                items:['Координацию команды','Работу с подрядчиками','Контроль дедлайнов','Техническое сопровождение платформ','Внедрение аналитики','Создание автоворонок','Автоматизацию процессов','Оптимизацию клиентского пути']
+            },
+            impact: { title:'Бизнес-результаты', subtitle:'Реальные метрики и подтверждённый эффект от внедренных решений' },
+            cases: { title:'Кейсы', problem:'Проблема', solution:'Решение', result:'Результат', metrics:'Метрики' },
+            skills: { title:'Навыки и инструменты', adv:'Продвинутый', mid:'Средний', basic:'Базовый' },
+            workflow: { title:'Как я работаю', steps:['Анализ проекта','Систематизация процессов','Оптимизация воронок','Автоматизация','Аналитика и контроль','Масштабирование'] },
+            exp: { title:'Опыт работы' },
+            edu: { title:'Образование и сертификаты' },
+            contact: { title:'Готов обсудить ваш проект и усилить бизнес-процессы.', sub:'Свяжитесь со мной удобным способом \u2014 отвечу в течение часа.', tg:'Telegram', wa:'WhatsApp' },
+            kpi: { revenue:'Рост выручки', conversion:'Конверсия лендингов', romi:'ROMI', funnels:'Автоворонки', experience:'Опыт', savings:'Экономия' }
+        },
+        en: {
+            nav: { about:'About', impact:'Impact', cases:'Cases', skills:'Skills', workflow:'Workflow', exp:'Experience', edu:'Education', contact:'Contact' },
+            hero: {
+                name:'Vladislav Slaschevsky',
+                pos:'Operations & Technical Specialist',
+                posSub:'EdTech / Digital Projects',
+                headline:'\u201CI build systems, analytics, and processes for online business\u201D',
+                desc:'I turn chaos into a manageable system and help online projects grow through analytics, automation, and structured processes.',
+                sub:'4+ years of experience in operations, analytics, auto-funnels, automation, and technical infrastructure of online projects.',
+                tg:'Write in Telegram', interview:'Schedule Interview', cv:'Download CV'
+            },
+            about: {
+                title:'About Me',
+                text1:'I am Vladislav Slaschevsky, an operations and technical specialist with 4+ years of experience in online projects.',
+                text2:'I have worked with teams, built processes from scratch, and controlled tasks, deadlines, and quality of execution.',
+                text3:'I can create order from chaos, quickly dive into a product, and take responsibility for the stability of business processes.',
+                expTitle:'Experience includes:',
+                items:['Team coordination','Working with contractors','Deadline control','Technical platform support','Analytics implementation','Auto-funnel creation','Process automation','Customer journey optimization']
+            },
+            impact: { title:'Business Impact', subtitle:'Real metrics and confirmed results from implemented solutions' },
+            cases: { title:'Case Studies', problem:'Problem', solution:'Solution', result:'Result', metrics:'Metrics' },
+            skills: { title:'Skills & Tools', adv:'Advanced', mid:'Intermediate', basic:'Basic' },
+            workflow: { title:'How I Work', steps:['Project Analysis','Process Systematization','Funnel Optimization','Automation','Analytics & Control','Scaling'] },
+            exp: { title:'Work Experience' },
+            edu: { title:'Education & Certificates' },
+            contact: { title:'Ready to discuss your project and strengthen business processes.', sub:'Contact me in a convenient way \u2014 I will respond within an hour.', tg:'Telegram', wa:'WhatsApp' },
+            kpi: { revenue:'Revenue Growth', conversion:'Landing Conversion', romi:'ROMI', funnels:'Auto-Funnels', experience:'Experience', savings:'Savings' }
+        }
+    };
+
+    /* ==============================
+       КОНТЕКСТ ЯЗЫКА
+    ============================== */
+    const LangCtx = React.createContext('ru');
+    function useT() { const l = React.useContext(LangCtx); return (path) => path.split('.').reduce((o,k) => o?.[k], tr[l]) || path; }
+
+    /* ==============================
+       ХУКИ
+    ============================== */
+    function useInView(opts = {}) {
+        const [v, setV] = React.useState(false);
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+            const el = ref.current; if (!el) return;
+            const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setV(true); obs.unobserve(el); } }, { threshold: 0.1, ...opts });
+            obs.observe(el); return () => obs.disconnect();
+        }, []);
+        return [ref, v];
+    }
+
+    function useCounter(end, dur = 2000, active = false) {
+        const [val, setVal] = React.useState(0);
+        React.useEffect(() => {
+            if (!active) return;
+            let st = null;
+            const ease = t => 1 - Math.pow(1 - t, 3);
+            const step = ts => {
+                if (!st) st = ts;
+                const p = Math.min((ts - st) / dur, 1);
+                setVal(Math.round(end * ease(p)));
+                if (p < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }, [active, end, dur]);
+        return val;
+    }
+
+    function useScroll() {
+        const [y, setY] = React.useState(0);
+        React.useEffect(() => {
+            const h = () => setY(window.scrollY);
+            window.addEventListener('scroll', h, { passive: true });
+            return () => window.removeEventListener('scroll', h);
+        }, []);
+        return y;
+    }
+
+    /* ==============================
+       ИКОНКИ (SVG)
+    ============================== */
+    const I = {
+        Send: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>,
+        ArrowUp: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l7-7 7 7"/><path d="M12 19V5"/></svg>,
+        ArrowRight: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>,
+        Trending: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+        BarChart: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>,
+        Target: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+        Zap: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+        Layers: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
+        Shield: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+        Clock: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+        Award: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>,
+        Briefcase: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+        Graduation: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>,
+        Download: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+        Calendar: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
+        Menu: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||24} height={p.size||24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+        X: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||24} height={p.size||24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+        Chevron: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||16} height={p.size||16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>,
+        Globe: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||16} height={p.size||16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+        Phone: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+        Check: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||16} height={p.size||16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+        Database: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>,
+        Workflow: (p) => <svg xmlns="http://www.w3.org/2000/svg" width={p.size||20} height={p.size||20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M7 8.5L17 15.5"/><path d="M7 8.5L7 12"/><path d="M17 15.5L17 12"/><circle cx="12" cy="12" r="3"/></svg>,
+    };
+
+    /* ==============================
+       КОМПОНЕНТЫ ГРАФИКОВ
+    ============================== */
+    function LineChartSvg({ data, w = 700, h = 280, color = '#10b981', active }) {
+        const pad = { t: 20, r: 20, b: 40, l: 55 };
+        const cw = w - pad.l - pad.r;
+        const ch = h - pad.t - pad.b;
+        const vals = data.map(d => d.value);
+        const maxV = Math.max(...vals);
+        const minV = Math.min(...vals);
+        const range = maxV - minV || 1;
+
+        const pts = data.map((d, i) => ({
+            x: pad.l + (i / Math.max(data.length - 1, 1)) * cw,
+            y: pad.t + ch - ((d.value - minV) / range) * ch * 0.85 - ch * 0.05
+        }));
+
+        const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+        const areaPath = `${linePath} L${pts[pts.length-1].x},${pad.t + ch} L${pts[0].x},${pad.t + ch} Z`;
+        const dashLen = pts.reduce((acc, p, i) => {
+            if (i === 0) return 0;
+            const prev = pts[i-1];
+            return acc + Math.sqrt((p.x - prev.x)**2 + (p.y - prev.y)**2);
+        }, 0);
+
+        const gridY = [0, 0.25, 0.5, 0.75, 1].map(pct => {
+            const y = pad.t + ch * (1 - pct * 0.85 - 0.05);
+            const v = minV + range * (pct * 0.85 + 0.05);
+            return { y, v: Math.round(v) };
+        });
+
+        const gid = 'lg-' + color.replace('#', '');
+        return (
+            <svg viewBox={`0 0 ${w} ${h}`} className="w-full" style={{ overflow: 'visible' }}>
+                <defs>
+                    <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={color} stopOpacity="0.25"/>
+                        <stop offset="100%" stopColor={color} stopOpacity="0"/>
+                    </linearGradient>
+                </defs>
+                {gridY.map((g, i) => (
+                    <g key={i}>
+                        <line x1={pad.l} y1={g.y} x2={w - pad.r} y2={g.y} stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                        <text x={pad.l - 8} y={g.y + 4} textAnchor="end" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="Inter">{(g.v / 1000).toFixed(0)}K</text>
+                    </g>
+                ))}
+                <path d={areaPath} fill={`url(#${gid})`} className={`chart-area ${active ? 'visible' : ''}`}/>
+                <path d={linePath} fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                    className={`chart-line ${active ? 'visible' : ''}`} style={{'--dash-length': dashLen + 20}}/>
+                {pts.map((p, i) => (
+                    <circle key={i} cx={p.x} cy={p.y} r="3" fill={color} stroke="#0a0c10" strokeWidth="2"
+                        className={`chart-dot ${active ? 'visible' : ''}`} style={{ transitionDelay: `${1.5 + i * 0.1}s` }}/>
+                ))}
+                {data.map((d, i) => (
+                    <text key={i} x={pts[i].x} y={h - 10} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="Inter">{d.label}</text>
+                ))}
+            </svg>
+        );
+    }
+
+    function BarCompare({ before, after, label, active, beforeLabel, afterLabel }) {
+        const max = Math.max(before, after) * 1.2 || 1;
+        const bh = (before / max) * 120;
+        const ah = (after / max) * 120;
+        return (
+            <div className="flex flex-col items-center gap-3">
+                <div className="flex items-end gap-4" style={{ height: 140 }}>
+                    <div className="flex flex-col items-center gap-1">
+                        <span className="text-xs text-em-300 font-semibold">{afterLabel || after}</span>
+                        <div className="w-12 rounded-t-md bar-grow" style={{ height: ah, background: 'linear-gradient(to top, #059669, #34d399)', transitionDelay: active ? '0.3s' : '0s' }} className={`bar-grow ${active ? 'visible' : ''}`}/>
+                    </div>
+                    <div className="flex flex-col items-center gap-1">
+                        <span className="text-xs text-white/40 font-medium">{beforeLabel || before}</span>
+                        <div className="w-12 rounded-t-md bar-grow" style={{ height: bh, background: 'rgba(255,255,255,0.1)', transitionDelay: active ? '0s' : '0s' }} className={`bar-grow ${active ? 'visible' : ''}`}/>
+                    </div>
+                </div>
+                <span className="text-xs text-white/50 mt-1">{label}</span>
+            </div>
+        );
+    }
+
+    function SparkLine({ data, color = '#10b981', w = 80, h = 30 }) {
+        const max = Math.max(...data); const min = Math.min(...data); const range = max - min || 1;
+        const pts = data.map((v, i) => `${(i / (data.length - 1)) * w},${h - ((v - min) / range) * h * 0.8 - h * 0.1}`);
+        return <svg viewBox={`0 0 ${w} ${h}`} className="w-full"><path d={`M${pts.join(' L')}`} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+    }
+
+    /* ==============================
+       UI КОМПОНЕНТЫ
+    ============================== */
+    function SectionTitle({ title, subtitle, ref: refProp, ...props }) {
+        const [ref, inView] = useInView();
+        return (
+            <div ref={ref} className={`anim-fade-up ${inView ? 'visible' : ''} text-center mb-16`} {...props}>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h2>
+                {subtitle && <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>}
+                <div className="w-16 h-1 bg-gradient-to-r from-em-500 to-em-300 mx-auto mt-6 rounded-full"/>
+            </div>
+        );
+    }
+
+    function KPICard({ icon, label, value, sub, spark, delay, accent }) {
+        const [ref, inView] = useInView();
+        const animStyle = { animation: inView ? `float-${(delay % 3) + 1} 4s ease-in-out infinite ${delay * 0.3}s` : 'none', opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: `opacity .6s ease ${delay * 0.15}s, transform .6s ease ${delay * 0.15}s` };
+        return (
+            <div ref={ref} className="glass kpi-card rounded-2xl p-4 md:p-5" style={animStyle}>
+                <div className="flex items-center gap-2 mb-3">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${accent || 'bg-em-500/10 text-em-400'}`}>
+                        {icon}
+                    </div>
+                    <span className="text-xs text-white/40 font-medium uppercase tracking-wider">{label}</span>
+                </div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{value}</div>
+                {sub && <div className="text-xs text-white/40">{sub}</div>}
+                {spark && <div className="mt-3 opacity-60"><SparkLine data={spark} color={accent?.includes('amber') ? '#f59e0b' : '#10b981'}/></div>}
+            </div>
+        );
+    }
+
+    /* ==============================
+       НАВИГАЦИЯ
+    ============================== */
+    function Navbar() {
+        const { lang, setLang } = React.useContext(LangCtx);
+        const scroll = useScroll();
+        const [mobile, setMobile] = React.useState(false);
+        const t = useT();
+        const links = [
+            { id: 'about', label: t('nav.about') },
+            { id: 'impact', label: t('nav.impact') },
+            { id: 'cases', label: t('nav.cases') },
+            { id: 'skills', label: t('nav.skills') },
+            { id: 'workflow', label: t('nav.workflow') },
+            { id: 'exp', label: t('nav.exp') },
+            { id: 'contact', label: t('nav.contact') },
+        ];
+        const navStyle = { background: scroll > 50 ? 'rgba(7,8,12,0.85)' : 'transparent', backdropFilter: scroll > 50 ? 'blur(20px)' : 'none', borderBottom: scroll > 50 ? '1px solid rgba(255,255,255,0.05)' : '1px solid transparent' };
+        return (
+            <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={navStyle}>
+                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <a href="#" className="text-white font-bold text-lg tracking-tight">В.Слащевский</a>
+                    <div className="hidden lg:flex items-center gap-8">
+                        {links.map(l => <a key={l.id} href={`#${l.id}`} className="text-sm text-white/50 hover:text-white transition-colors duration-200">{l.label}</a>)}
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <button onClick={() => setLang(lang === 'ru' ? 'en' : 'ru')} className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
+                            <I.Globe size={14}/>{lang === 'ru' ? 'EN' : 'RU'}
+                        </button>
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="hidden md:inline-flex btn-primary text-xs py-2.5 px-5">
+                            <I.Send size={14}/>{t('hero.tg')}
+                        </a>
+                        <button onClick={() => setMobile(!mobile)} className="lg:hidden text-white/60 hover:text-white p-1">
+                            {mobile ? <I.X size={22}/> : <I.Menu size={22}/>}
+                        </button>
+                    </div>
+                </div>
+                <div className={`mobile-menu ${mobile ? 'open' : ''} lg:hidden`}>
+                    <div className="flex flex-col items-center justify-center h-full gap-8">
+                        {links.map(l => <a key={l.id} href={`#${l.id}`} onClick={() => setMobile(false)} className="text-xl text-white/70 hover:text-white transition-colors">{l.label}</a>)}
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="btn-primary mt-4"><I.Send size={16}/>{t('hero.tg')}</a>
+                    </div>
+                </div>
+            </nav>
+        );
+    }
+
+    /* ==============================
+       HERO
+    ============================== */
+    function Hero() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const spark1 = [120, 135, 128, 160, 155, 180, 195, 210, 240, 260, 280, 310];
+        const spark2 = [2, 3, 2.5, 4, 5, 7, 9, 11, 13, 14, 15.5, 16.3];
+        const spark3 = [-15, -8, -3, 2, 8, 15, 22, 28, 35, 40, 48, 55];
+        return (
+            <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-16 px-6 overflow-hidden">
+                <div ref={ref} className="max-w-7xl mx-auto w-full hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+                    <div style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)', transition: 'opacity .8s ease, transform .8s ease' }}>
+                        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+                            <div className="w-2 h-2 rounded-full bg-em-400" style={{ boxShadow: '0 0 8px #10b981' }}/>
+                            <span className="text-xs text-white/60 font-medium">{t('hero.posSub')}</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 tracking-tight">
+                            {t('hero.name')}
+                        </h1>
+                        <p className="text-lg md:text-xl text-em-300 font-medium mb-6">{t('hero.pos')}</p>
+                        <p className="text-lg md:text-xl text-white/80 font-medium mb-4 leading-relaxed" style={{ fontStyle: 'italic' }}>
+                            {t('hero.headline')}
+                        </p>
+                        <p className="text-sm md:text-base text-white/50 mb-3 leading-relaxed max-w-lg">{t('hero.desc')}</p>
+                        <p className="text-sm text-white/35 mb-8">{t('hero.sub')}</p>
+                        <div className="flex flex-wrap gap-3">
+                            <a href="https://t.me/" target="_blank" rel="noopener" className="btn-primary glow-btn"><I.Send size={16}/>{t('hero.tg')}</a>
+                            <a href="https://t.me/" target="_blank" rel="noopener" className="btn-secondary"><I.Calendar size={16}/>{t('hero.interview')}</a>
+                            <button onClick={() => showToast('CV будет доступен по запросу', 'info')} className="btn-secondary"><I.Download size={16}/>{t('hero.cv')}</button>
+                        </div>
+                    </div>
+                    <div className="hero-dash" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                        <KPICard icon={<I.Trending size={16}/>} label={t('kpi.revenue')} value={<span className="gradient-text">&times;2.6</span>} sub="161 771 ₽ → 418 426 ₽" spark={spark1} delay={0}/>
+                        <KPICard icon={<I.BarChart size={16}/>} label={t('kpi.conversion')} value={<span className="gradient-text">16.3%</span>} sub="было 1.6%" spark={spark2} delay={1}/>
+                        <KPICard icon={<I.Target size={16}/>} label={t('kpi.romi')} value={<span className="text-em-300">+ROI</span>} sub="из минуса в плюс" spark={spark3} delay={2}/>
+                        <KPICard icon={<I.Layers size={16}/>} label={t('kpi.funnels')} value={<span className="text-white">4+</span>} sub="созданных автоворонок" delay={3}/>
+                        <KPICard icon={<I.Clock size={16}/>} label={t('kpi.experience')} value={<span className="text-white">4+</span>} sub="лет в EdTech / Digital" delay={4}/>
+                        <KPICard icon={<I.Zap size={16}/>} label={t('kpi.savings')} value={<span className="gradient-text-warm">170K+</span>} sub="₽ ежемесячно экономии" delay={5} accent="bg-amber-500/10 text-amber-400"/>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       ОБО МНЕ
+    ============================== */
+    function About() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        return (
+            <section id="about" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-4xl mx-auto">
+                    <SectionTitle title={t('about.title')}/>
+                    <div ref={ref} className="space-y-5">
+                        {[
+                            { text: t('about.text1'), delay: 0 },
+                            { text: t('about.text2'), delay: 0.1 },
+                            { text: t('about.text3'), delay: 0.2 },
+                        ].map((p, i) => (
+                            <p key={i} className="anim-fade-up text-base md:text-lg text-white/60 leading-relaxed" style={{ transitionDelay: `${p.delay}s` }, className: `anim-fade-up ${inView ? 'visible' : ''} text-base md:text-lg text-white/60 leading-relaxed`}>
+                                {p.text}
+                            </p>
+                        ))}
+                        <div className={`anim-fade-up ${inView ? 'visible' : ''} mt-10`} style={{ transitionDelay: '0.3s' }}>
+                            <h3 className="text-lg font-semibold text-white mb-5">{t('about.expTitle')}</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {t('about.items').map((item, i) => (
+                                    <div key={i} className="flex items-center gap-3 glass rounded-xl px-4 py-3" style={{ transitionDelay: `${0.35 + i * 0.05}s` }}>
+                                        <div className="w-5 h-5 rounded-full bg-em-500/15 flex items-center justify-center flex-shrink-0">
+                                            <I.Check size={12} className="text-em-400"/>
+                                        </div>
+                                        <span className="text-sm text-white/60">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       БИЗНЕС-РЕЗУЛЬТАТЫ
+    ============================== */
+    function BusinessImpact() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const rev = useCounter(418426, 2500, inView);
+        const conv = useCounter(163, 2000, inView);
+        const save = useCounter(170, 2000, inView);
+        const reach = useCounter(52, 1800, inView);
+
+        const revenueData = [
+            { label: 'Янв', value: 161771 }, { label: 'Фев', value: 178234 },
+            { label: 'Мар', value: 195420 }, { label: 'Апр', value: 223100 },
+            { label: 'Май', value: 267890 }, { label: 'Июн', value: 298450 },
+            { label: 'Июл', value: 324100 }, { label: 'Авг', value: 356200 },
+            { label: 'Сен', value: 378900 }, { label: 'Окт', value: 398100 },
+            { label: 'Ноя', value: 408300 }, { label: 'Дек', value: 418426 },
+        ];
+
+        const kpis = [
+            { label: 'Средняя выручка', value: `${(rev).toLocaleString('ru-RU')} ₽`, sub: 'было 161 771 ₽', icon: <I.Trending size={18}/>, color: 'em' },
+            { label: 'Конверсия лендингов', value: `${(conv / 10).toFixed(1)}%`, sub: 'было 1.6%', icon: <I.BarChart size={18}/>, color: 'em' },
+            { label: 'Доходимость вебинаров', value: `${reach}.5%`, sub: 'стабильный показатель', icon: <I.Target size={18}/>, color: 'em' },
+            { label: 'Экономия бюджета', value: `${save} 000+ ₽`, sub: 'ежемесячно', icon: <I.Zap size={18}/>, color: 'amber' },
+        ];
+
+        return (
+            <section id="impact" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-6xl mx-auto">
+                    <SectionTitle title={t('impact.title')} subtitle={t('impact.subtitle')}/>
+                    <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                        {kpis.map((k, i) => (
+                            <div key={i} className={`glass kpi-card rounded-2xl p-5 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.1}s` }}>
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${k.color === 'amber' ? 'bg-amber-500/10 text-amber-400' : 'bg-em-500/10 text-em-400'}`}>{k.icon}</div>
+                                <div className="text-xs text-white/40 font-medium uppercase tracking-wider mb-2">{k.label}</div>
+                                <div className={`text-2xl font-bold mb-1 ${k.color === 'amber' ? 'gradient-text-warm' : 'gradient-text'}`}>{k.value}</div>
+                                <div className="text-xs text-white/35">{k.sub}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="glass-strong rounded-2xl p-6 md:p-8 anim-fade-up" style={{ transitionDelay: '0.4s' }, className: `glass-strong rounded-2xl p-6 md:p-8 anim-fade-up ${inView ? 'visible' : ''}`}>
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-3">
+                            <div>
+                                <h3 className="text-lg font-semibold text-white">Динамика средней выручки</h3>
+                                <p className="text-sm text-white/40">Помесячный рост за период оптимизации</p>
+                            </div>
+                            <div className="flex items-center gap-2 text-em-400 text-sm font-medium">
+                                <I.ArrowUp size={14}/> +158.7%
+                            </div>
+                        </div>
+                        <LineChartSvg data={revenueData} active={inView}/>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div className={`glass-strong rounded-2xl p-6 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
+                            <h4 className="text-sm text-white/40 font-medium mb-6">Рост конверсии</h4>
+                            <BarCompare before={1.6} after={16.3} label="" active={inView} beforeLabel="1.6%" afterLabel="16.3%"/>
+                        </div>
+                        <div className={`glass-strong rounded-2xl p-6 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
+                            <h4 className="text-sm text-white/40 font-medium mb-6">ROMI кампаний</h4>
+                            <BarCompare before={-15} after={55} label="" active={inView} beforeLabel="-15%" afterLabel="+55%"/>
+                        </div>
+                        <div className={`glass-strong rounded-2xl p-6 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.7s' }}>
+                            <h4 className="text-sm text-white/40 font-medium mb-6">Доходимость вебинаров</h4>
+                            <BarCompare before={30} after={52.5} label="" active={inView} beforeLabel="30%" afterLabel="52.5%"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       КЕЙСЫ
+    ============================== */
+    function CaseStudies() {
+        const t = useT();
+        const [open, setOpen] = React.useState(null);
+        const [ref, inView] = useInView();
+
+        const cases = [
+            {
+                title: 'Внедрение системы аналитики',
+                icon: <I.Database size={20}/>,
+                color: 'em',
+                summary: 'Создание единой системы сквозной аналитики с нуля',
+                problem: 'Отсутствие сквозной аналитики: данные разрознены, невозможно оценить эффективность каналов, ROMI не контролируется.',
+                solution: 'Внедрение UTM-регламента, настройка сквозной аналитики, создание единых дашбордов, исправление атрибуции конверсий.',
+                result: 'Прозрачная аналитика по всем каналам, контроль ROMI в реальном времени, масштабируемая система данных.',
+                metrics: [
+                    { label: 'Прозрачность данных', value: '100%' },
+                    { label: 'Каналов отслеживается', value: '8+' },
+                    { label: 'Точность атрибуции', value: '95%+' },
+                ]
+            },
+            {
+                title: 'Оптимизация холодного трафика',
+                icon: <I.Target size={20}/>,
+                color: 'em',
+                summary: 'ROMI выведен в плюс, конверсия ×10, экономия 170K+/мес',
+                problem: 'Холодный трафик работал в минус, конверсия лендингов 1.6%, бюджет сливался на неэффективные кампании.',
+                solution: 'Анализ рекламных кампаний, отключение убыточных связок, переработка лендингов, A/B тестирование, оптимизация офферов.',
+                result: 'ROMI выведен в положительную зону, конверсия выросла с 1.6% до 16.3%, экономия 170 000+ ₽ ежемесячно за счёт отключения убыточных кампаний.',
+                metrics: [
+                    { label: 'Конверсия', value: '1.6% → 16.3%' },
+                    { label: 'Экономия', value: '170K+ ₽/мес' },
+                    { label: 'ROMI', value: 'Минус → Плюс' },
+                ]
+            },
+            {
+                title: 'Оптимизация вебинаров',
+                icon: <I.Trending size={20}/>,
+                color: 'em',
+                summary: 'Рост выручки ×2.6, доходимость 52.5%',
+                problem: 'Низкая доходимость до вебинара, падение вовлечённости, отсутствие аналитики по воронке вебинара.',
+                solution: 'Внедрение аналитики вебинаров, оптимизация remind-цепочек, переработка сценария, A/B тестирование точек выхода.',
+                result: 'Доходимость выросла до 52.5%, выручка с вебинаров увеличилась в 2.6 раза, значительно выросла вовлечённость аудитории.',
+                metrics: [
+                    { label: 'Доходимость', value: '52.5%' },
+                    { label: 'Рост выручки', value: '×2.6' },
+                    { label: 'Вовлечённость', value: '+40%' },
+                ]
+            },
+            {
+                title: 'Техническая инфраструктура автоворонок',
+                icon: <I.Workflow size={20}/>,
+                color: 'em',
+                summary: 'Стабилизация 4+ автоворонок, устранение дублирования',
+                problem: 'Дубли писем клиентам, сбои синхронизации между платформами, нестабильная работа автоворонок.',
+                solution: 'Аудит всех автоворонок, исправление логики триггеров, настройка синхронизации GetCourse + сервисов, тестирование клиентского пути.',
+                result: 'Устранены все дубли писем, синхронизация стабилизирована, 4+ автоворонки работают без сбоев, клиентский путь оптимизирован.',
+                metrics: [
+                    { label: 'Воронок стабилизировано', value: '4+' },
+                    { label: 'Дубли устранены', value: '100%' },
+                    { label: 'Сбоев', value: '0' },
+                ]
+            },
+            {
+                title: 'Оптимизация рекламной кампании «Свечи»',
+                icon: <I.Zap size={20}/>,
+                color: 'amber',
+                summary: 'ROMI: 0 → 1.3, конверсия: 8.79% → 18.13%',
+                problem: 'Рекламная кампания работала в ноль (ROMI = 0), высокая стоимость привлечения клиента, низкая конверсия.',
+                solution: 'Глубокий анализ связок, переработка креативов, сегментация аудитории, оптимизация лендингов и офферов, настройка ретаргетинга.',
+                result: 'ROMI вырос с 0 до 1.3, конверсия увеличилась с 8.79% до 18.13%, CAC снижен с 19 431 ₽ до 15 126 ₽.',
+                metrics: [
+                    { label: 'ROMI', value: '0 → 1.3' },
+                    { label: 'Конверсия', value: '8.79% → 18.13%' },
+                    { label: 'CAC', value: '19 431 → 15 126 ₽' },
+                ],
+                chart: true,
+                chartData: [
+                    { label: 'ROMI', before: 0, after: 1.3 },
+                    { label: 'Конверсия %', before: 8.79, after: 18.13 },
+                    { label: 'CAC (тыс.)', before: 19.4, after: 15.1 },
+                ]
+            }
+        ];
+
+        return (
+            <section id="cases" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-4xl mx-auto">
+                    <SectionTitle title={t('cases.title')}/>
+                    <div ref={ref} className="space-y-4">
+                        {cases.map((c, i) => (
+                            <div key={i} className={`case-card glass rounded-2xl anim-fade-up ${inView ? 'visible' : ''} ${open === i ? 'open' : ''}`}
+                                style={{ transitionDelay: `${i * 0.08}s` }}
+                                onClick={() => setOpen(open === i ? null : i)}>
+                                <div className="p-5 md:p-6 flex items-center justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${c.color === 'amber' ? 'bg-amber-500/10 text-amber-400' : 'bg-em-500/10 text-em-400'}`}>
+                                            {c.icon}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-base font-semibold text-white">{c.title}</h3>
+                                            <p className="text-sm text-white/40 mt-0.5">{c.summary}</p>
+                                        </div>
+                                    </div>
+                                    <div className="text-white/30 flex-shrink-0 ml-4">
+                                        <I.Chevron size={18} className="chevron"/>
+                                    </div>
+                                </div>
+                                <div className="case-body px-5 md:px-6 pb-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                        <div className="bg-white/[0.02] rounded-xl p-4">
+                                            <div className="text-xs text-red-400/70 font-medium uppercase tracking-wider mb-2">{t('cases.problem')}</div>
+                                            <p className="text-sm text-white/50 leading-relaxed">{c.problem}</p>
+                                        </div>
+                                        <div className="bg-white/[0.02] rounded-xl p-4">
+                                            <div className="text-xs text-em-400/70 font-medium uppercase tracking-wider mb-2">{t('cases.solution')}</div>
+                                            <p className="text-sm text-white/50 leading-relaxed">{c.solution}</p>
+                                        </div>
+                                        <div className="bg-white/[0.02] rounded-xl p-4">
+                                            <div className="text-xs text-em-300/70 font-medium uppercase tracking-wider mb-2">{t('cases.result')}</div>
+                                            <p className="text-sm text-white/50 leading-relaxed">{c.result}</p>
+                                        </div>
+                                    </div>
+                                    <div className="text-xs text-white/30 font-medium uppercase tracking-wider mb-3">{t('cases.metrics')}</div>
+                                    <div className="grid grid-cols-3 gap-3">
+                                        {c.metrics.map((m, j) => (
+                                            <div key={j} className="glass rounded-xl p-4 text-center">
+                                                <div className={`text-lg font-bold ${c.color === 'amber' ? 'gradient-text-warm' : 'gradient-text'}`}>{m.value}</div>
+                                                <div className="text-xs text-white/35 mt-1">{m.label}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {c.chart && (
+                                        <div className="mt-4 grid grid-cols-3 gap-3">
+                                            {c.chartData.map((d, j) => (
+                                                <div key={j} className="glass rounded-xl p-4">
+                                                    <BarCompare before={d.before} after={d.after} label={d.label} active={open === i} beforeLabel={typeof d.before === 'number' ? d.before.toFixed(1) : d.before} afterLabel={typeof d.after === 'number' ? d.after.toFixed(1) : d.after}/>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       НАВЫКИ
+    ============================== */
+    function Skills() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const cats = [
+            { level: t('skills.adv'), color: 'em', items: ['GetCourse','Salebot','Senler','BotHelp','Zoom','Smsc','OnlinePBX','Automation','Analytics','Funnel Systems','ChatGPT','Midjourney','Team Coordination','Technical Support','Integrations','Reporting','Data Analysis'] },
+            { level: t('skills.mid'), color: 'blue', items: ['amoCRM','OBS','Canva','Airtable','Trello','ClickUp','Notion'] },
+            { level: t('skills.basic'), color: 'slate', items: ['HTML','CSS'] },
+        ];
+        const colorMap = { em: { bg: 'bg-em-500/10', text: 'text-em-400', border: 'border-em-500/20' }, blue: { bg: 'bg-sky-500/10', text: 'text-sky-400', border: 'border-sky-500/20' }, slate: { bg: 'bg-slate-500/10', text: 'text-slate-400', border: 'border-slate-500/20' } };
+
+        return (
+            <section id="skills" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-5xl mx-auto">
+                    <SectionTitle title={t('skills.title')}/>
+                    <div ref={ref} className="space-y-8">
+                        {cats.map((cat, ci) => (
+                            <div key={ci} className={`anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${ci * 0.15}s` }}>
+                                <div className={`inline-flex items-center gap-2 ${colorMap[cat.color].bg} ${colorMap[cat.color].text} rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider mb-4`}>
+                                    {cat.level}
+                                </div>
+                                <div className="flex flex-wrap gap-2.5">
+                                    {cat.items.map((skill, si) => (
+                                        <span key={si} className="skill-badge">{skill}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       ПРОЦЕСС
+    ============================== */
+    function Workflow() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const steps = t('workflow.steps');
+        const icons = [<I.Database size={20}/>, <I.Layers size={20}/>, <I.Workflow size={20}/>, <I.Zap size={20}/>, <I.BarChart size={20}/>, <I.Trending size={20}/>];
+        return (
+            <section id="workflow" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-5xl mx-auto">
+                    <SectionTitle title={t('workflow.title')}/>
+                    <div ref={ref} className="relative">
+                        <div className="hidden md:flex items-start">
+                            {steps.map((step, i) => (
+                                <React.Fragment key={i}>
+                                    <div className={`workflow-step flex flex-col items-center text-center anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.15}s`, flex: '0 0 auto' }}>
+                                        <div className="w-14 h-14 rounded-2xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 mb-4 relative z-10">
+                                            {icons[i]}
+                                        </div>
+                                        <div className="text-xs text-white/30 font-mono mb-2">0{i + 1}</div>
+                                        <div className="text-sm text-white/70 font-medium max-w-[120px]">{step}</div>
+                                    </div>
+                                    {i < steps.length - 1 && (
+                                        <div className={`workflow-line mt-7 ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.15 + 0.3}s` }}>
+                                            <div className="fill"/>
+                                        </div>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                        <div className="md:hidden space-y-4">
+                            {steps.map((step, i) => (
+                                <div key={i} className={`flex items-start gap-4 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.1}s` }}>
+                                    <div className="w-12 h-12 rounded-xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 flex-shrink-0">
+                                        {icons[i]}
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-white/30 font-mono mb-1">0{i + 1}</div>
+                                        <div className="text-sm text-white/70 font-medium">{step}</div>
+                                    </div>
+                                    {i < steps.length - 1 && <div className="ml-6 w-px h-4 bg-white/10"/>}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       ОПЫТ
+    ============================== */
+    function Experience() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const expItems = [
+            {
+                title: 'Отдел воронок',
+                icon: <I.Workflow size={20}/>,
+                items: ['Создание автоворонок на GetCourse', 'Сегментация аудитории', 'E-mail коммуникации и цепочки', 'Telegram-воронки через Salebot/Senler', 'Оптимизация клиентского пути', 'A/B тестирование воронок']
+            },
+            {
+                title: 'Отдел продукта',
+                icon: <I.Layers size={20}/>,
+                items: ['Настройка обучающих программ', 'Структурирование курсов', 'Управление обучающими платформами', 'Контроль качества контента', 'Техническое сопровождение']
+            }
+        ];
+        return (
+            <section id="exp" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-4xl mx-auto">
+                    <SectionTitle title={t('exp.title')}/>
+                    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {expItems.map((e, i) => (
+                            <div key={i} className={`glass-strong rounded-2xl p-6 anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.15}s` }}>
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="w-10 h-10 rounded-xl bg-em-500/10 text-em-400 flex items-center justify-center">{e.icon}</div>
+                                    <h3 className="text-lg font-semibold text-white">{e.title}</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    {e.items.map((item, j) => (
+                                        <li key={j} className="flex items-start gap-3 text-sm text-white/50">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-em-500/50 mt-1.5 flex-shrink-0"/>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       ОБРАЗОВАНИЕ
+    ============================== */
+    function Education() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        const certs = [
+            { title: 'Project Manager', org: 'GreenFreelance', year: '2024' },
+            { title: 'Наставничество студентов', org: 'GreenFreelance', year: '2021' },
+            { title: 'Капитан GetCourse', org: 'GreenFreelance', year: '2020' },
+        ];
+        return (
+            <section id="edu" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-3xl mx-auto">
+                    <SectionTitle title={t('edu.title')}/>
+                    <div ref={ref} className="space-y-4">
+                        {certs.map((c, i) => (
+                            <div key={i} className={`glass rounded-2xl p-5 flex items-center justify-between anim-fade-up ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${i * 0.1}s` }}>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-xl bg-em-500/10 text-em-400 flex items-center justify-center">
+                                        <I.Award size={18}/>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-sm font-semibold text-white">{c.title}</h4>
+                                        <p className="text-xs text-white/40 mt-0.5">{c.org}</p>
+                                    </div>
+                                </div>
+                                <span className="text-xs text-white/30 font-mono bg-white/[0.03] rounded-lg px-3 py-1.5">{c.year}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       КОНТАКТ
+    ============================== */
+    function Contact() {
+        const t = useT();
+        const [ref, inView] = useInView();
+        return (
+            <section id="contact" className="relative py-24 md:py-32 px-6">
+                <div className="max-w-3xl mx-auto text-center">
+                    <div ref={ref} className={`glass-strong rounded-3xl p-10 md:p-16 relative overflow-hidden anim-fade-up ${inView ? 'visible' : ''}`}>
+                        <div className="absolute inset-0 bg-gradient-to-b from-em-500/5 to-transparent pointer-events-none"/>
+                        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-em-500/10 blur-[100px] pointer-events-none"/>
+                        <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-em-600/10 blur-[100px] pointer-events-none"/>
+                        <div className="relative z-10">
+                            <div className="w-14 h-14 rounded-2xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 mx-auto mb-6">
+                                <I.Send size={24}/>
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">{t('contact.title')}</h2>
+                            <p className="text-sm text-white/40 mb-8">{t('contact.sub')}</p>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                <a href="https://t.me/" target="_blank" rel="noopener" className="btn-primary glow-btn text-base py-3.5 px-8">
+                                    <I.Send size={18}/>{t('contact.tg')}
+                                </a>
+                                <a href="https://wa.me/" target="_blank" rel="noopener" className="btn-secondary text-base py-3.5 px-8">
+                                    <I.Phone size={18}/>{t('contact.wa')}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+    function Footer() {
+        return (
+            <footer className="border-t border-white/[0.04] py-8 px-6">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                    <span className="text-xs text-white/25">&copy; {new Date().getFullYear()} Владислав Слащевский</span>
+                    <div className="flex items-center gap-6">
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="text-white/25 hover:text-em-400 transition-colors"><I.Send size={16}/></a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener" className="text-white/25 hover:text-em-400 transition-colors"><I.Phone size={16}/></a>
+                    </div>
+                </div>
+            </footer>
+        );
+    }
+
+    /* ==============================
+       TOAST
+    ============================== */
+    let toastTimeout;
+    function showToast(msg, type = 'info') {
+        let existing = document.querySelector('.toast');
+        if (existing) existing.remove();
+        clearTimeout(toastTimeout);
+        const el = document.createElement('div');
+        el.className = `toast glass-strong ${type === 'info' ? 'text-em-300' : 'text-white'}`;
+        el.textContent = msg;
+        document.body.appendChild(el);
+        toastTimeout = setTimeout(() => { el.style.opacity = '0'; el.style.transform = 'translateY(10px)'; el.style.transition = 'all .3s'; setTimeout(() => el.remove(), 300); }, 3000);
+    }
+
+    /* ==============================
+       APP
+    ============================== */
+    function App() {
+        const [lang, setLang] = React.useState('ru');
+        return (
+            <LangCtx.Provider value={{ lang, setLang }}>
+                <div className="relative z-10">
+                    <Navbar/>
+                    <Hero/>
+                    <About/>
+                    <BusinessImpact/>
+                    <CaseStudies/>
+                    <Skills/>
+                    <Workflow/>
+                    <Experience/>
+                    <Education/>
+                    <Contact/>
+                    <Footer/>
+                </div>
+            </LangCtx.Provider>
+        );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    </script>
+</body>
+</html>
