@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав Слащевский — Операционный и технический специалист | EdTech</title>
-    <meta name="description" content="Операционный и технический специалист с 4+ годами опыта в EdTech и Digital.">
+    <meta name="description" content="Операционный и технический специалист с 4+ годами опыта в EdTech и Digital. Аналитика, автоматизация, автоворонки, процессы.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Владислав Слащевский — Operations & Technical Specialist">
     <meta property="og:description" content="Выстраиваю системы, аналитику и процессы для онлайн-бизнеса">
@@ -15,293 +15,168 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    g:{950:'#07080c',900:'#0a0c10',800:'#0f1218',700:'#161a24',600:'#1e2330',500:'#282e3e',400:'#3a4258'},
-                    em:{600:'#047857',500:'#059669',400:'#10b981',300:'#34d399',200:'#6ee7b7',100:'#a7f3d0'}
-                },
-                fontFamily:{sans:['Inter','system-ui','sans-serif']}
-            }
-        }
-    }
+    tailwind.config={theme:{extend:{colors:{em:{600:'#047857',500:'#059669',400:'#10b981',300:'#34d399',200:'#6ee7b7',100:'#a7f3d0'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}
     </script>
     <style>
+        :root{--bg:#07080c;--bg2:rgba(7,8,12,0.88);--card:rgba(255,255,255,0.03);--cardh:rgba(255,255,255,0.06);--cards:rgba(255,255,255,0.05);--bdr:rgba(255,255,255,0.06);--bdrh:rgba(255,255,255,0.12);--bdrs:rgba(255,255,255,0.08);--tx:#e2e8f0;--tx2:rgba(255,255,255,0.55);--tx3:rgba(255,255,255,0.35);--tx4:rgba(255,255,255,0.2);--acc:#10b981;--acc2:#34d399;--abg:rgba(16,185,129,0.1);--orb1:rgba(5,150,105,0.07);--orb2:rgba(16,185,129,0.05);--orb3:rgba(4,120,87,0.04);--mesh:rgba(16,185,129,0.06)}
+        .light{--bg:#f6f7f9;--bg2:rgba(246,247,249,0.9);--card:rgba(255,255,255,0.7);--cardh:rgba(255,255,255,0.88);--cards:rgba(255,255,255,0.8);--bdr:rgba(0,0,0,0.07);--bdrh:rgba(0,0,0,0.14);--bdrs:rgba(0,0,0,0.1);--tx:#1a1d2e;--tx2:rgba(26,29,46,0.55);--tx3:rgba(26,29,46,0.35);--tx4:rgba(26,29,46,0.18);--acc:#059669;--acc2:#10b981;--abg:rgba(5,150,105,0.08);--orb1:rgba(5,150,105,0.03);--orb2:rgba(16,185,129,0.025);--orb3:rgba(4,120,87,0.02);--mesh:rgba(5,150,105,0.04)}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',system-ui,sans-serif;background:#07080c;color:#e2e8f0;overflow-x:hidden}
-        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0c10}::-webkit-scrollbar-thumb{background:#282e3e;border-radius:3px}
-        .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);transition:all .3s ease}
-        .glass:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
-        .gs{background:rgba(255,255,255,0.05);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.08)}
-        .gt{background:linear-gradient(135deg,#10b981,#34d399,#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .gtw{background:linear-gradient(135deg,#f59e0b,#fbbf24,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .gb{box-shadow:0 0 20px rgba(16,185,129,0.3),0 4px 15px rgba(16,185,129,0.2)}
-        .orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}
-        @keyframes od{0%,100%{transform:translate(0,0)}25%{transform:translate(30px,-40px)}50%{transform:translate(-20px,30px)}75%{transform:translate(40px,20px)}}
-        @keyframes f1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-        @keyframes f2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
-        @keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background .5s ease,color .5s ease}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bdrh);border-radius:3px}
+        .glass{background:var(--card);border:1px solid var(--bdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all .3s ease}
+        .glass:hover{background:var(--cardh);border-color:var(--bdrh)}
+        .gs{background:var(--cards);border:1px solid var(--bdrs);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
+        .t1{color:var(--tx)}.t2{color:var(--tx2)}.t3{color:var(--tx3)}.t4{color:var(--tx4)}.ac{color:var(--acc)}.abg{background:var(--abg);color:var(--acc)}
+        .gt{background:linear-gradient(135deg,var(--acc),var(--acc2),#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gtw{background:linear-gradient(135deg,#d97706,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gb{box-shadow:0 0 24px rgba(16,185,129,0.25),0 4px 12px rgba(16,185,129,0.15)}
+        .orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0;transition:background .5s}
+        @keyframes od{0%,100%{transform:translate(0,0)}33%{transform:translate(30px,-40px)}66%{transform:translate(-20px,30px)}}
+        @keyframes fi{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        @keyframes pulse-line{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.2)}}
         @keyframes spin{to{transform:rotate(360deg)}}
-        @keyframes ti{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .af{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-        .af.v{opacity:1;transform:translateY(0)}
-        .cl{stroke-dasharray:var(--dl);stroke-dashoffset:var(--dl);transition:stroke-dashoffset 2s cubic-bezier(.16,1,.3,1)}.cl.v{stroke-dashoffset:0}
-        .ca{opacity:0;transition:opacity 1.5s ease .8s}.ca.v{opacity:1}
-        .cd{opacity:0;transition:opacity .3s ease}.cd.v{opacity:1}
+        @keyframes toast-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes mesh-f{0%,100%{opacity:.7;transform:scale(1) translate(0,0)}50%{opacity:1;transform:scale(1.05) translate(10px,-10px)}}
+        .af{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}.af.v{opacity:1;transform:translateY(0)}
         .bg{transform-origin:bottom;transform:scaleY(0);transition:transform 1s cubic-bezier(.16,1,.3,1)}.bg.v{transform:scaleY(1)}
         .bp{background:linear-gradient(135deg,#059669,#10b981);color:#fff;border:none;padding:12px 28px;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
         .bp:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(16,185,129,0.3)}
-        .bs{background:rgba(255,255,255,0.05);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);padding:12px 28px;border-radius:12px;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-        .bs:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);transform:translateY(-2px)}
-        .kc{position:relative;overflow:hidden}.kc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#10b981,transparent);opacity:0;transition:opacity .3s}.kc:hover::before{opacity:1}
-        .cc{cursor:pointer;overflow:hidden}.cb{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1),padding .3s}.cc.open .cb{max-height:900px;padding-top:20px}
+        .bs{background:var(--card);color:var(--tx);border:1px solid var(--bdr);padding:12px 28px;border-radius:12px;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none;backdrop-filter:blur(10px)}
+        .bs:hover{background:var(--cardh);border-color:var(--bdrh);transform:translateY(-2px)}
+        .ec{position:relative;overflow:hidden;transition:all .35s ease}.ec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);transform:scaleX(0);transition:transform .35s ease}.ec:hover::after{transform:scaleX(1)}.ec:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
+        .cb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1)}.cc.open .cb{grid-template-rows:1fr}.cb>div{overflow:hidden}
         .chv{transition:transform .3s}.cc.open .chv{transform:rotate(180deg)}
-        .sb{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:500;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);transition:all .3s;cursor:default;white-space:nowrap}
-        .sb:hover{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#34d399;transform:translateY(-2px)}
-        .wl{height:2px;background:rgba(255,255,255,0.06);flex:1;margin:0 -1px;overflow:hidden}.wl .fl{height:100%;background:linear-gradient(90deg,#059669,#34d399);width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}.wl.v .fl{width:100%}
-        .tm{position:fixed;bottom:30px;right:30px;z-index:9999;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:500;pointer-events:none;animation:ti .4s ease forwards}
-        .mm{position:fixed;inset:0;z-index:100;background:rgba(7,8,12,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}.mm.open{transform:translateX(0)}
-        .ls{position:fixed;inset:0;background:#07080c;display:flex;align-items:center;justify-content:center;z-index:99999}
-        .lsp{width:40px;height:40px;border:2px solid rgba(255,255,255,0.1);border-top-color:#10b981;border-radius:50%;animation:spin .8s linear infinite}
+        .sb{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:500;background:var(--card);border:1px solid var(--bdr);transition:all .3s;cursor:default;white-space:nowrap;color:var(--tx2)}
+        .sb:hover{background:var(--abg);border-color:rgba(16,185,129,0.3);color:var(--acc);transform:translateY(-2px)}
+        .wl{height:2px;background:var(--bdr);flex:1;overflow:hidden}.wl .fl{height:100%;background:linear-gradient(90deg,#059669,#34d399);width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}.wl.v .fl{width:100%}
+        .tm{position:fixed;bottom:30px;right:30px;z-index:9999;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:500;pointer-events:none;animation:toast-in .4s ease forwards}
+        .mm{position:fixed;inset:0;z-index:100;background:var(--bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}.mm.open{transform:translateX(0)}
+        .ls{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:99999}
+        .lsp{width:36px;height:36px;border:2px solid var(--bdr);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite}
+        .hero-mesh{position:absolute;inset:0;pointer-events:none;z-index:0;animation:mesh-f 12s ease-in-out infinite}
+        .hero-mesh::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 35%,var(--mesh) 0%,transparent 70%),radial-gradient(ellipse 50% 70% at 85% 55%,var(--mesh) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 85%,var(--mesh) 0%,transparent 60%)}
+        .theme-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--bdr);cursor:pointer;transition:all .3s;color:var(--tx2);flex-shrink:0}
+        .theme-btn:hover{background:var(--cardh);border-color:var(--bdrh);color:var(--acc)}
+        .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.3}
+        .scroll-hint .line{width:1px;height:32px;background:linear-gradient(to bottom,var(--tx2),transparent);animation:pulse-line 2s ease-in-out infinite}
         @media(max-width:768px){.hg{grid-template-columns:1fr!important}.hd{grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}}
         @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
     </style>
 </head>
 <body>
-    <div id="root">
-        <div class="ls" id="loader"><div class="lsp"></div></div>
-    </div>
-    <div class="orb" style="width:700px;height:700px;background:#059669;top:-300px;left:-300px;opacity:0.07;animation:od 25s ease-in-out infinite"></div>
-    <div class="orb" style="width:500px;height:500px;background:#10b981;bottom:-200px;right:-200px;opacity:0.05;animation:od 30s ease-in-out infinite reverse"></div>
-    <div class="orb" style="width:400px;height:400px;background:#047857;top:50%;left:50%;opacity:0.04;animation:od 35s ease-in-out infinite 5s"></div>
+    <div id="root"><div class="ls" id="loader"><div class="lsp"></div></div></div>
+    <div class="orb" style="width:700px;height:700px;background:var(--orb1);top:-300px;left:-300px;animation:od 25s ease-in-out infinite"></div>
+    <div class="orb" style="width:500px;height:500px;background:var(--orb2);bottom:-200px;right:-200px;animation:od 30s ease-in-out infinite reverse"></div>
+    <div class="orb" style="width:400px;height:400px;background:var(--orb3);top:50%;left:50%;animation:od 35s ease-in-out infinite 5s"></div>
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel" data-presets="react">
-    const TR = {
-        ru: {
-            nav:{about:'Обо мне',impact:'Результаты',cases:'Кейсы',skills:'Навыки',workflow:'Процесс',exp:'Опыт',edu:'Образование',contact:'Контакт'},
-            hero:{name:'Владислав Слащевский',pos:'Операционный и технический специалист',sub:'EdTech / Digital Projects',hl:'\u00ABВыстраиваю системы, аналитику и процессы для онлайн-бизнеса\u00BB',d:'Превращаю хаос в управляемую систему и помогаю онлайн-проектам расти за счёт аналитики, автоматизации и выстроенных процессов.',s:'4+ года опыта в операционке, аналитике, автоворонках, автоматизации и технической инфраструктуре онлайн-проектов.',tg:'Написать в Telegram',iv:'Назначить собеседование',cv:'Скачать CV'},
-            about:{t:'Обо мне',a:'Я — Владислав Слащевский, операционный и технический специалист с опытом 4+ лет в онлайн-проектах.',b:'Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения.',c:'Умею создавать порядок в хаосе, быстро погружаться в продукт и брать ответственность за стабильность бизнес-процессов.',h:'Опыт включает:',i:['Координацию команды','Работу с подрядчиками','Контроль дедлайнов','Техническое сопровождение платформ','Внедрение аналитики','Создание автоворонок','Автоматизацию процессов','Оптимизацию клиентского пути']},
-            imp:{t:'Бизнес-результаты',s:'Реальные метрики и подтверждённый эффект от внедренных решений'},
-            cs:{t:'Кейсы',p:'Проблема',sl:'Решение',r:'Результат',m:'Метрики'},
-            sk:{t:'Навыки и инструменты',a:'Продвинутый',m:'Средний',b:'Базовый'},
-            wf:{t:'Как я работаю',s:['Анализ проекта','Систематизация процессов','Оптимизация воронок','Автоматизация','Аналитика и контроль','Масштабирование']},
-            ex:{t:'Опыт работы'},
-            ed:{t:'Образование и сертификаты'},
-            ct:{t:'Готов обсудить ваш проект и усилить бизнес-процессы.',s:'Свяжитесь со мной удобным способом — отвечу в течение часа.',tg:'Telegram',wa:'WhatsApp'},
-            kpi:{rev:'Рост выручки',conv:'Конверсия лендингов',romi:'ROMI',fun:'Автоворонки',exp:'Опыт',sav:'Экономия'}
-        },
-        en: {
-            nav:{about:'About',impact:'Impact',cases:'Cases',skills:'Skills',workflow:'Workflow',exp:'Experience',edu:'Education',contact:'Contact'},
-            hero:{name:'Vladislav Slaschevsky',pos:'Operations & Technical Specialist',sub:'EdTech / Digital Projects',hl:'\u201CI build systems, analytics, and processes for online business\u201D',d:'I turn chaos into a manageable system and help online projects grow through analytics, automation, and structured processes.',s:'4+ years of experience in operations, analytics, auto-funnels, automation, and technical infrastructure.',tg:'Write in Telegram',iv:'Schedule Interview',cv:'Download CV'},
-            about:{t:'About Me',a:'I am Vladislav Slaschevsky, an operations and technical specialist with 4+ years of experience in online projects.',b:'I have worked with teams, built processes from scratch, and controlled tasks, deadlines, and quality.',c:'I create order from chaos, quickly dive into products, and take responsibility for business process stability.',h:'Experience includes:',i:['Team coordination','Contractor management','Deadline control','Platform technical support','Analytics implementation','Auto-funnel creation','Process automation','Customer journey optimization']},
-            imp:{t:'Business Impact',s:'Real metrics and confirmed results from implemented solutions'},
-            cs:{t:'Case Studies',p:'Problem',sl:'Solution',r:'Result',m:'Metrics'},
-            sk:{t:'Skills & Tools',a:'Advanced',m:'Intermediate',b:'Basic'},
-            wf:{t:'How I Work',s:['Project Analysis','Process Systematization','Funnel Optimization','Automation','Analytics & Control','Scaling']},
-            ex:{t:'Work Experience'},
-            ed:{t:'Education & Certificates'},
-            ct:{t:'Ready to discuss your project and strengthen business processes.',s:'Contact me in any convenient way — I respond within an hour.',tg:'Telegram',wa:'WhatsApp'},
-            kpi:{rev:'Revenue Growth',conv:'Landing Conversion',romi:'ROMI',fun:'Auto-Funnels',exp:'Experience',sav:'Savings'}
+    /* ===== ICON COMPONENT ===== */
+    function Ic({n,s=20}){
+        const p={xmlns:"http://www.w3.org/2000/svg",width:s,height:s,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};
+        switch(n){
+            case 'send':return <svg {...p}><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>;
+            case 'up':return <svg {...p}><path d="M5 12l7-7 7 7"/><path d="M12 19V5"/></svg>;
+            case 'trend':return <svg {...p}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>;
+            case 'bar':return <svg {...p}><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>;
+            case 'target':return <svg {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>;
+            case 'zap':return <svg {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;
+            case 'layers':return <svg {...p}><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>;
+            case 'clock':return <svg {...p}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
+            case 'award':return <svg {...p}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>;
+            case 'dl':return <svg {...p}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>;
+            case 'cal':return <svg {...p}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+            case 'menu':return <svg {...p}><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>;
+            case 'x':return <svg {...p}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
+            case 'chev':return <svg {...p}><polyline points="6 9 12 15 18 9"/></svg>;
+            case 'phone':return <svg {...p}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
+            case 'check':return <svg {...p}><polyline points="20 6 9 17 4 12"/></svg>;
+            case 'db':return <svg {...p}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>;
+            case 'wf':return <svg {...p}><circle cx="5" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M7 8.5L17 15.5"/><circle cx="12" cy="12" r="3"/></svg>;
+            case 'sun':return <svg {...p}><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
+            case 'moon':return <svg {...p}><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
+            case 'shield':return <svg {...p}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
+            case 'users':return <svg {...p}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
+            case 'search':return <svg {...p}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>;
+            case 'mail':return <svg {...p}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>;
+            case 'wrench':return <svg {...p}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>;
+            case 'globe':return <svg {...p}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
+            case 'arrow-r':return <svg {...p}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
+            case 'settings':return <svg {...p}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>;
+            default:return null;
         }
-    };
-
-    const LC = React.createContext({lang:'ru',setLang:()=>{}});
-    function U(path) {
-        const l = React.useContext(LC).lang;
-        return path.split('.').reduce((o,k)=> o&&o[k] ? o[k] : path, TR[l]);
     }
 
-    function useIV() {
-        const [v,s] = React.useState(false);
-        const r = React.useRef(null);
-        React.useEffect(()=>{
-            const el = r.current;
-            if(!el) return;
-            const obs = new IntersectionObserver(([e])=>{ if(e.isIntersecting){s(true);obs.unobserve(el);} },{threshold:0.1});
-            obs.observe(el);
-            return ()=>obs.disconnect();
-        },[]);
-        return [r,v];
-    }
+    /* ===== HOOKS ===== */
+    function useIV(){const[v,s]=React.useState(false);const r=React.useRef(null);React.useEffect(()=>{const el=r.current;if(!el)return;const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){s(true);obs.unobserve(el);}},{threshold:0.1});obs.observe(el);return()=>obs.disconnect();},[]);return[r,v];}
+    function useCnt(end,dur,act){const[v,s]=React.useState(0);React.useEffect(()=>{if(!act)return;let st=null;function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);s(Math.round(end*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);},[act,end,dur]);return v;}
+    function useSc(){const[v,s]=React.useState(0);React.useEffect(()=>{const h=()=>s(window.scrollY);window.addEventListener('scroll',h,{passive:true});return()=>window.removeEventListener('scroll',h);},[]);return v;}
 
-    function useCnt(end,dur,act) {
-        const [v,s] = React.useState(0);
-        React.useEffect(()=>{
-            if(!act) return;
-            let st = null;
-            function step(ts){
-                if(!st) st=ts;
-                const p = Math.min((ts-st)/dur,1);
-                s(Math.round(end*(1-Math.pow(1-p,3))));
-                if(p<1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-        },[act,end,dur]);
-        return v;
-    }
+    /* ===== THEME CONTEXT ===== */
+    const TC=React.createContext({theme:'dark',toggle:()=>{}});
+    function useTheme(){return React.useContext(TC);}
 
-    function useSc() {
-        const [v,s] = React.useState(0);
-        React.useEffect(()=>{
-            const h=()=>s(window.scrollY);
-            window.addEventListener('scroll',h,{passive:true});
-            return ()=>window.removeEventListener('scroll',h);
-        },[]);
-        return v;
-    }
+    /* ===== TOAST ===== */
+    let _tt=null;
+    function toast(m){const o=document.querySelector('.tm');if(o)o.remove();clearTimeout(_tt);const e=document.createElement('div');e.className='tm gs ac';e.textContent=m;document.body.appendChild(e);_tt=setTimeout(()=>{e.style.opacity='0';e.style.transform='translateY(10px)';e.style.transition='all .3s';setTimeout(()=>e.remove(),300);},3000);}
 
-    /* Icons as simple SVG components */
-    function IcSend({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>;}
-    function IcUp({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l7-7 7 7"/><path d="M12 19V5"/></svg>;}
-    function IcTrend({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>;}
-    function IcBar({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>;}
-    function IcTarget({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>;}
-    function IcZap({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;}
-    function IcLayers({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>;}
-    function IcClock({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;}
-    function IcAward({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>;}
-    function IcDl({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>;}
-    function IcCal({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;}
-    function IcMenu({size=24}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>;}
-    function IcX({size=24}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;}
-    function IcChev({size=16}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>;}
-    function IcGlobe({size=16}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;}
-    function IcPhone({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;}
-    function IcCheck({size=16}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>;}
-    function IcDB({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>;}
-    function IcWF({size=20}){return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M7 8.5L17 15.5"/><circle cx="12" cy="12" r="3"/></svg>;}
-
-    /* Sparkline mini chart */
-    function Spark({data,color='#10b981',w=80,h=30}){
-        const mx=Math.max(...data),mn=Math.min(...data),rng=mx-mn||1;
-        const pts=data.map((v,i)=>`${(i/Math.max(data.length-1,1))*w},${h-((v-mn)/rng)*h*0.8-h*0.1}`);
-        return <svg viewBox={`0 0 ${w} ${h}`} className="w-full"><path d={`M${pts.join(' L')}`} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-    }
-
-    /* Line chart SVG */
-    function LineC({data,w=700,h=280,color='#10b981',active}){
-        const pad={t:20,r:20,b:40,l:55};
-        const cw=w-pad.l-pad.r, ch=h-pad.t-pad.b;
-        const vals=data.map(d=>d.value);
-        const maxV=Math.max(...vals), minV=Math.min(...vals), range=maxV-minV||1;
-        const pts=data.map((d,i)=>({
-            x:pad.l+(i/Math.max(data.length-1,1))*cw,
-            y:pad.t+ch-((d.value-minV)/range)*ch*0.85-ch*0.05
-        }));
-        const lp=pts.map((p,i)=>`${i===0?'M':'L'}${p.x},${p.y}`).join(' ');
-        const ap=lp+` L${pts[pts.length-1].x},${pad.t+ch} L${pts[0].x},${pad.t+ch} Z`;
-        let dl=0;
-        for(let i=1;i<pts.length;i++){const dx=pts[i].x-pts[i-1].x,dy=pts[i].y-pts[i-1].y;dl+=Math.sqrt(dx*dx+dy*dy);}
-        dl+=20;
-        const gid='l'+color.replace('#','');
-        const gy=[0,0.25,0.5,0.75,1].map(pct=>{
-            const y=pad.t+ch*(1-pct*0.85-0.05);
-            const v=minV+range*(pct*0.85+0.05);
-            return <g key={pct}><line x1={pad.l} y1={y} x2={w-pad.r} y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth="1"/><text x={pad.l-8} y={y+4} textAnchor="end" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="Inter">{(v/1000).toFixed(0)}K</text></g>;
-        });
-        return (
-            <svg viewBox={`0 0 ${w} ${h}`} className="w-full" style={{overflow:'visible'}}>
-                <defs><linearGradient id={gid} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity="0.25"/><stop offset="100%" stopColor={color} stopOpacity="0"/></linearGradient></defs>
-                {gy}
-                <path d={ap} fill={`url(#${gid})`} className={`ca${active?' v':''}`}/>
-                <path d={lp} fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`cl${active?' v':''}`} style={{'--dl':dl}}/>
-                {pts.map((p,i)=><circle key={i} cx={p.x} cy={p.y} r="3" fill={color} stroke="#0a0c10" strokeWidth="2" className={`cd${active?' v':''}`} style={{transitionDelay:`${1.5+i*0.1}s`}}/>)}
-                {data.map((d,i)=><text key={i} x={pts[i].x} y={h-10} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="Inter">{d.label}</text>)}
-            </svg>
-        );
-    }
-
-    /* Bar compare */
+    /* ===== BAR COMPARE ===== */
     function BarC({before,after,active,bL,aL}){
-        const mx=Math.max(before,after)*1.2||1;
+        const mx=Math.max(before,after)*1.25||1;
         const bh=(before/mx)*120, ah=(after/mx)*120;
         return (
             <div className="flex flex-col items-center gap-3">
-                <div className="flex items-end gap-4" style={{height:140}}>
-                    <div className="flex flex-col items-center gap-1">
-                        <span className="text-xs text-em-300 font-semibold">{aL||after}</span>
-                        <div className={`w-12 rounded-t-md bg${active?' v':''}`} style={{height:ah,background:'linear-gradient(to top, #059669, #34d399)',transitionDelay:active?'0.3s':'0s'}}/>
+                <div className="flex items-end gap-5" style={{height:140}}>
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-xs font-semibold ac">{aL||after}</span>
+                        <div className={`w-14 rounded-lg bg${active?' v':''}`} style={{height:ah,background:'linear-gradient(to top, #059669, #34d399)',transitionDelay:active?'0.3s':'0s'}}/>
                     </div>
-                    <div className="flex flex-col items-center gap-1">
-                        <span className="text-xs text-white/40 font-medium">{bL||before}</span>
-                        <div className={`w-12 rounded-t-md bg${active?' v':''}`} style={{height:bh,background:'rgba(255,255,255,0.1)',transitionDelay:active?'0s':'0s'}}/>
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-xs font-medium t3">{bL||before}</span>
+                        <div className={`w-14 rounded-lg bg${active?' v':''}`} style={{height:bh,background:'var(--bdr)',transitionDelay:active?'0s':'0s'}}/>
                     </div>
                 </div>
             </div>
         );
     }
 
-    /* Section title */
+    /* ===== SECTION TITLE ===== */
     function ST({title,subtitle}){
-        const [r,iv]=useIV();
+        const[r,iv]=useIV();
         return (
             <div ref={r} className={`af${iv?' v':''} text-center mb-16`}>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h2>
-                {subtitle && <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>}
-                <div className="w-16 h-1 bg-gradient-to-r from-em-500 to-em-300 mx-auto mt-6 rounded-full"/>
+                <h2 className="text-3xl md:text-4xl font-bold t1 mb-4">{title}</h2>
+                {subtitle&&<p className="t2 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>}
+                <div className="w-12 h-0.5 mx-auto mt-6 rounded-full" style={{background:'linear-gradient(90deg, transparent, var(--acc), transparent)'}}/>
             </div>
         );
     }
-
-    /* KPI card */
-    function KPI({icon,label,value,sub,spark,delay=0,accent,isAmber}){
-        const [r,iv]=useIV();
-        const an=iv?`f${(delay%3)+1} 4s ease-in-out infinite ${delay*0.3}s`:'none';
-        const sty={animation:an,opacity:iv?1:0,transform:iv?'none':'translateY(20px)',transition:`opacity .6s ease ${delay*0.15}s, transform .6s ease ${delay*0.15}s`};
-        return (
-            <div ref={r} className="glass kc rounded-2xl p-4 md:p-5" style={sty}>
-                <div className="flex items-center gap-2 mb-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${accent||'bg-em-500/10 text-em-400'}`}>{icon}</div>
-                    <span className="text-xs text-white/40 font-medium uppercase tracking-wider">{label}</span>
-                </div>
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{value}</div>
-                {sub && <div className="text-xs text-white/40">{sub}</div>}
-                {spark && <div className="mt-3 opacity-60"><Spark data={spark} color={isAmber?'#f59e0b':'#10b981'}/></div>}
-            </div>
-        );
-    }
-
-    /* Toast */
-    let _tt=null;
-    function toast(m){
-        const o=document.querySelector('.tm');if(o)o.remove();
-        clearTimeout(_tt);
-        const e=document.createElement('div');
-        e.className='tm gs text-em-300';e.textContent=m;
-        document.body.appendChild(e);
-        _tt=setTimeout(()=>{e.style.opacity='0';e.style.transform='translateY(10px)';e.style.transition='all .3s';setTimeout(()=>e.remove(),300);},3000);
-    }
-
-    /* Remove loader */
-    function removeLoader(){const l=document.getElementById('loader');if(l)l.remove();}
 
     /* ===== NAVBAR ===== */
     function Nav(){
-        const {lang,setLang}=React.useContext(LC);
         const sc=useSc();
-        const [mob,setMob]=React.useState(false);
-        const links=[{id:'about',l:U('nav.about')},{id:'impact',l:U('nav.impact')},{id:'cases',l:U('nav.cases')},{id:'skills',l:U('nav.skills')},{id:'workflow',l:U('nav.workflow')},{id:'exp',l:U('nav.exp')},{id:'contact',l:U('nav.contact')}];
-        const ns={background:sc>50?'rgba(7,8,12,0.85)':'transparent',backdropFilter:sc>50?'blur(20px)':'none',borderBottom:sc>50?'1px solid rgba(255,255,255,0.05)':'1px solid transparent'};
+        const{theme,toggle}=useTheme();
+        const[mob,setMob]=React.useState(false);
+        const links=[{id:'about',l:'Обо мне'},{id:'impact',l:'Результаты'},{id:'cases',l:'Кейсы'},{id:'skills',l:'Навыки'},{id:'workflow',l:'Процесс'},{id:'exp',l:'Опыт'},{id:'contact',l:'Контакт'}];
+        const ns={background:sc>50?'var(--bg2)':'transparent',backdropFilter:sc>50?'blur(20px)':'none',borderBottom:sc>50?'1px solid var(--bdr)':'1px solid transparent'};
         return (
             <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={ns}>
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <a href="#" className="text-white font-bold text-lg tracking-tight">В.Слащевский</a>
-                    <div className="hidden lg:flex items-center gap-8">{links.map(l=><a key={l.id} href={`#${l.id}`} className="text-sm text-white/50 hover:text-white transition-colors">{l.l}</a>)}</div>
+                    <a href="#" className="t1 font-bold text-lg tracking-tight">В.Слащевский</a>
+                    <div className="hidden lg:flex items-center gap-8">{links.map(l=><a key={l.id} href={`#${l.id}`} className="text-sm t2 hover:t1 transition-colors">{l.l}</a>)}</div>
                     <div className="flex items-center gap-3">
-                        <button onClick={()=>setLang(lang==='ru'?'en':'ru')} className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 transition-colors px-3 py-2 rounded-lg hover:bg-white/5"><IcGlobe/>{lang==='ru'?'EN':'RU'}</button>
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="hidden md:inline-flex bp text-xs py-2.5 px-5"><IcSend size={14}/>{U('hero.tg')}</a>
-                        <button onClick={()=>setMob(!mob)} className="lg:hidden text-white/60 hover:text-white p-1">{mob?<IcX/>:<IcMenu/>}</button>
+                        <button onClick={toggle} className="theme-btn" aria-label="Toggle theme">{theme==='dark'?<Ic n="sun" s={16}/>:<Ic n="moon" s={16}/>}</button>
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="hidden md:inline-flex bp text-xs py-2.5 px-5"><Ic n="send" s={14}/>Написать в Telegram</a>
+                        <button onClick={()=>setMob(!mob)} className="lg:hidden t2 hover:t1 p-1">{mob?<Ic n="x"/>:<Ic n="menu"/>}</button>
                     </div>
                 </div>
                 <div className={`mm${mob?' open':''} lg:hidden`}>
                     <div className="flex flex-col items-center justify-center h-full gap-8">
-                        {links.map(l=><a key={l.id} href={`#${l.id}`} onClick={()=>setMob(false)} className="text-xl text-white/70 hover:text-white transition-colors">{l.l}</a>)}
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="bp mt-4"><IcSend size={16}/>{U('hero.tg')}</a>
+                        {links.map(l=><a key={l.id} href={`#${l.id}`} onClick={()=>setMob(false)} className="text-xl t2 hover:t1 transition-colors">{l.l}</a>)}
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="bp mt-4"><Ic n="send" s={16}/>Написать в Telegram</a>
                     </div>
                 </div>
             </nav>
@@ -310,62 +185,75 @@
 
     /* ===== HERO ===== */
     function Hero(){
-        const [r,iv]=useIV();
-        const s1=[120,135,128,160,155,180,195,210,240,260,280,310];
-        const s2=[2,3,2.5,4,5,7,9,11,13,14,15.5,16.3];
-        const s3=[-15,-8,-3,2,8,15,22,28,35,40,48,55];
+        const[r,iv]=useIV();
+        const areas=[
+            {icon:'trend',title:'Рост выручки и стабильности',d:'Увеличение доходности проектов за счёт системного подхода к операциям и аналитике'},
+            {icon:'layers',title:'Построение систем и процессов',d:'Выстраивание процессов с нуля, создание порядка из хаоса, документирование'},
+            {icon:'target',title:'Сквозная аналитика и контроль ROMI',d:'Внедрение единой системы метрик, UTM-регламент, прозрачность по всем каналам'},
+            {icon:'zap',title:'Автоматизация автоворонок',d:'Создание и стабилизация автоворонок на GetCourse, Telegram, e-mail'},
+            {icon:'bar',title:'Рост конверсий',d:'Оптимизация лендингов, A/B тестирование, работа с офферами и связками'},
+            {icon:'wf',title:'Оптимизация клиентского пути',d:'Улучшение каждого касания, устранение потерь, повышение доходимости'},
+            {icon:'shield',title:'Устранение технического хаоса',d:'Стабилизация инфраструктуры, исправление интеграций, надёжность систем'}
+        ];
         const ls={opacity:iv?1:0,transform:iv?'none':'translateY(30px)',transition:'opacity .8s ease, transform .8s ease'};
         return (
-            <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-16 px-6 overflow-hidden">
-                <div ref={r} className="max-w-7xl mx-auto w-full hg" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'60px',alignItems:'center'}}>
+            <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-24 px-6 overflow-hidden">
+                <div className="hero-mesh"/>
+                <div ref={r} className="max-w-7xl mx-auto w-full relative z-10 hg" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'60px',alignItems:'center'}}>
                     <div style={ls}>
                         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
                             <div className="w-2 h-2 rounded-full bg-em-400" style={{boxShadow:'0 0 8px #10b981'}}/>
-                            <span className="text-xs text-white/60 font-medium">{U('hero.sub')}</span>
+                            <span className="text-xs t2 font-medium">EdTech / Digital Projects</span>
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 tracking-tight">{U('hero.name')}</h1>
-                        <p className="text-lg md:text-xl text-em-300 font-medium mb-6">{U('hero.pos')}</p>
-                        <p className="text-lg md:text-xl text-white/80 font-medium mb-4 leading-relaxed" style={{fontStyle:'italic'}}>{U('hero.hl')}</p>
-                        <p className="text-sm md:text-base text-white/50 mb-3 leading-relaxed max-w-lg">{U('hero.d')}</p>
-                        <p className="text-sm text-white/35 mb-8">{U('hero.s')}</p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold t1 leading-tight mb-4 tracking-tight">Владислав<br/>Слащевский</h1>
+                        <p className="text-lg md:text-xl ac font-medium mb-6">Операционный и технический специалист</p>
+                        <p className="text-lg md:text-xl t2 font-medium mb-4 leading-relaxed" style={{fontStyle:'italic'}}>&laquo;Выстраиваю системы, аналитику и процессы для онлайн-бизнеса&raquo;</p>
+                        <p className="text-sm md:text-base t2 mb-3 leading-relaxed max-w-lg">Превращаю хаос в управляемую систему и помогаю онлайн-проектам расти за счёт аналитики, автоматизации и выстроенных процессов.</p>
+                        <p className="text-sm t3 mb-8">4+ года опыта в операционке, аналитике, автоворонках и технической инфраструктуре онлайн-проектов.</p>
                         <div className="flex flex-wrap gap-3">
-                            <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb"><IcSend size={16}/>{U('hero.tg')}</a>
-                            <a href="https://t.me/" target="_blank" rel="noopener" className="bs"><IcCal size={16}/>{U('hero.iv')}</a>
-                            <button onClick={()=>toast('CV будет доступен по запросу')} className="bs"><IcDl size={16}/>{U('hero.cv')}</button>
+                            <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb"><Ic n="send" s={16}/>Написать в Telegram</a>
+                            <a href="https://t.me/" target="_blank" rel="noopener" className="bs"><Ic n="cal" s={16}/>Назначить собеседование</a>
+                            <button onClick={()=>toast('CV будет доступен по запросу')} className="bs"><Ic n="dl" s={16}/>Скачать CV</button>
                         </div>
                     </div>
-                    <div className="hd" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'16px'}}>
-                        <KPI icon={<IcTrend size={16}/>} label={U('kpi.rev')} value={<span className="gt">&times;2.6</span>} sub="161 771 ₽ → 418 426 ₽" spark={s1} delay={0}/>
-                        <KPI icon={<IcBar size={16}/>} label={U('kpi.conv')} value={<span className="gt">16.3%</span>} sub="было 1.6%" spark={s2} delay={1}/>
-                        <KPI icon={<IcTarget size={16}/>} label={U('kpi.romi')} value={<span className="text-em-300">+ROI</span>} sub="из минуса в плюс" spark={s3} delay={2}/>
-                        <KPI icon={<IcLayers size={16}/>} label={U('kpi.fun')} value={<span className="text-white">4+</span>} sub="созданных автоворонок" delay={3}/>
-                        <KPI icon={<IcClock size={16}/>} label={U('kpi.exp')} value={<span className="text-white">4+</span>} sub="лет в EdTech / Digital" delay={4}/>
-                        <KPI icon={<IcZap size={16}/>} label={U('kpi.sav')} value={<span className="gtw">170K+</span>} sub="₽ ежемесячно экономии" delay={5} accent="bg-amber-500/10 text-amber-400" isAmber={true}/>
+                    <div className="hd" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
+                        {areas.map((a,i)=>(
+                            <div key={i} className="glass ec rounded-2xl p-4 md:p-5" style={{opacity:iv?1:0,transform:iv?'none':'translateY(20px)',transition:`opacity .6s ease ${i*0.08}s, transform .6s ease ${i*0.08}s`}}>
+                                <div className="abg w-9 h-9 rounded-lg flex items-center justify-center mb-3"><Ic n={a.icon} s={16}/></div>
+                                <h3 className="text-sm font-semibold t1 mb-1.5 leading-snug">{a.title}</h3>
+                                <p className="text-xs t3 leading-relaxed">{a.d}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
+                <div className="scroll-hint hidden md:flex"><span className="text-xs tracking-widest uppercase t4">Scroll</span><div className="line"/></div>
             </section>
         );
     }
 
     /* ===== ABOUT ===== */
     function About(){
-        const [r,iv]=useIV();
-        const items=U('about.i');
+        const[r,iv]=useIV();
+        const items=['Координацию команды','Работу с подрядчиками','Контроль дедлайнов','Техническое сопровождение платформ','Внедрение аналитики','Создание автоворонок','Автоматизацию процессов','Оптимизацию клиентского пути'];
         return (
             <section id="about" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-4xl mx-auto">
-                    <ST title={U('about.t')}/>
+                    <ST title="Обо мне"/>
                     <div ref={r}>
-                        {[U('about.a'),U('about.b'),U('about.c')].map((txt,i)=>(
-                            <p key={i} className={`af${iv?' v':''} text-base md:text-lg text-white/60 leading-relaxed`} style={{transitionDelay:`${i*0.1}s`}}>{txt}</p>
+                        {[
+                            'Я — Владислав Слащевский, операционный и технический специалист с опытом 4+ лет в онлайн-проектах.',
+                            'Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения.',
+                            'Умею создавать порядок в хаосе, быстро погружаться в продукт и брать ответственность за стабильность бизнес-процессов.'
+                        ].map((txt,i)=>(
+                            <p key={i} className={`af${iv?' v':''} text-base md:text-lg t2 leading-relaxed`} style={{transitionDelay:`${i*0.1}s`}}>{txt}</p>
                         ))}
                         <div className={`af${iv?' v':''} mt-10`} style={{transitionDelay:'0.3s'}}>
-                            <h3 className="text-lg font-semibold text-white mb-5">{U('about.h')}</h3>
+                            <h3 className="text-lg font-semibold t1 mb-5">Опыт включает:</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {items.map((item,i)=>(
                                     <div key={i} className="flex items-center gap-3 glass rounded-xl px-4 py-3">
-                                        <div className="w-5 h-5 rounded-full bg-em-500/15 flex items-center justify-center flex-shrink-0"><IcCheck size={12}/></div>
-                                        <span className="text-sm text-white/60">{item}</span>
+                                        <div className="w-5 h-5 rounded-full abg flex items-center justify-center flex-shrink-0"><Ic n="check" s={11}/></div>
+                                        <span className="text-sm t2">{item}</span>
                                     </div>
                                 ))}
                             </div>
@@ -378,51 +266,37 @@
 
     /* ===== IMPACT ===== */
     function Impact(){
-        const [r,iv]=useIV();
-        const rv=useCnt(418426,2500,iv);
-        const cv=useCnt(163,2000,iv);
-        const sv=useCnt(170,2000,iv);
-        const rh=useCnt(52,1800,iv);
-        const rd=[{label:'Янв',value:161771},{label:'Фев',value:178234},{label:'Мар',value:195420},{label:'Апр',value:223100},{label:'Май',value:267890},{label:'Июн',value:298450},{label:'Июл',value:324100},{label:'Авг',value:356200},{label:'Сен',value:378900},{label:'Окт',value:398100},{label:'Ноя',value:408300},{label:'Дек',value:418426}];
-        const kpis=[
-            {l:'Средняя выручка',v:rv.toLocaleString('ru-RU')+' ₽',s:'было 161 771 ₽',ic:<IcTrend size={18}/>,a:false},
-            {l:'Конверсия лендингов',v:(cv/10).toFixed(1)+'%',s:'было 1.6%',ic:<IcBar size={18}/>,a:false},
-            {l:'Доходимость вебинаров',v:rh+'.5%',s:'стабильный показатель',ic:<IcTarget size={18}/>,a:false},
-            {l:'Экономия бюджета',v:sv+' 000+ ₽',s:'ежемесячно',ic:<IcZap size={18}/>,a:true}
+        const[r,iv]=useIV();
+        const rv=useCnt(418,2000,iv);
+        const cv=useCnt(163,1800,iv);
+        const sv=useCnt(170,1800,iv);
+        const rh=useCnt(52,1600,iv);
+        const metrics=[
+            {l:'Средняя выручка на вебинар',bef:'161 771 ₽',aft:rv.toLocaleString('ru-RU')+' 426 ₽',b:161.8,a:418.4,bL:'161K',aL:'418K'},
+            {l:'Конверсия лендингов',bef:'1.6%',aft:(cv/10).toFixed(1)+'%',b:1.6,a:16.3,bL:'1.6%',aL:'16.3%'},
+            {l:'Доходимость вебинаров',bef:'~30%',aft:rh+'.5%',b:30,a:52.5,bL:'30%',aL:'52.5%'},
+            {l:'Экономия бюджета / мес',bef:'—',aft:sv+' 000+ ₽',b:0,a:170,bL:'0',aL:'170K+'},
+            {l:'ROMI «Свечи»',bef:'0',aft:'1.3',b:0,a:1.3,bL:'0',aL:'1.3'},
+            {l:'Конверсия «Свечи»',bef:'8.79%',aft:'18.13%',b:8.79,a:18.13,bL:'8.8%',aL:'18.1%'}
         ];
         return (
             <section id="impact" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-6xl mx-auto">
-                    <ST title={U('imp.t')} subtitle={U('imp.s')}/>
-                    <div ref={r} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-                        {kpis.map((k,i)=>(
-                            <div key={i} className={`glass kc rounded-2xl p-5 af${iv?' v':''}`} style={{transitionDelay:`${i*0.1}s`}}>
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${k.a?'bg-amber-500/10 text-amber-400':'bg-em-500/10 text-em-400'}`}>{k.ic}</div>
-                                <div className="text-xs text-white/40 font-medium uppercase tracking-wider mb-2">{k.l}</div>
-                                <div className={`text-2xl font-bold mb-1 ${k.a?'gtw':'gt'}`}>{k.v}</div>
-                                <div className="text-xs text-white/35">{k.s}</div>
+                    <ST title="Бизнес-результаты" subtitle="Реальные метрики из реализованных проектов — без фиктивных данных"/>
+                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {metrics.map((m,i)=>(
+                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
+                                <h4 className="text-sm font-medium t2 mb-1">{m.l}</h4>
+                                <div className="flex items-baseline gap-2 mb-5">
+                                    <span className="text-xs t4 line-through">{m.bef}</span>
+                                    <Ic n="arrow-r" s={12}/>
+                                    <span className="text-xl font-bold gt">{m.aft}</span>
+                                </div>
+                                {m.b>0&&<BarC before={m.b} after={m.a} active={iv} bL={m.bL} aL={m.aL}/>}
                             </div>
                         ))}
                     </div>
-                    <div className={`gs rounded-2xl p-6 md:p-8 af${iv?' v':''}`} style={{transitionDelay:'0.4s'}}>
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-3">
-                            <div><h3 className="text-lg font-semibold text-white">Динамика средней выручки</h3><p className="text-sm text-white/40">Помесячный рост за период оптимизации</p></div>
-                            <div className="flex items-center gap-2 text-em-400 text-sm font-medium"><IcUp size={14}/> +158.7%</div>
-                        </div>
-                        <LineC data={rd} active={iv}/>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                        {[
-                            {t:'Рост конверсии',b:1.6,a:16.3,bL:'1.6%',aL:'16.3%',d:'0.5s'},
-                            {t:'ROMI кампаний',b:15,a:55,bL:'-15%',aL:'+55%',d:'0.6s'},
-                            {t:'Доходимость вебинаров',b:30,a:52.5,bL:'30%',aL:'52.5%',d:'0.7s'}
-                        ].map((c,i)=>(
-                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:c.d}}>
-                                <h4 className="text-sm text-white/40 font-medium mb-6">{c.t}</h4>
-                                <BarC before={c.b} after={c.a} active={iv} bL={c.bL} aL={c.aL}/>
-                            </div>
-                        ))}
-                    </div>
+                    <p className={`text-center text-xs t4 mt-8 af${iv?' v':''}`} style={{transitionDelay:'0.5s'}}>Все метрики основаны на реальных данных проектов. Точные цифры доступны по запросу.</p>
                 </div>
             </section>
         );
@@ -430,19 +304,19 @@
 
     /* ===== CASES ===== */
     function Cases(){
-        const [open,setOpen]=React.useState(null);
-        const [r,iv]=useIV();
+        const[open,setOpen]=React.useState(null);
+        const[r,iv]=useIV();
         const cases=[
-            {t:'Внедрение системы аналитики',ic:<IcDB size={20}/>,sm:'Создание единой системы сквозной аналитики с нуля',p:'Отсутствие сквозной аналитики: данные разрознены, невозможно оценить эффективность каналов, ROMI не контролируется.',sl:'Внедрение UTM-регламента, настройка сквозной аналитики, создание единых дашбордов, исправление атрибуции конверсий.',rs:'Прозрачная аналитика по всем каналам, контроль ROMI в реальном времени, масштабируемая система данных.',ms:[{l:'Прозрачность данных',v:'100%'},{l:'Каналов отслеживается',v:'8+'},{l:'Точность атрибуции',v:'95%+'}]},
-            {t:'Оптимизация холодного трафика',ic:<IcTarget size={20}/>,sm:'ROMI выведен в плюс, конверсия ×10, экономия 170K+/мес',p:'Холодный трафик работал в минус, конверсия лендингов 1.6%, бюджет сливался на неэффективные кампании.',sl:'Анализ рекламных кампаний, отключение убыточных связок, переработка лендингов, A/B тестирование, оптимизация офферов.',rs:'ROMI выведен в положительную зону, конверсия выросла с 1.6% до 16.3%, экономия 170 000+ ₽ ежемесячно.',ms:[{l:'Конверсия',v:'1.6% → 16.3%'},{l:'Экономия',v:'170K+ ₽/мес'},{l:'ROMI',v:'Минус → Плюс'}]},
-            {t:'Оптимизация вебинаров',ic:<IcTrend size={20}/>,sm:'Рост выручки ×2.6, доходимость 52.5%',p:'Низкая доходимость до вебинара, падение вовлечённости, отсутствие аналитики по воронке вебинара.',sl:'Внедрение аналитики вебинаров, оптимизация remind-цепочек, переработка сценария, A/B тестирование точек выхода.',rs:'Доходимость выросла до 52.5%, выручка с вебинаров увеличилась в 2.6 раза, значительно выросла вовлечённость аудитории.',ms:[{l:'Доходимость',v:'52.5%'},{l:'Рост выручки',v:'×2.6'},{l:'Вовлечённость',v:'+40%'}]},
-            {t:'Техническая инфраструктура автоворонок',ic:<IcWF size={20}/>,sm:'Стабилизация 4+ автоворонок, устранение дублирования',p:'Дубли писем клиентам, сбои синхронизации между платформами, нестабильная работа автоворонок.',sl:'Аудит всех автоворонок, исправление логики триггеров, настройка синхронизации GetCourse + сервисов, тестирование клиентского пути.',rs:'Устранены все дубли писем, синхронизация стабилизирована, 4+ автоворонки работают без сбоев, клиентский путь оптимизирован.',ms:[{l:'Воронок стабилизировано',v:'4+'},{l:'Дубли устранены',v:'100%'},{l:'Сбоев',v:'0'}]},
-            {t:'Оптимизация рекламной кампании «Свечи»',ic:<IcZap size={20}/>,sm:'ROMI: 0 → 1.3, конверсия: 8.79% → 18.13%',am:true,p:'Рекламная кампания работала в ноль (ROMI = 0), высокая стоимость привлечения клиента, низкая конверсия.',sl:'Глубокий анализ связок, переработка креативов, сегментация аудитории, оптимизация лендингов и офферов, настройка ретаргетинга.',rs:'ROMI вырос с 0 до 1.3, конверсия увеличилась с 8.79% до 18.13%, CAC снижен с 19 431 ₽ до 15 126 ₽.',ms:[{l:'ROMI',v:'0 → 1.3'},{l:'Конверсия',v:'8.79% → 18.13%'},{l:'CAC',v:'19 431 → 15 126 ₽'}],cd:[{l:'ROMI',b:0,a:1.3},{l:'Conv %',b:8.79,a:18.13},{l:'CAC K',b:19.4,a:15.1}]}
+            {t:'Внедрение системы аналитики',ic:'db',sm:'Создание единой системы сквозной аналитики с нуля',what:'Отсутствовала сквозная аналитика — данные по разным каналам были разрознены, невозможно было оценить эффективность каждого источника трафика, ROMI не контролировался.',done:'Внедрён UTM-регламент для всех каналов, настроена сквозная аналитика, созданы единые дашборды для команды, исправлена атрибуция конверсий.',res:'Прозрачная аналитика по всем каналам в реальном времени, контроль ROMI стал возможен, система масштабируется на новые проекты.',ms:[{l:'Прозрачность данных',v:'100%'},{l:'Каналов отслеживается',v:'8+'},{l:'Точность атрибуции',v:'95%+'}]},
+            {t:'Оптимизация холодного трафика',ic:'target',sm:'ROMI выведен в плюс, конверсия ×10, экономия 170K+/мес',what:'Холодный трафик работал в минус. Конверсия лендингов составляла 1.6%. Бюджет сливался на неэффективные рекламные кампании без чёткого понимания причин.',done:'Проведён полный анализ рекламных кампаний, отключены убыточные связки, переработаны лендинги, запущено A/B тестирование офферов и креативов.',res:'ROMI выведен в положительную зону. Конверсия лендингов выросла с 1.6% до 16.3%. Ежемесячная экономия бюджета составила 170 000+ ₽.',ms:[{l:'Конверсия',v:'1.6% → 16.3%'},{l:'Экономия',v:'170K+ ₽/мес'},{l:'ROMI',v:'Минус → Плюс'}]},
+            {t:'Оптимизация вебинаров',ic:'trend',sm:'Рост выручки ×2.6, доходимость 52.5%',what:'Низкая доходимость до вебинара, падение вовлечённости аудитории, полное отсутствие аналитики по воронке вебинара — невозможно было понять, где теряются участники.',done:'Внедрена аналитика вебинаров, оптимизированы remind-цепочки, переработан сценарий ведения, запущено A/B тестирование точек выхода.',res:'Доходимость выросла до 52.5%. Выручка с вебинаров увеличилась в 2.6 раза. Значительно выросла вовлечённость аудитории.',ms:[{l:'Доходимость',v:'52.5%'},{l:'Рост выручки',v:'×2.6'},{l:'Вовлечённость',v:'+40%'}]},
+            {t:'Техническая инфраструктура автоворонок',ic:'wf',sm:'Стабилизация 4+ автоворонок, устранение дублирования',what:'Клиенты получали дубли писем, наблюдались сбои синхронизации между платформами, автоворонки работали нестабильно — это напрямую влияло на клиентский опыт.',done:'Проведён полный аудит всех автоворонок, исправлена логика триггеров, настроена корректная синхронизация GetCourse с внешними сервисами, протестирован весь клиентский путь.',res:'Устранены все дубли писем, синхронизация стабилизирована, 4+ автоворонки работают без сбоев, клиентский путь оптимизирован.',ms:[{l:'Воронок стабилизировано',v:'4+'},{l:'Дубли устранены',v:'100%'},{l:'Сбоев после fixes',v:'0'}]},
+            {t:'Оптимизация рекламной кампании «Свечи»',ic:'zap',sm:'ROMI: 0 → 1.3, конверсия: 8.79% → 18.13%',am:true,what:'Рекламная кампания работала в ноль — ROMI составлял 0. Высокая стоимость привлечения клиента (CAC 19 431 ₽) при низкой конверсии.',done:'Глубокий анализ рекламных связок, переработка креативов, сегментация аудитории, оптимизация лендингов и офферов, настройка ретаргетинга.',res:'ROMI вырос с 0 до 1.3. Конверсия увеличилась с 8.79% до 18.13%. CAC снижен с 19 431 ₽ до 15 126 ₽.',ms:[{l:'ROMI',v:'0 → 1.3'},{l:'Конверсия',v:'8.79% → 18.13%'},{l:'CAC',v:'19 431 → 15 126 ₽'}],cd:[{l:'ROMI',b:0,a:1.3},{l:'Conv',b:8.79,a:18.13},{l:'CAC K',b:19.4,a:15.1}]}
         ];
         return (
             <section id="cases" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-4xl mx-auto">
-                    <ST title={U('cs.t')}/>
+                    <ST title="Кейсы" subtitle="Подробный разбор каждого проекта — от проблемы до результата"/>
                     <div ref={r} className="space-y-4">
                         {cases.map((c,i)=>{
                             const isO=open===i;
@@ -450,28 +324,37 @@
                                 <div key={i} className={`cc glass rounded-2xl af${iv?' v':''}${isO?' open':''}`} style={{transitionDelay:`${i*0.08}s`}} onClick={()=>setOpen(isO?null:i)}>
                                     <div className="p-5 md:p-6 flex items-center justify-between">
                                         <div className="flex items-center gap-4">
-                                            <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${c.am?'bg-amber-500/10 text-amber-400':'bg-em-500/10 text-em-400'}`}>{c.ic}</div>
-                                            <div><h3 className="text-base font-semibold text-white">{c.t}</h3><p className="text-sm text-white/40 mt-0.5">{c.sm}</p></div>
+                                            <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${c.am?'bg-amber-500/10 text-amber-400':'abg'}`}><Ic n={c.ic} s={20}/></div>
+                                            <div><h3 className="text-base font-semibold t1">{c.t}</h3><p className="text-sm t3 mt-0.5">{c.sm}</p></div>
                                         </div>
-                                        <div className="text-white/30 flex-shrink-0 ml-4"><IcChev className="chv"/></div>
+                                        <div className="t4 flex-shrink-0 ml-4"><Ic n="chev" className="chv"/></div>
                                     </div>
-                                    <div className="cb px-5 md:px-6 pb-6">
+                                    <div className="cb px-5 md:px-6 pb-6"><div>
                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                            <div className="bg-white/[0.02] rounded-xl p-4"><div className="text-xs text-red-400/70 font-medium uppercase tracking-wider mb-2">{U('cs.p')}</div><p className="text-sm text-white/50 leading-relaxed">{c.p}</p></div>
-                                            <div className="bg-white/[0.02] rounded-xl p-4"><div className="text-xs text-em-400/70 font-medium uppercase tracking-wider mb-2">{U('cs.sl')}</div><p className="text-sm text-white/50 leading-relaxed">{c.sl}</p></div>
-                                            <div className="bg-white/[0.02] rounded-xl p-4"><div className="text-xs text-em-300/70 font-medium uppercase tracking-wider mb-2">{U('cs.r')}</div><p className="text-sm text-white/50 leading-relaxed">{c.rs}</p></div>
+                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
+                                                <div className="text-xs font-medium uppercase tracking-wider mb-2" style={{color:'rgba(239,68,68,0.7)'}}>Что было</div>
+                                                <p className="text-sm t2 leading-relaxed">{c.what}</p>
+                                            </div>
+                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
+                                                <div className="text-xs font-medium uppercase tracking-wider mb-2 ac">Что сделано</div>
+                                                <p className="text-sm t2 leading-relaxed">{c.done}</p>
+                                            </div>
+                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
+                                                <div className="text-xs font-medium uppercase tracking-wider mb-2 gt">Результат</div>
+                                                <p className="text-sm t2 leading-relaxed">{c.res}</p>
+                                            </div>
                                         </div>
-                                        <div className="text-xs text-white/30 font-medium uppercase tracking-wider mb-3">{U('cs.m')}</div>
+                                        <div className="text-xs t4 font-medium uppercase tracking-wider mb-3">Метрики</div>
                                         <div className="grid grid-cols-3 gap-3">
                                             {c.ms.map((m,j)=>(
                                                 <div key={j} className="glass rounded-xl p-4 text-center">
                                                     <div className={`text-lg font-bold ${c.am?'gtw':'gt'}`}>{m.v}</div>
-                                                    <div className="text-xs text-white/35 mt-1">{m.l}</div>
+                                                    <div className="text-xs t3 mt-1">{m.l}</div>
                                                 </div>
                                             ))}
                                         </div>
-                                        {c.cd && isO && (
-                                            <div className="mt-4 grid grid-cols-3 gap-3">
+                                        {c.cd&&isO&&(
+                                            <div className="mt-5 grid grid-cols-3 gap-3">
                                                 {c.cd.map((d,j)=>(
                                                     <div key={j} className="glass rounded-xl p-4">
                                                         <BarC before={d.b} after={d.a} active={isO} bL={d.b.toFixed(1)} aL={d.a.toFixed(1)}/>
@@ -479,7 +362,7 @@
                                                 ))}
                                             </div>
                                         )}
-                                    </div>
+                                    </div></div>
                                 </div>
                             );
                         })}
@@ -491,22 +374,27 @@
 
     /* ===== SKILLS ===== */
     function Skills(){
-        const [r,iv]=useIV();
+        const[r,iv]=useIV();
         const cats=[
-            {level:U('sk.a'),key:'em',items:['GetCourse','Salebot','Senler','BotHelp','Zoom','Smsc','OnlinePBX','Automation','Analytics','Funnel Systems','ChatGPT','Midjourney','Team Coordination','Technical Support','Integrations','Reporting','Data Analysis']},
-            {level:U('sk.m'),key:'blue',items:['amoCRM','OBS','Canva','Airtable','Trello','ClickUp','Notion']},
-            {level:U('sk.b'),key:'slate',items:['HTML','CSS']}
+            {t:'Операционное управление',ic:'users',items:['Координация команды','Контроль дедлайнов','Построение процессов с нуля','Работа с подрядчиками','Управление задачами','Ответственность за результат']},
+            {t:'Аналитика',ic:'search',items:['Сквозная аналитика','UTM-регламент','Контроль ROMI','Дашборды и отчёты','Data Analysis','A/B тестирование']},
+            {t:'Автоматизация',ic:'zap',items:['GetCourse','Salebot','Senler','BotHelp','Интеграции платформ','Автоматизация процессов']},
+            {t:'Воронки и маркетинг',ic:'wf',items:['Автоворонки','E-mail цепочки','Telegram-воронки','Сегментация аудитории','Оптимизация клиентского пути','Ремаркетинг']},
+            {t:'Техническая инфраструктура',ic:'wrench',items:['Zoom','OnlinePBX','Smsc','OBS','Техническая поддержка платформ','Устранение сбоев']},
+            {t:'Инструменты и инструменты',ic:'settings',items:['Notion','ClickUp','Trello','Airtable','Canva','ChatGPT','Midjourney','amoCRM']}
         ];
-        const cm={em:'bg-em-500/10 text-em-400',blue:'bg-sky-500/10 text-sky-400',slate:'bg-slate-500/10 text-slate-400'};
         return (
             <section id="skills" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-5xl mx-auto">
-                    <ST title={U('sk.t')}/>
-                    <div ref={r} className="space-y-8">
+                    <ST title="Экспертиза" subtitle="Карта компетенций — от операционного управления до технической инфраструктуры"/>
+                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {cats.map((cat,ci)=>(
-                            <div key={ci} className={`af${iv?' v':''}`} style={{transitionDelay:`${ci*0.15}s`}}>
-                                <div className={`inline-flex items-center gap-2 ${cm[cat.key]} rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider mb-4`}>{cat.level}</div>
-                                <div className="flex flex-wrap gap-2.5">{cat.items.map((sk,si)=><span key={si} className="sb">{sk}</span>)}</div>
+                            <div key={ci} className={`gs rounded-2xl p-5 af${iv?' v':''}`} style={{transitionDelay:`${ci*0.08}s`}}>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"><Ic n={cat.ic} s={18}/></div>
+                                    <h3 className="text-sm font-semibold t1">{cat.t}</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-2">{cat.items.map((sk,si)=><span key={si} className="sb">{sk}</span>)}</div>
                             </div>
                         ))}
                     </div>
@@ -517,33 +405,33 @@
 
     /* ===== WORKFLOW ===== */
     function Workflow(){
-        const [r,iv]=useIV();
-        const steps=U('wf.s');
-        const icons=[<IcDB size={20}/>,<IcLayers size={20}/>,<IcWF size={20}/>,<IcZap size={20}/>,<IcBar size={20}/>,<IcTrend size={20}/>];
+        const[r,iv]=useIV();
+        const steps=['Анализ проекта','Систематизация процессов','Оптимизация воронок','Автоматизация','Аналитика и контроль','Масштабирование'];
+        const icons=['search','layers','wf','zap','bar','trend'];
         return (
             <section id="workflow" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-5xl mx-auto">
-                    <ST title={U('wf.t')}/>
+                    <ST title="Как я работаю"/>
                     <div ref={r}>
                         <div className="hidden md:flex items-start">
                             {steps.map((step,i)=>(
                                 <React.Fragment key={i}>
-                                    <div className={`af${iv?' v':''}`} style={{transitionDelay:`${i*0.15}s`,flex:'0 0 auto'}} >
-                                        <div className="workflow-step flex flex-col items-center text-center">
-                                            <div className="w-14 h-14 rounded-2xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 mb-4 relative z-10">{icons[i]}</div>
-                                            <div className="text-xs text-white/30 font-mono mb-2">0{i+1}</div>
-                                            <div className="text-sm text-white/70 font-medium" style={{maxWidth:'120px'}}>{step}</div>
+                                    <div className={`af${iv?' v':''}`} style={{transitionDelay:`${i*0.12}s`,flex:'0 0 auto'}}>
+                                        <div className="flex flex-col items-center text-center" style={{width:'120px'}}>
+                                            <div className="abg w-14 h-14 rounded-2xl flex items-center justify-center mb-4 relative z-10" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n={icons[i]} s={20}/></div>
+                                            <div className="text-xs t4 font-mono mb-2">0{i+1}</div>
+                                            <div className="text-sm t2 font-medium leading-snug">{step}</div>
                                         </div>
                                     </div>
-                                    {i<steps.length-1 && <div className={`wl${iv?' v':''}`} style={{marginTop:'28px',transitionDelay:`${i*0.15+0.3}s`}}><div className="fl"/></div>}
+                                    {i<steps.length-1&&<div className={`wl${iv?' v':''}`} style={{marginTop:'28px',transitionDelay:`${i*0.12+0.2}s`}}><div className="fl"/></div>}
                                 </React.Fragment>
                             ))}
                         </div>
                         <div className="md:hidden space-y-4">
                             {steps.map((step,i)=>(
-                                <div key={i} className={`flex items-start gap-4 af${iv?' v':''}`} style={{transitionDelay:`${i*0.1}s`}}>
-                                    <div className="w-12 h-12 rounded-xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 flex-shrink-0">{icons[i]}</div>
-                                    <div><div className="text-xs text-white/30 font-mono mb-1">0{i+1}</div><div className="text-sm text-white/70 font-medium">{step}</div></div>
+                                <div key={i} className={`flex items-start gap-4 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
+                                    <div className="abg w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n={icons[i]} s={18}/></div>
+                                    <div><div className="text-xs t4 font-mono mb-1">0{i+1}</div><div className="text-sm t2 font-medium">{step}</div></div>
                                 </div>
                             ))}
                         </div>
@@ -555,23 +443,32 @@
 
     /* ===== EXPERIENCE ===== */
     function Exp(){
-        const [r,iv]=useIV();
-        const exs=[
-            {t:'Отдел воронок',ic:<IcWF size={20}/>,items:['Создание автоворонок на GetCourse','Сегментация аудитории','E-mail коммуникации и цепочки','Telegram-воронки через Salebot/Senler','Оптимизация клиентского пути','A/B тестирование воронок']},
-            {t:'Отдел продукта',ic:<IcLayers size={20}/>,items:['Настройка обучающих программ','Структурирование курсов','Управление обучающими платформами','Контроль качества контента','Техническое сопровождение']}
+        const[r,iv]=useIV();
+        const blocks=[
+            {ic:'trend',t:'Тёплые запуски и вебинары',d:'Организация и проведение вебинаров и марафонов. Оптимизация remind-цепочек, работа со сценариями ведения, внедрение аналитики воронки вебинара от регистрации до продажи.',tags:['Доходимость 52.5%','Выручка ×2.6','Вовлечённость +40%']},
+            {ic:'target',t:'Холодный трафик и оптимизация',d:'Глубокий анализ рекламных кампаний, отключение убыточных связок, переработка лендингов и офферов. Системная работа с конверсией на каждом этапе воронки.',tags:['Конверсия 1.6% → 16.3%','Экономия 170K+/мес','ROMI в плюс']},
+            {ic:'search',t:'Аналитика и контроль ROMI',d:'Внедрение сквозной аналитики с нуля. Создание UTM-регламента, единых дашбордов, исправление атрибуции. Прозрачность данных по 8+ каналам трафика.',tags:['8+ каналов','Точность 95%+','Масштабируемая система']},
+            {ic:'zap',t:'Автоматизация и воронки',d:'Создание и стабилизация 4+ автоворонок на GetCourse. Telegram-воронки через Salebot и Senler. E-mail цепочки, сегментация, устранение дублей.',tags:['4+ автоворонки','0 дубликатов','Стабильная работа']},
+            {ic:'users',t:'Координация и построение процессов',d:'Координация команды, контроль дедлайнов, работа с подрядчиками. Построение процессов с нуля — от хаоса к управляемой системе с документированными регламентами.',tags:['Процессы с нуля','Контроль дедлайнов','Регламенты']},
+            {ic:'shield',t:'Техническая инфраструктура',d:'Техническое сопровождение обучающих платформ. Настройка Zoom, OnlinePBX, Smsc. Устранение технического хаоса, обеспечение стабильности.',tags:['Стабильность систем','Интеграции','Поддержка платформ']}
         ];
         return (
             <section id="exp" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-4xl mx-auto">
-                    <ST title={U('ex.t')}/>
-                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {exs.map((e,i)=>(
-                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:`${i*0.15}s`}}>
-                                <div className="flex items-center gap-3 mb-5">
-                                    <div className="w-10 h-10 rounded-xl bg-em-500/10 text-em-400 flex items-center justify-center">{e.ic}</div>
-                                    <h3 className="text-lg font-semibold text-white">{e.t}</h3>
+                    <ST title="Опыт работы" subtitle="Операционное лидерство, системное мышление и подтверждённые бизнес-результаты"/>
+                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        {blocks.map((b,i)=>(
+                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"><Ic n={b.ic} s={18}/></div>
+                                    <h3 className="text-base font-semibold t1">{b.t}</h3>
                                 </div>
-                                <ul className="space-y-3">{e.items.map((item,j)=><li key={j} className="flex items-start gap-3 text-sm text-white/50"><div className="w-1.5 h-1.5 rounded-full bg-em-500/50 mt-1.5 flex-shrink-0"/>{item}</li>)}</ul>
+                                <p className="text-sm t2 leading-relaxed mb-4">{b.d}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {b.tags.map((tag,j)=>(
+                                        <span key={j} className="text-xs font-medium abg rounded-lg px-3 py-1">{tag}</span>
+                                    ))}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -582,20 +479,20 @@
 
     /* ===== EDUCATION ===== */
     function Edu(){
-        const [r,iv]=useIV();
+        const[r,iv]=useIV();
         const cs=[{t:'Project Manager',o:'GreenFreelance',y:'2024'},{t:'Наставничество студентов',o:'GreenFreelance',y:'2021'},{t:'Капитан GetCourse',o:'GreenFreelance',y:'2020'}];
         return (
             <section id="edu" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-3xl mx-auto">
-                    <ST title={U('ed.t')}/>
+                    <ST title="Образование и сертификаты"/>
                     <div ref={r} className="space-y-4">
                         {cs.map((c,i)=>(
                             <div key={i} className={`glass rounded-2xl p-5 flex items-center justify-between af${iv?' v':''}`} style={{transitionDelay:`${i*0.1}s`}}>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-xl bg-em-500/10 text-em-400 flex items-center justify-center"><IcAward size={18}/></div>
-                                    <div><h4 className="text-sm font-semibold text-white">{c.t}</h4><p className="text-xs text-white/40 mt-0.5">{c.o}</p></div>
+                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center"><Ic n="award" s={18}/></div>
+                                    <div><h4 className="text-sm font-semibold t1">{c.t}</h4><p className="text-xs t3 mt-0.5">{c.o}</p></div>
                                 </div>
-                                <span className="text-xs text-white/30 font-mono bg-white/[0.03] rounded-lg px-3 py-1.5">{c.y}</span>
+                                <span className="text-xs t4 font-mono rounded-lg px-3 py-1.5" style={{background:'var(--card)'}}>{c.y}</span>
                             </div>
                         ))}
                     </div>
@@ -606,21 +503,21 @@
 
     /* ===== CONTACT ===== */
     function Contact(){
-        const [r,iv]=useIV();
+        const[r,iv]=useIV();
         return (
             <section id="contact" className="relative py-24 md:py-32 px-6">
                 <div className="max-w-3xl mx-auto text-center">
                     <div ref={r} className={`gs rounded-3xl p-10 md:p-16 relative overflow-hidden af${iv?' v':''}`}>
-                        <div className="absolute inset-0 bg-gradient-to-b from-em-500/5 to-transparent pointer-events-none"/>
-                        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-em-500/10 pointer-events-none" style={{filter:'blur(100px)'}}/>
-                        <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-em-600/10 pointer-events-none" style={{filter:'blur(100px)'}}/>
+                        <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 50% at 50% 50%, var(--mesh) 0%, transparent 70%)'}}/>
+                        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full pointer-events-none" style={{background:'var(--orb1)',filter:'blur(100px)'}}/>
+                        <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full pointer-events-none" style={{background:'var(--orb2)',filter:'blur(100px)'}}/>
                         <div className="relative z-10">
-                            <div className="w-14 h-14 rounded-2xl bg-em-500/10 border border-em-500/20 flex items-center justify-center text-em-400 mx-auto mb-6"><IcSend size={24}/></div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">{U('ct.t')}</h2>
-                            <p className="text-sm text-white/40 mb-8">{U('ct.s')}</p>
+                            <div className="abg w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n="send" s={24}/></div>
+                            <h2 className="text-2xl md:text-3xl font-bold t1 mb-4 leading-snug">Готов обсудить ваш проект и усилить бизнес-процессы.</h2>
+                            <p className="text-sm t3 mb-8">Свяжитесь со мной удобным способом — отвечу в течение часа.</p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb text-base py-3.5 px-8"><IcSend size={18}/>{U('ct.tg')}</a>
-                                <a href="https://wa.me/" target="_blank" rel="noopener" className="bs text-base py-3.5 px-8"><IcPhone size={18}/>{U('ct.wa')}</a>
+                                <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb text-base py-3.5 px-8"><Ic n="send" s={18}/>Telegram</a>
+                                <a href="https://wa.me/" target="_blank" rel="noopener" className="bs text-base py-3.5 px-8"><Ic n="phone" s={18}/>WhatsApp</a>
                             </div>
                         </div>
                     </div>
@@ -632,12 +529,12 @@
     /* ===== FOOTER ===== */
     function Foot(){
         return (
-            <footer className="border-t border-white/[0.04] py-8 px-6">
+            <footer className="py-8 px-6" style={{borderTop:'1px solid var(--bdr)'}}>
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                    <span className="text-xs text-white/25">{'\u00a9'} {new Date().getFullYear()} Владислав Слащевский</span>
+                    <span className="text-xs t4">{'\u00a9'} {new Date().getFullYear()} Владислав Слащевский</span>
                     <div className="flex items-center gap-6">
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="text-white/25 hover:text-em-400 transition-colors"><IcSend size={16}/></a>
-                        <a href="https://wa.me/" target="_blank" rel="noopener" className="text-white/25 hover:text-em-400 transition-colors"><IcPhone size={16}/></a>
+                        <a href="https://t.me/" target="_blank" rel="noopener" className="t4 hover:ac transition-colors"><Ic n="send" s={16}/></a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener" className="t4 hover:ac transition-colors"><Ic n="phone" s={16}/></a>
                     </div>
                 </div>
             </footer>
@@ -646,18 +543,51 @@
 
     /* ===== APP ===== */
     function App(){
-        const [lang,setLang]=React.useState('ru');
-        React.useEffect(()=>{removeLoader();},[]);
+        const[theme,setTheme]=React.useState(()=>{
+            try{return localStorage.getItem('theme')||'dark';}catch(e){return 'dark';}
+        });
+        React.useEffect(()=>{
+            document.body.classList.toggle('light',theme==='light');
+            try{localStorage.setItem('theme',theme);}catch(e){}
+            const l=document.getElementById('loader');if(l)l.remove();
+        },[theme]);
+        const toggle=()=>setTheme(t=>t==='dark'?'light':'dark');
         return (
-            <LC.Provider value={{lang,setLang}}>
+            <TC.Provider value={{theme,toggle}}>
                 <div className="relative z-10">
                     <Nav/><Hero/><About/><Impact/><Cases/><Skills/><Workflow/><Exp/><Edu/><Contact/><Foot/>
                 </div>
-            </LC.Provider>
+            </TC.Provider>
         );
     }
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    </script>
+
+    <script>
+    /* Fast smooth scroll — overrides default CSS smooth scroll */
+    document.addEventListener('click',function(e){
+        var a=e.target.closest('a[href^="#"]');
+        if(!a)return;
+        var href=a.getAttribute('href');
+        if(href==='#')return;
+        e.preventDefault();
+        var target=document.querySelector(href);
+        if(!target)return;
+        var y=target.getBoundingClientRect().top+window.scrollY-80;
+        var start=window.scrollY;
+        var dist=y-start;
+        var dur=Math.min(Math.max(Math.abs(dist)*0.35,200),600);
+        var st=null;
+        function step(ts){
+            if(!st)st=ts;
+            var p=Math.min((ts-st)/dur,1);
+            var ease=1-Math.pow(1-p,3);
+            window.scrollTo(0,start+dist*ease);
+            if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    });
     </script>
 </body>
 </html>
