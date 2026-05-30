@@ -1,593 +1,409 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Владислав Слащевский — Операционный и технический специалист | EdTech</title>
-    <meta name="description" content="Операционный и технический специалист с 4+ годами опыта в EdTech и Digital. Аналитика, автоматизация, автоворонки, процессы.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Владислав Слащевский — Operations & Technical Specialist">
-    <meta property="og:description" content="Выстраиваю системы, аналитику и процессы для онлайн-бизнеса">
-    <meta property="og:locale" content="ru_RU">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Владислав Слащевский — Операционный / Project Manager</title>
+    <meta name="description" content="Операционный и Project Manager с 5+ лет опыта в EdTech и digital-проектах.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-    tailwind.config={theme:{extend:{colors:{em:{600:'#047857',500:'#059669',400:'#10b981',300:'#34d399',200:'#6ee7b7',100:'#a7f3d0'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    animation: { 'f1':'f1 7s ease-in-out infinite','f2':'f2 8s ease-in-out infinite','f3':'f3 6s ease-in-out infinite','f4':'f4 7.5s ease-in-out infinite' }
+                }
+            }
+        }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root{--bg:#07080c;--bg2:rgba(7,8,12,0.88);--card:rgba(255,255,255,0.03);--cardh:rgba(255,255,255,0.06);--cards:rgba(255,255,255,0.05);--bdr:rgba(255,255,255,0.06);--bdrh:rgba(255,255,255,0.12);--bdrs:rgba(255,255,255,0.08);--tx:#e2e8f0;--tx2:rgba(255,255,255,0.55);--tx3:rgba(255,255,255,0.35);--tx4:rgba(255,255,255,0.2);--acc:#10b981;--acc2:#34d399;--abg:rgba(16,185,129,0.1);--orb1:rgba(5,150,105,0.07);--orb2:rgba(16,185,129,0.05);--orb3:rgba(4,120,87,0.04);--mesh:rgba(16,185,129,0.06)}
-        .light{--bg:#f6f7f9;--bg2:rgba(246,247,249,0.9);--card:rgba(255,255,255,0.7);--cardh:rgba(255,255,255,0.88);--cards:rgba(255,255,255,0.8);--bdr:rgba(0,0,0,0.07);--bdrh:rgba(0,0,0,0.14);--bdrs:rgba(0,0,0,0.1);--tx:#1a1d2e;--tx2:rgba(26,29,46,0.55);--tx3:rgba(26,29,46,0.35);--tx4:rgba(26,29,46,0.18);--acc:#059669;--acc2:#10b981;--abg:rgba(5,150,105,0.08);--orb1:rgba(5,150,105,0.03);--orb2:rgba(16,185,129,0.025);--orb3:rgba(4,120,87,0.02);--mesh:rgba(5,150,105,0.04)}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background .5s ease,color .5s ease}
-        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bdrh);border-radius:3px}
-        .glass{background:var(--card);border:1px solid var(--bdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all .3s ease}
-        .glass:hover{background:var(--cardh);border-color:var(--bdrh)}
-        .gs{background:var(--cards);border:1px solid var(--bdrs);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
-        .t1{color:var(--tx)}.t2{color:var(--tx2)}.t3{color:var(--tx3)}.t4{color:var(--tx4)}.ac{color:var(--acc)}.abg{background:var(--abg);color:var(--acc)}
-        .gt{background:linear-gradient(135deg,var(--acc),var(--acc2),#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .gtw{background:linear-gradient(135deg,#d97706,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .gb{box-shadow:0 0 24px rgba(16,185,129,0.25),0 4px 12px rgba(16,185,129,0.15)}
-        .orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0;transition:background .5s}
-        @keyframes od{0%,100%{transform:translate(0,0)}33%{transform:translate(30px,-40px)}66%{transform:translate(-20px,30px)}}
-        @keyframes fi{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        @keyframes pulse-line{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.2)}}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        @keyframes toast-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes mesh-f{0%,100%{opacity:.7;transform:scale(1) translate(0,0)}50%{opacity:1;transform:scale(1.05) translate(10px,-10px)}}
-        .af{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}.af.v{opacity:1;transform:translateY(0)}
-        .bg{transform-origin:bottom;transform:scaleY(0);transition:transform 1s cubic-bezier(.16,1,.3,1)}.bg.v{transform:scaleY(1)}
-        .bp{background:linear-gradient(135deg,#059669,#10b981);color:#fff;border:none;padding:12px 28px;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-        .bp:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(16,185,129,0.3)}
-        .bs{background:var(--card);color:var(--tx);border:1px solid var(--bdr);padding:12px 28px;border-radius:12px;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none;backdrop-filter:blur(10px)}
-        .bs:hover{background:var(--cardh);border-color:var(--bdrh);transform:translateY(-2px)}
-        .ec{position:relative;overflow:hidden;transition:all .35s ease}.ec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);transform:scaleX(0);transition:transform .35s ease}.ec:hover::after{transform:scaleX(1)}.ec:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
-        .cb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1)}.cc.open .cb{grid-template-rows:1fr}.cb>div{overflow:hidden}
-        .chv{transition:transform .3s}.cc.open .chv{transform:rotate(180deg)}
-        .sb{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:500;background:var(--card);border:1px solid var(--bdr);transition:all .3s;cursor:default;white-space:nowrap;color:var(--tx2)}
-        .sb:hover{background:var(--abg);border-color:rgba(16,185,129,0.3);color:var(--acc);transform:translateY(-2px)}
-        .wl{height:2px;background:var(--bdr);flex:1;overflow:hidden}.wl .fl{height:100%;background:linear-gradient(90deg,#059669,#34d399);width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1)}.wl.v .fl{width:100%}
-        .tm{position:fixed;bottom:30px;right:30px;z-index:9999;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:500;pointer-events:none;animation:toast-in .4s ease forwards}
-        .mm{position:fixed;inset:0;z-index:100;background:var(--bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}.mm.open{transform:translateX(0)}
-        .ls{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:99999}
-        .lsp{width:36px;height:36px;border:2px solid var(--bdr);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite}
-        .hero-mesh{position:absolute;inset:0;pointer-events:none;z-index:0;animation:mesh-f 12s ease-in-out infinite}
-        .hero-mesh::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 35%,var(--mesh) 0%,transparent 70%),radial-gradient(ellipse 50% 70% at 85% 55%,var(--mesh) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 85%,var(--mesh) 0%,transparent 60%)}
-        .theme-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--bdr);cursor:pointer;transition:all .3s;color:var(--tx2);flex-shrink:0}
-        .theme-btn:hover{background:var(--cardh);border-color:var(--bdrh);color:var(--acc)}
-        .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.3}
-        .scroll-hint .line{width:1px;height:32px;background:linear-gradient(to bottom,var(--tx2),transparent);animation:pulse-line 2s ease-in-out infinite}
-        @media(max-width:768px){.hg{grid-template-columns:1fr!important}.hd{grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}}
-        @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+        body{background:#050505;background-image:radial-gradient(ellipse at 20% 0%,rgba(16,185,129,.05) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(16,185,129,.03) 0%,transparent 50%)}
+        ::selection{background:rgba(16,185,129,.3);color:#fff}
+        @keyframes f1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(.4deg)}}
+        @keyframes f2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(-.3deg)}}
+        @keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+        @keyframes f4{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(.25deg)}}
+        .glass{background:rgba(255,255,255,.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.06)}
+        .glass-e{background:rgba(16,185,129,.04);backdrop-filter:blur(24px);border:1px solid rgba(16,185,129,.1)}
+        .glass-r{background:rgba(239,68,68,.03);backdrop-filter:blur(24px);border:1px solid rgba(239,68,68,.08)}
+        .anim{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+        .anim.vis{opacity:1;transform:translateY(0)}
+        .btn-p{background:#10b981;color:#fff;transition:all .3s ease;position:relative;overflow:hidden}
+        .btn-p::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s}
+        .btn-p:hover{background:#059669;box-shadow:0 8px 40px rgba(16,185,129,.35);transform:translateY(-2px)}
+        .btn-p:hover::after{opacity:1}
+        .btn-s{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;transition:all .3s ease}
+        .btn-s:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+        .mg{text-shadow:0 0 60px rgba(16,185,129,.3)}
+        .ch{transition:all .5s cubic-bezier(.16,1,.3,1)}
+        .ch:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.1);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+        .hero-card{transition:all .5s cubic-bezier(.16,1,.3,1);cursor:default}
+        .hero-card:hover{transform:scale(1.04)!important;box-shadow:0 0 50px rgba(16,185,129,.12),0 20px 60px rgba(0,0,0,.4);border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.06)}
+        .sep{display:flex;align-items:center;justify-content:center;padding:0}
+        .sep::before,.sep::after{content:'';height:1px;width:64px}
+        .sep::before{background:linear-gradient(90deg,transparent,rgba(16,185,129,.25))}
+        .sep::after{background:linear-gradient(270deg,transparent,rgba(16,185,129,.25))}
+        .nav-link{position:relative;color:#a3a3a3;transition:color .3s;font-weight:500}
+        .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:#10b981;transition:width .3s}
+        .nav-link:hover{color:#fff}
+        .nav-link:hover::after{width:100%}
+        .big-metric{background:linear-gradient(135deg,rgba(16,185,129,.04),rgba(16,185,129,.01));border:1px solid rgba(16,185,129,.1);position:relative;overflow:hidden}
+        .big-metric::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(16,185,129,.06),transparent 70%);pointer-events:none}
+        .grid-bg{background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px}
+        #particles{position:absolute;inset:0;pointer-events:none}
+        .mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
+        .mobile-menu.open{max-height:500px}
+        .ba-card{position:relative;overflow:hidden}
+        .ba-card .ba-label{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:6px}
+        .ba-before .ba-label{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.15)}
+        .ba-after .ba-label{background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.15)}
+        .theme-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#a3a3a3;transition:all .3s ease;cursor:pointer;flex-shrink:0}
+        .theme-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}
+        html.light body{background:#f5f7f6;background-image:radial-gradient(ellipse at 20% 0%,rgba(16,185,129,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(16,185,129,.04) 0%,transparent 50%)}
+        html.light ::selection{background:rgba(16,185,129,.2);color:#111}
+        html.light .text-white{color:#111827}
+        html.light .text-neutral-200{color:#1f2937}
+        html.light .text-neutral-300{color:#374151}
+        html.light .text-neutral-400{color:#6b7280}
+        html.light .text-neutral-500{color:#9ca3af}
+        html.light .text-neutral-600{color:#c7c9cc}
+        html.light .text-neutral-700{color:#e0e1e2}
+        html.light .glass{background:rgba(255,255,255,.78);border-color:rgba(0,0,0,.07)}
+        html.light .glass-e{background:rgba(16,185,129,.05);border-color:rgba(16,185,129,.12)}
+        html.light .glass-r{background:rgba(239,68,68,.03);border-color:rgba(239,68,68,.1)}
+        html.light .big-metric{background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(16,185,129,.02));border-color:rgba(16,185,129,.15)}
+        html.light .btn-p{color:#fff!important;background:#059669}
+        html.light .btn-s{color:#111827!important;border-color:rgba(0,0,0,.12)!important;background:rgba(255,255,255,.6)!important}
+        html.light .mg{text-shadow:none}
+        html.light .ch:hover{border-color:rgba(0,0,0,.12);box-shadow:0 24px 60px rgba(0,0,0,.06)}
+        html.light .hero-card:hover{box-shadow:0 0 50px rgba(16,185,129,.08),0 20px 60px rgba(0,0,0,.06);border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.06)}
+        html.light .grid-bg{background-image:linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px)}
+        html.light .nav-link{color:#6b7280}
+        html.light .nav-link:hover{color:#111827}
+        html.light .theme-btn{border-color:rgba(0,0,0,.08);background:rgba(255,255,255,.5);color:#6b7280}
+        html.light .theme-btn:hover{background:rgba(255,255,255,.8);border-color:rgba(0,0,0,.12);color:#111}
+        html.light .header-bar{background:rgba(245,247,246,.88)!important;border-color:rgba(0,0,0,.06)!important}
+        html.light .mobile-bar{background:rgba(245,247,246,.92)!important;border-color:rgba(0,0,0,.06)!important}
+        html.light footer{border-color:rgba(0,0,0,.06)!important}
     </style>
 </head>
-<body>
-    <div id="root"><div class="ls" id="loader"><div class="lsp"></div></div></div>
-    <div class="orb" style="width:700px;height:700px;background:var(--orb1);top:-300px;left:-300px;animation:od 25s ease-in-out infinite"></div>
-    <div class="orb" style="width:500px;height:500px;background:var(--orb2);bottom:-200px;right:-200px;animation:od 30s ease-in-out infinite reverse"></div>
-    <div class="orb" style="width:400px;height:400px;background:var(--orb3);top:50%;left:50%;animation:od 35s ease-in-out infinite 5s"></div>
+<body class="text-white font-sans antialiased overflow-x-hidden">
 
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <script type="text/babel" data-presets="react">
-    /* ===== ICON COMPONENT ===== */
-    function Ic({n,s=20}){
-        const p={xmlns:"http://www.w3.org/2000/svg",width:s,height:s,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};
-        switch(n){
-            case 'send':return <svg {...p}><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>;
-            case 'up':return <svg {...p}><path d="M5 12l7-7 7 7"/><path d="M12 19V5"/></svg>;
-            case 'trend':return <svg {...p}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>;
-            case 'bar':return <svg {...p}><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>;
-            case 'target':return <svg {...p}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>;
-            case 'zap':return <svg {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;
-            case 'layers':return <svg {...p}><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>;
-            case 'clock':return <svg {...p}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
-            case 'award':return <svg {...p}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>;
-            case 'dl':return <svg {...p}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>;
-            case 'cal':return <svg {...p}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
-            case 'menu':return <svg {...p}><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>;
-            case 'x':return <svg {...p}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
-            case 'chev':return <svg {...p}><polyline points="6 9 12 15 18 9"/></svg>;
-            case 'phone':return <svg {...p}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
-            case 'check':return <svg {...p}><polyline points="20 6 9 17 4 12"/></svg>;
-            case 'db':return <svg {...p}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>;
-            case 'wf':return <svg {...p}><circle cx="5" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><path d="M7 8.5L17 15.5"/><circle cx="12" cy="12" r="3"/></svg>;
-            case 'sun':return <svg {...p}><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
-            case 'moon':return <svg {...p}><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
-            case 'shield':return <svg {...p}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
-            case 'users':return <svg {...p}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
-            case 'search':return <svg {...p}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>;
-            case 'mail':return <svg {...p}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>;
-            case 'wrench':return <svg {...p}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>;
-            case 'globe':return <svg {...p}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
-            case 'arrow-r':return <svg {...p}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
-            case 'settings':return <svg {...p}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>;
-            default:return null;
-        }
-    }
-
-    /* ===== HOOKS ===== */
-    function useIV(){const[v,s]=React.useState(false);const r=React.useRef(null);React.useEffect(()=>{const el=r.current;if(!el)return;const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){s(true);obs.unobserve(el);}},{threshold:0.1});obs.observe(el);return()=>obs.disconnect();},[]);return[r,v];}
-    function useCnt(end,dur,act){const[v,s]=React.useState(0);React.useEffect(()=>{if(!act)return;let st=null;function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);s(Math.round(end*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);},[act,end,dur]);return v;}
-    function useSc(){const[v,s]=React.useState(0);React.useEffect(()=>{const h=()=>s(window.scrollY);window.addEventListener('scroll',h,{passive:true});return()=>window.removeEventListener('scroll',h);},[]);return v;}
-
-    /* ===== THEME CONTEXT ===== */
-    const TC=React.createContext({theme:'dark',toggle:()=>{}});
-    function useTheme(){return React.useContext(TC);}
-
-    /* ===== TOAST ===== */
-    let _tt=null;
-    function toast(m){const o=document.querySelector('.tm');if(o)o.remove();clearTimeout(_tt);const e=document.createElement('div');e.className='tm gs ac';e.textContent=m;document.body.appendChild(e);_tt=setTimeout(()=>{e.style.opacity='0';e.style.transform='translateY(10px)';e.style.transition='all .3s';setTimeout(()=>e.remove(),300);},3000);}
-
-    /* ===== BAR COMPARE ===== */
-    function BarC({before,after,active,bL,aL}){
-        const mx=Math.max(before,after)*1.25||1;
-        const bh=(before/mx)*120, ah=(after/mx)*120;
-        return (
-            <div className="flex flex-col items-center gap-3">
-                <div className="flex items-end gap-5" style={{height:140}}>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-xs font-semibold ac">{aL||after}</span>
-                        <div className={`w-14 rounded-lg bg${active?' v':''}`} style={{height:ah,background:'linear-gradient(to top, #059669, #34d399)',transitionDelay:active?'0.3s':'0s'}}/>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-xs font-medium t3">{bL||before}</span>
-                        <div className={`w-14 rounded-lg bg${active?' v':''}`} style={{height:bh,background:'var(--bdr)',transitionDelay:active?'0s':'0s'}}/>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    /* ===== SECTION TITLE ===== */
-    function ST({title,subtitle}){
-        const[r,iv]=useIV();
-        return (
-            <div ref={r} className={`af${iv?' v':''} text-center mb-16`}>
-                <h2 className="text-3xl md:text-4xl font-bold t1 mb-4">{title}</h2>
-                {subtitle&&<p className="t2 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>}
-                <div className="w-12 h-0.5 mx-auto mt-6 rounded-full" style={{background:'linear-gradient(90deg, transparent, var(--acc), transparent)'}}/>
-            </div>
-        );
-    }
-
-    /* ===== NAVBAR ===== */
-    function Nav(){
-        const sc=useSc();
-        const{theme,toggle}=useTheme();
-        const[mob,setMob]=React.useState(false);
-        const links=[{id:'about',l:'Обо мне'},{id:'impact',l:'Результаты'},{id:'cases',l:'Кейсы'},{id:'skills',l:'Навыки'},{id:'workflow',l:'Процесс'},{id:'exp',l:'Опыт'},{id:'contact',l:'Контакт'}];
-        const ns={background:sc>50?'var(--bg2)':'transparent',backdropFilter:sc>50?'blur(20px)':'none',borderBottom:sc>50?'1px solid var(--bdr)':'1px solid transparent'};
-        return (
-            <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={ns}>
-                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <a href="#" className="t1 font-bold text-lg tracking-tight">В.Слащевский</a>
-                    <div className="hidden lg:flex items-center gap-8">{links.map(l=><a key={l.id} href={`#${l.id}`} className="text-sm t2 hover:t1 transition-colors">{l.l}</a>)}</div>
-                    <div className="flex items-center gap-3">
-                        <button onClick={toggle} className="theme-btn" aria-label="Toggle theme">{theme==='dark'?<Ic n="sun" s={16}/>:<Ic n="moon" s={16}/>}</button>
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="hidden md:inline-flex bp text-xs py-2.5 px-5"><Ic n="send" s={14}/>Написать в Telegram</a>
-                        <button onClick={()=>setMob(!mob)} className="lg:hidden t2 hover:t1 p-1">{mob?<Ic n="x"/>:<Ic n="menu"/>}</button>
-                    </div>
-                </div>
-                <div className={`mm${mob?' open':''} lg:hidden`}>
-                    <div className="flex flex-col items-center justify-center h-full gap-8">
-                        {links.map(l=><a key={l.id} href={`#${l.id}`} onClick={()=>setMob(false)} className="text-xl t2 hover:t1 transition-colors">{l.l}</a>)}
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="bp mt-4"><Ic n="send" s={16}/>Написать в Telegram</a>
-                    </div>
-                </div>
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="header-bar flex items-center justify-between py-3.5 rounded-b-2xl" style="background:rgba(5,5,5,.82);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.05);padding-left:20px;padding-right:20px">
+            <a href="#" class="text-sm font-bold tracking-tight text-white">В. Слащевский</a>
+            <nav class="hidden md:flex items-center gap-7">
+                <a href="#about" class="nav-link text-sm">Обо мне</a>
+                <a href="#case" class="nav-link text-sm">Кейс</a>
+                <a href="#expertise" class="nav-link text-sm">Экспертиза</a>
+                <a href="#experience" class="nav-link text-sm">Опыт</a>
+                <a href="#contact" class="nav-link text-sm">Контакт</a>
+                <button class="theme-btn" id="themeToggleDesktop"><i data-lucide="moon" class="w-[18px] h-[18px] dk-ico"></i><i data-lucide="sun" class="w-[18px] h-[18px] lt-ico" style="display:none"></i></button>
+                <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-5 py-2.5 rounded-xl text-xs font-semibold inline-flex items-center gap-2"><i data-lucide="send" class="w-3.5 h-3.5"></i> Связаться</a>
             </nav>
-        );
-    }
+            <div class="flex items-center gap-2 md:hidden">
+                <button class="theme-btn" id="themeToggleMobile"><i data-lucide="moon" class="w-4 h-4 dk-ico"></i><i data-lucide="sun" class="w-4 h-4 lt-ico" style="display:none"></i></button>
+                <button id="menuBtn" class="w-9 h-9 flex items-center justify-center rounded-xl text-neutral-400" style="background:rgba(255,255,255,.05)"><i data-lucide="menu" class="w-5 h-5"></i></button>
+            </div>
+        </div>
+        <div class="mobile-menu md:hidden" id="mobileMenu">
+            <div class="mobile-bar py-4 flex flex-col gap-1" style="background:rgba(5,5,5,.92);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.05);border-top:none;border-radius:0 0 16px 16px;padding:16px 20px">
+                <a href="#about" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Обо мне</a>
+                <a href="#case" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Кейс</a>
+                <a href="#expertise" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Экспертиза</a>
+                <a href="#experience" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Опыт</a>
+                <a href="#contact" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Контакт</a>
+                <div class="pt-3 mt-2" style="border-top:1px solid rgba(255,255,255,.05)">
+                    <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-5 py-3 rounded-xl text-sm font-semibold inline-flex items-center justify-center gap-2.5 w-full"><i data-lucide="send" class="w-4 h-4"></i> Связаться в Telegram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-    /* ===== HERO ===== */
-    function Hero(){
-        const[r,iv]=useIV();
-        const areas=[
-            {icon:'trend',title:'Рост выручки и стабильности',d:'Увеличение доходности проектов за счёт системного подхода к операциям и аналитике'},
-            {icon:'layers',title:'Построение систем и процессов',d:'Выстраивание процессов с нуля, создание порядка из хаоса, документирование'},
-            {icon:'target',title:'Сквозная аналитика и контроль ROMI',d:'Внедрение единой системы метрик, UTM-регламент, прозрачность по всем каналам'},
-            {icon:'zap',title:'Автоматизация автоворонок',d:'Создание и стабилизация автоворонок на GetCourse, Telegram, e-mail'},
-            {icon:'bar',title:'Рост конверсий',d:'Оптимизация лендингов, A/B тестирование, работа с офферами и связками'},
-            {icon:'wf',title:'Оптимизация клиентского пути',d:'Улучшение каждого касания, устранение потерь, повышение доходимости'},
-            {icon:'shield',title:'Устранение технического хаоса',d:'Стабилизация инфраструктуры, исправление интеграций, надёжность систем'}
-        ];
-        const ls={opacity:iv?1:0,transform:iv?'none':'translateY(30px)',transition:'opacity .8s ease, transform .8s ease'};
-        return (
-            <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-24 px-6 overflow-hidden">
-                <div className="hero-mesh"/>
-                <div ref={r} className="max-w-7xl mx-auto w-full relative z-10 hg" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'60px',alignItems:'center'}}>
-                    <div style={ls}>
-                        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
-                            <div className="w-2 h-2 rounded-full bg-em-400" style={{boxShadow:'0 0 8px #10b981'}}/>
-                            <span className="text-xs t2 font-medium">EdTech / Digital Projects</span>
-                        </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold t1 leading-tight mb-4 tracking-tight">Владислав<br/>Слащевский</h1>
-                        <p className="text-lg md:text-xl ac font-medium mb-6">Операционный и технический специалист</p>
-                        <p className="text-lg md:text-xl t2 font-medium mb-4 leading-relaxed" style={{fontStyle:'italic'}}>&laquo;Выстраиваю системы, аналитику и процессы для онлайн-бизнеса&raquo;</p>
-                        <p className="text-sm md:text-base t2 mb-3 leading-relaxed max-w-lg">Превращаю хаос в управляемую систему и помогаю онлайн-проектам расти за счёт аналитики, автоматизации и выстроенных процессов.</p>
-                        <p className="text-sm t3 mb-8">4+ года опыта в операционке, аналитике, автоворонках и технической инфраструктуре онлайн-проектов.</p>
-                        <div className="flex flex-wrap gap-3">
-                            <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb"><Ic n="send" s={16}/>Написать в Telegram</a>
-                            <a href="https://t.me/" target="_blank" rel="noopener" className="bs"><Ic n="cal" s={16}/>Назначить собеседование</a>
-                            <button onClick={()=>toast('CV будет доступен по запросу')} className="bs"><Ic n="dl" s={16}/>Скачать CV</button>
-                        </div>
-                    </div>
-                    <div className="hd" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
-                        {areas.map((a,i)=>(
-                            <div key={i} className="glass ec rounded-2xl p-4 md:p-5" style={{opacity:iv?1:0,transform:iv?'none':'translateY(20px)',transition:`opacity .6s ease ${i*0.08}s, transform .6s ease ${i*0.08}s`}}>
-                                <div className="abg w-9 h-9 rounded-lg flex items-center justify-center mb-3"><Ic n={a.icon} s={16}/></div>
-                                <h3 className="text-sm font-semibold t1 mb-1.5 leading-snug">{a.title}</h3>
-                                <p className="text-xs t3 leading-relaxed">{a.d}</p>
-                            </div>
-                        ))}
+<section class="min-h-screen flex items-center relative overflow-hidden">
+    <canvas id="particles"></canvas>
+    <div class="grid-bg absolute inset-0 pointer-events-none"></div>
+    <div class="absolute top-1/4 left-[10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-[5%] w-[400px] h-[400px] bg-emerald-500/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full py-28 lg:py-0 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+                <div class="anim" style="transition-delay:0ms">
+                    <div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-8"></div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>
+                    <p class="text-lg sm:text-xl text-emerald-400 font-medium mb-5 tracking-tight">Операционный / Project Manager<br class="hidden sm:block"> в онлайн-проектах</p>
+                    <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
+                    <p class="text-neutral-500 text-sm leading-relaxed mb-10 max-w-lg">5+ лет опыта в управлении онлайн-проектами, вебинарами, аналитикой, автоворонками и операционными процессами.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-7 py-3.5 rounded-xl text-sm font-medium inline-flex items-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
+                        <a href="#contact" class="btn-s px-7 py-3.5 rounded-xl text-sm font-medium inline-flex items-center gap-2">Пригласить на собеседование</a>
                     </div>
                 </div>
-                <div className="scroll-hint hidden md:flex"><span className="text-xs tracking-widest uppercase t4">Scroll</span><div className="line"/></div>
-            </section>
-        );
+            </div>
+            <div class="hidden lg:block relative h-[560px]" id="heroCards">
+                <div class="hero-card absolute top-0 left-0 w-[260px] glass rounded-2xl p-6 animate-f1"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="folder-kanban" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Управление онлайн-проектами</p><p class="text-xs text-neutral-500 leading-relaxed">Координация, контроль сроков, выстраивание процессов</p></div>
+                <div class="hero-card absolute top-[180px] right-0 w-[250px] glass rounded-2xl p-6 animate-f2"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Аналитика и ROMI</p><p class="text-xs text-neutral-500 leading-relaxed">Сквозная аналитика, UTM, контроль эффективности</p></div>
+                <div class="hero-card absolute bottom-[120px] left-4 w-[255px] glass rounded-2xl p-6 animate-f3"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Воронки и вебинары</p><p class="text-xs text-neutral-500 leading-relaxed">Запуски, автоматизация, удержание аудитории</p></div>
+                <div class="hero-card absolute bottom-0 right-8 w-[245px] glass rounded-2xl p-6 animate-f4"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Оптимизация рекламы</p><p class="text-xs text-neutral-500 leading-relaxed">Аудит кампаний, перераспределение бюджетов</p></div>
+            </div>
+            <div class="lg:hidden grid grid-cols-2 gap-3">
+                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="folder-kanban" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Управление проектами</p><p class="text-[10px] text-neutral-500 leading-relaxed">Координация, процессы</p></div>
+                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Аналитика и ROMI</p><p class="text-[10px] text-neutral-500 leading-relaxed">Сквозная аналитика</p></div>
+                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="radio" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Воронки и вебинары</p><p class="text-[10px] text-neutral-500 leading-relaxed">Запуски, автоматизация</p></div>
+                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="target" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Оптимизация рекламы</p><p class="text-[10px] text-neutral-500 leading-relaxed">Бюджеты, кампании</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section id="about" class="py-24 lg:py-36 relative">
+    <div class="absolute top-0 right-[20%] w-[300px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+        <div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Обо мне</h2></div>
+        <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+            <div class="lg:col-span-3 anim" style="transition-delay:100ms">
+                <p class="text-neutral-200 text-base leading-[1.75] mb-5">Я — Владислав Слащевский, операционный и технический специалист с опытом более 5 лет в онлайн-проектах.</p>
+                <p class="text-neutral-400 text-[15px] leading-[1.75] mb-8">Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения. Умею быстро погружаться в проект, систематизировать хаос и выстраивать понятную структуру работы.</p>
+                <p class="text-neutral-500 text-sm font-medium mb-3">Мой опыт включает:</p>
+                <ul class="space-y-2.5 text-sm text-neutral-400 leading-relaxed">
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>операционное управление командами и проектами</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>аналитику и контроль эффективности процессов</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>работу с вебинарами и комплексными запусками</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>автоматизацию процессов и коммуникаций</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>управление подрядчиками и контроль качества</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>контроль рекламных кампаний и бюджетов</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>внедрение CRM-систем и воронок продаж</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-2 space-y-3 anim" style="transition-delay:250ms">
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Операционное управление</p><p class="text-xs text-neutral-500 leading-relaxed">Координация команд, контроль задач и сроков, систематизация хаоса.</p></div>
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Аналитика и ROMI</p><p class="text-xs text-neutral-500 leading-relaxed">Сквозная аналитика, UTM-системы, контроль рентабельности.</p></div>
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Вебинары и запуски</p><p class="text-xs text-neutral-500 leading-relaxed">Полный цикл: от регистрации до продажи.</p></div>
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Автоматизация процессов</p><p class="text-xs text-neutral-500 leading-relaxed">Автоворонки, email + Telegram, сегментация.</p></div>
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Управление подрядчиками</p><p class="text-xs text-neutral-500 leading-relaxed">Подбор, контроль качества, замена при неэффективности.</p></div>
+                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">CRM и воронки</p><p class="text-xs text-neutral-500 leading-relaxed">Внедрение, настройка логики, интеграция сервисов.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section id="case" class="py-24 lg:py-40 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.015] to-transparent pointer-events-none"></div>
+    <div class="absolute top-[30%] left-[5%] w-[400px] h-[400px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+        <div class="anim mb-16" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Кейс: проект «Элара»</h2><p class="text-neutral-500 text-sm">Декабрь 2025 — апрель 2026</p></div>
+
+        <div class="mb-24">
+            <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Проблемы проекта</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="eye-off" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Аналитика отсутствовала</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не было сквозной аналитики</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>источники путались</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>ROMI невозможно определить</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>партнёрские данные искажали картину</li></ul></div>
+                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="scan-eye" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Вебинары анализировались поверхностно</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не отслеживалась доходимость</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не было аналитики вовлечённости</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>данные терялись через 3 месяца</li></ul></div>
+                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="trending-down" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Холодный трафик работал в минус</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>рекламные кампании убыточны</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Telegram Ads сливали бюджет</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>конверсии 1.6–1.8%</li></ul></div>
+                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:400ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="file-x" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">SEO отсутствовало системно</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>сайт не анализировался</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>ошибки не исправлялись</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>органический трафик не развивался</li></ul></div>
+            </div>
+        </div>
+
+        <div class="mb-24">
+            <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Что было сделано</h3>
+            <div class="space-y-5">
+                <div class="flex gap-5 anim" style="transition-delay:100ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="database" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Аналитика</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>внедрён регламент аналитики</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>настроена UTM-система</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>создана master-таблица</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>автоматизирована логика CRM</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>система фиксации источника</p></div></div></div>
+                <div class="flex gap-5 anim" style="transition-delay:200ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="radio" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Вебинары</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>регламент сбора данных</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>аналитика вовлечённости</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перестроены коммуникации</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшено удержание</p></div></div></div>
+                <div class="flex gap-5 anim" style="transition-delay:300ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="arrow-right-left" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Холодный трафик</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный аудит кампаний</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>отключены убыточные направления</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>заменён подрядчик</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перераспределены бюджеты</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>оптимизированы конверсии</p></div></div></div>
+                <div class="flex gap-5 anim" style="transition-delay:400ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Автоматизация</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переработаны воронки</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>email + Telegram объединены</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сегментация аудитории</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переписаны цепочки писем</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены офферы</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>снижена ручная работа</p></div></div></div>
+                <div class="flex gap-5 anim" style="transition-delay:500ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="search" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">SEO и сайт</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный SEO-аудит</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>работа подрядчиков</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>план развития сайта</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сайт переработан</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены CTA-блоки</p></div></div></div>
+            </div>
+        </div>
+
+        <div class="mb-24 anim" style="transition-delay:100ms">
+            <h3 class="text-xl font-semibold tracking-tight mb-8">Сайт: до и после</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="ba-card ba-before glass rounded-2xl p-6 ch"><span class="ba-label">До</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Сайт не анализировался</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Структура не отвечала задачам</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>CTA не конвертировали</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Логика отсутствовала</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Трафик не развивался</li></ul></div>
+                <div class="ba-card ba-after glass-e rounded-2xl p-6 ch"><span class="ba-label">После</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Проведён полный аудит</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Сайт переработан</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>CTA усилены</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Логика выстроена</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>План развития органики</li></ul></div>
+            </div>
+        </div>
+
+        <div class="mb-24">
+            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3 anim" style="transition-delay:0ms">Результаты тёплых запусков</h3>
+            <p class="text-neutral-500 text-sm mb-10 anim" style="transition-delay:50ms">Системная переработка вебинаров, воронок и коммуникаций</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:100ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост регистраций</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">713</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="1227" data-decimals="0">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">+72%</p><p class="text-xs text-neutral-500 leading-relaxed">Среднее количество регистраций на мероприятие</p></div>
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:200ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост средней выручки</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-xl font-light">161 771 ₽</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="418426" data-decimals="0" data-format="currency">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">×2.6</p><p class="text-xs text-neutral-500 leading-relaxed">Средняя выручка после оптимизации</p></div>
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:150ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост оплаченных заказов</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">9</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="19" data-decimals="0">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">+111%</p><p class="text-xs text-neutral-500 leading-relaxed">Среднее оплаченных заказов на мероприятие</p></div>
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:250ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Средняя доходимость вебинаров</p><div class="mb-3"><span class="text-5xl sm:text-6xl font-bold text-emerald-400 mg counter" data-target="52.5" data-decimals="1" data-suffix="%">0</span></div><p class="text-xs text-neutral-500 leading-relaxed">Более половины доходят до эфира</p></div>
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:300ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост конверсии лендингов</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">1.6%</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="16.3" data-decimals="1" data-suffix="%">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">×10.2</p><p class="text-xs text-neutral-500 leading-relaxed">После оптимизации кампаний</p></div>
+                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:350ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">ROMI рекламных кампаний</p><div class="flex items-end gap-3 mb-3"><span class="text-red-400 text-2xl font-light">–1.0</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg">+<span class="counter" data-target="4.6" data-decimals="1">0</span></span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">Убыточность → прибыльность</p><p class="text-xs text-neutral-500 leading-relaxed">Переход к прибыльным связкам</p></div>
+            </div>
+        </div>
+
+        <div class="mb-24">
+            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Управленческие решения</h3>
+            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Системная переработка от регистрации до продажи</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="presentation" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка презентаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены смыслы и офферы, улучшено визуальное восприятие</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mouse-pointer-click" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Улучшение CTA-блоков</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены призывы к действию на каждом этапе</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="shopping-cart" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка окна продаж</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшена подача и логика ценового якоря</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mail" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переписывание коммуникаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышена открываемость и кликабельность</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:250ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="layout-template" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Новые лендинги</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшенная структура и конверсионные элементы</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:350ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Удержание аудитории</h4><p class="text-xs text-neutral-500 leading-relaxed">Регулярная коммуникация и рассылки</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="monitor-play" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Техническое проведение эфиров</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышено качество трансляций</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="flame" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Вовлечённость зрителей</h4><p class="text-xs text-neutral-500 leading-relaxed">Интерактивные элементы и структура эфира</p></div>
+                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="git-merge" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Оптимизация пути пользователя</h4><p class="text-xs text-neutral-500 leading-relaxed">Устранены точки потери в воронке</p></div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Решения в холодном трафике</h3>
+            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Аудит, принятие решений, контроль</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="user-x" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Замена подрядчика</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">После выявления убыточных кампаний заменён подрядчик, перераспределены бюджеты.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Прибыльные связки</p></div></div>
+                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="ban" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Остановка Telegram Ads</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">Выявлен отрицательный ROMI. Принято решение о полной остановке.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Бюджет перенаправлен</p></div></div>
+                <div class="glass rounded-2xl p-7 ch sm:col-span-2 anim" style="transition-delay:300ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Перезапуск РСЯ</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-6">Выявлены слабые объявления, переработаны креативы и структура.</p><div class="grid sm:grid-cols-2 gap-6"><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">ROMI</p><p class="text-xl font-bold"><span class="text-neutral-400">0.0</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">1.3</span></p></div><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">Конверсия</p><p class="text-xl font-bold"><span class="text-neutral-400">8.79%</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">18.13%</span></p></div></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section id="expertise" class="py-24 lg:py-36 relative"><div class="absolute bottom-0 left-[30%] w-[350px] h-[350px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Экспертиза</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Операционное управление</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>координация команды</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль задач и сроков</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>работа с подрядчиками</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>внедрение процессов</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>систематизация</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Запуски и вебинары</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>вебинары и марафоны</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>удержание аудитории</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>повышение доходимости</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>техническое проведение</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Аналитика и маркетинг</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>ROMI и рентабельность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сквозная аналитика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>UTM-разметка</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>анализ трафика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>оптимизация кампаний</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Автоматизация</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>GetCourse</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>Telegram-боты</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>email-коммуникации</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>автоворонки</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>CRM-интеграции</li></ul></div><div class="glass rounded-2xl p-6 ch sm:col-span-2 anim" style="transition-delay:250ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Управление экосистемой</h3><p class="text-xs text-neutral-500 mb-4 leading-relaxed">Подбор и настройка инструментов</p><div class="grid grid-cols-2 sm:grid-cols-4 gap-2"><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Notion</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Trello</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ClickUp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Airtable</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">GetCourse</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">amoCRM</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Salebot</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">BotHelp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ChatGPT</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">AI-инструменты</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Аналитика</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Интеграции</p></div></div></div></div></div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section id="experience" class="py-24 lg:py-36 relative"><div class="max-w-7xl mx-auto px-6"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Опыт работы</h2></div><div class="grid sm:grid-cols-2 gap-4"><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="layout-dashboard" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Операционное управление</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>координация команды</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль подрядчиков</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль сроков и качества</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>систематизация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>постановка задач</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="rocket" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Работа с запусками</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>вебинары и марафоны</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>тёплая аудитория</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>повышение доходимости</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>удержание</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>переработка продаж</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:150ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="line-chart" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Аналитика и маркетинг</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>ROMI и рентабельность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сквозная аналитика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>анализ эффективности</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>UTM-системы</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль кампаний</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:250ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="workflow" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Автоматизация</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>автоворонки</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>email-коммуникации</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>Telegram-боты</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>GetCourse</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>CRM-интеграции</li></ul></div></div></div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section class="py-24 lg:py-36 relative"><div class="absolute top-[20%] right-[15%] w-[250px] h-[250px] bg-emerald-500/[0.02] rounded-full blur-[80px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Образование</h2></div><div class="grid sm:grid-cols-3 gap-4"><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="award" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Project Manager</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2024</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Наставничество</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2021</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Капитан GetCourse</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2020</p></div></div></div>
+</section>
+
+<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
+
+<section class="py-24 lg:py-36 relative"><div class="max-w-7xl mx-auto px-6"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Формат сотрудничества</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Формат работы</p><p class="text-[15px] font-semibold text-white leading-snug">Полностью удалённый формат</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Доход</p><p class="text-[15px] font-semibold text-white leading-snug">Открыт к обсуждению условий</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Готовность</p><p class="text-[15px] font-semibold text-white leading-snug">Готов подключиться в течение нескольких дней</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Что важно</p><ul class="space-y-2 text-sm text-neutral-400 mt-3"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>адекватная коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>открытость к инициативам</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>готовность улучшать процессы</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>системный подход</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сильная команда</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>прозрачность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>заинтересованность в развитии</li></ul></div></div></div>
+</section>
+
+<section id="contact" class="py-28 lg:py-40 relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-emerald-500/[0.04] via-transparent to-transparent pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/[0.03] rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+        <div class="anim" style="transition-delay:0ms">
+            <div class="w-12 h-[2px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent mb-10 mx-auto"></div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] mb-6">Готов обсудить проект<br>и усилить бизнес-процессы</h2>
+            <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-4 max-w-xl mx-auto">Если вам нужен специалист, который стабилизирует процессы, выстроит аналитику и улучшит показатели — давайте поговорим.</p>
+            <p class="text-neutral-500 text-sm mb-12">Открыт к новым проектам и предложениям.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-9 py-4 rounded-xl text-sm font-medium inline-flex items-center gap-2.5"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
+                <a href="https://wa.me/375339935426" target="_blank" class="btn-s px-9 py-4 rounded-xl text-sm font-medium inline-flex items-center gap-2.5"><i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-10 text-center border-t border-white/[0.03]"><p class="text-xs text-neutral-700">© 2025 Владислав Слащевский</p></footer>
+
+<script>
+/* 1 — Иконки */
+try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
+
+/* 2 — Тема (localStorage может быть недоступен в srcdoc) */
+(function(){
+    var dk=document.querySelectorAll('.dk-ico'),lt=document.querySelectorAll('.lt-ico');
+    var canStore=false;
+    try{var t='_t';localStorage.setItem(t,'1');localStorage.removeItem(t);canStore=true}catch(e){}
+    function apply(l){
+        document.documentElement.classList.toggle('light',l);
+        for(var i=0;i<dk.length;i++) dk[i].style.display=l?'none':'block';
+        for(var i=0;i<lt.length;i++) lt[i].style.display=l?'block':'none';
+        if(canStore) try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}
     }
+    if(canStore&&localStorage.getItem('theme')==='light') apply(true);
+    document.getElementById('themeToggleDesktop').onclick=function(){apply(!document.documentElement.classList.contains('light'))};
+    document.getElementById('themeToggleMobile').onclick=function(){apply(!document.documentElement.classList.contains('light'))};
+})();
 
-    /* ===== ABOUT ===== */
-    function About(){
-        const[r,iv]=useIV();
-        const items=['Координацию команды','Работу с подрядчиками','Контроль дедлайнов','Техническое сопровождение платформ','Внедрение аналитики','Создание автоворонок','Автоматизацию процессов','Оптимизацию клиентского пути'];
-        return (
-            <section id="about" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <ST title="Обо мне"/>
-                    <div ref={r}>
-                        {[
-                            'Я — Владислав Слащевский, операционный и технический специалист с опытом 4+ лет в онлайн-проектах.',
-                            'Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения.',
-                            'Умею создавать порядок в хаосе, быстро погружаться в продукт и брать ответственность за стабильность бизнес-процессов.'
-                        ].map((txt,i)=>(
-                            <p key={i} className={`af${iv?' v':''} text-base md:text-lg t2 leading-relaxed`} style={{transitionDelay:`${i*0.1}s`}}>{txt}</p>
-                        ))}
-                        <div className={`af${iv?' v':''} mt-10`} style={{transitionDelay:'0.3s'}}>
-                            <h3 className="text-lg font-semibold t1 mb-5">Опыт включает:</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {items.map((item,i)=>(
-                                    <div key={i} className="flex items-center gap-3 glass rounded-xl px-4 py-3">
-                                        <div className="w-5 h-5 rounded-full abg flex items-center justify-center flex-shrink-0"><Ic n="check" s={11}/></div>
-                                        <span className="text-sm t2">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
+/* 3 — Анимации при скролле */
+(function(){
+    var els=document.querySelectorAll('.anim');
+    if('IntersectionObserver' in window){
+        new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
+        },{threshold:.06,rootMargin:'0px 0px -30px 0px'}).observe(els[0]);
     }
+    /* Fallback: если через 1.5с элементы не появились — показать принудительно */
+    setTimeout(function(){
+        document.querySelectorAll('.anim:not(.vis)').forEach(function(el){ el.classList.add('vis'); });
+    },1500);
+})();
 
-    /* ===== IMPACT ===== */
-    function Impact(){
-        const[r,iv]=useIV();
-        const rv=useCnt(418,2000,iv);
-        const cv=useCnt(163,1800,iv);
-        const sv=useCnt(170,1800,iv);
-        const rh=useCnt(52,1600,iv);
-        const metrics=[
-            {l:'Средняя выручка на вебинар',bef:'161 771 ₽',aft:rv.toLocaleString('ru-RU')+' 426 ₽',b:161.8,a:418.4,bL:'161K',aL:'418K'},
-            {l:'Конверсия лендингов',bef:'1.6%',aft:(cv/10).toFixed(1)+'%',b:1.6,a:16.3,bL:'1.6%',aL:'16.3%'},
-            {l:'Доходимость вебинаров',bef:'~30%',aft:rh+'.5%',b:30,a:52.5,bL:'30%',aL:'52.5%'},
-            {l:'Экономия бюджета / мес',bef:'—',aft:sv+' 000+ ₽',b:0,a:170,bL:'0',aL:'170K+'},
-            {l:'ROMI «Свечи»',bef:'0',aft:'1.3',b:0,a:1.3,bL:'0',aL:'1.3'},
-            {l:'Конверсия «Свечи»',bef:'8.79%',aft:'18.13%',b:8.79,a:18.13,bL:'8.8%',aL:'18.1%'}
-        ];
-        return (
-            <section id="impact" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-6xl mx-auto">
-                    <ST title="Бизнес-результаты" subtitle="Реальные метрики из реализованных проектов — без фиктивных данных"/>
-                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {metrics.map((m,i)=>(
-                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
-                                <h4 className="text-sm font-medium t2 mb-1">{m.l}</h4>
-                                <div className="flex items-baseline gap-2 mb-5">
-                                    <span className="text-xs t4 line-through">{m.bef}</span>
-                                    <Ic n="arrow-r" s={12}/>
-                                    <span className="text-xl font-bold gt">{m.aft}</span>
-                                </div>
-                                {m.b>0&&<BarC before={m.b} after={m.a} active={iv} bL={m.bL} aL={m.aL}/>}
-                            </div>
-                        ))}
-                    </div>
-                    <p className={`text-center text-xs t4 mt-8 af${iv?' v':''}`} style={{transitionDelay:'0.5s'}}>Все метрики основаны на реальных данных проектов. Точные цифры доступны по запросу.</p>
-                </div>
-            </section>
-        );
-    }
+/* 4 — Хедер */
+(function(){
+    var h=document.getElementById('header');
+    window.addEventListener('scroll',function(){
+        if(window.scrollY>500){h.classList.remove('opacity-0','-translate-y-full');h.classList.add('opacity-100','translate-y-0')}
+        else{h.classList.add('opacity-0','-translate-y-full');h.classList.remove('opacity-100','translate-y-0')}
+    },{passive:true});
+})();
 
-    /* ===== CASES ===== */
-    function Cases(){
-        const[open,setOpen]=React.useState(null);
-        const[r,iv]=useIV();
-        const cases=[
-            {t:'Внедрение системы аналитики',ic:'db',sm:'Создание единой системы сквозной аналитики с нуля',what:'Отсутствовала сквозная аналитика — данные по разным каналам были разрознены, невозможно было оценить эффективность каждого источника трафика, ROMI не контролировался.',done:'Внедрён UTM-регламент для всех каналов, настроена сквозная аналитика, созданы единые дашборды для команды, исправлена атрибуция конверсий.',res:'Прозрачная аналитика по всем каналам в реальном времени, контроль ROMI стал возможен, система масштабируется на новые проекты.',ms:[{l:'Прозрачность данных',v:'100%'},{l:'Каналов отслеживается',v:'8+'},{l:'Точность атрибуции',v:'95%+'}]},
-            {t:'Оптимизация холодного трафика',ic:'target',sm:'ROMI выведен в плюс, конверсия ×10, экономия 170K+/мес',what:'Холодный трафик работал в минус. Конверсия лендингов составляла 1.6%. Бюджет сливался на неэффективные рекламные кампании без чёткого понимания причин.',done:'Проведён полный анализ рекламных кампаний, отключены убыточные связки, переработаны лендинги, запущено A/B тестирование офферов и креативов.',res:'ROMI выведен в положительную зону. Конверсия лендингов выросла с 1.6% до 16.3%. Ежемесячная экономия бюджета составила 170 000+ ₽.',ms:[{l:'Конверсия',v:'1.6% → 16.3%'},{l:'Экономия',v:'170K+ ₽/мес'},{l:'ROMI',v:'Минус → Плюс'}]},
-            {t:'Оптимизация вебинаров',ic:'trend',sm:'Рост выручки ×2.6, доходимость 52.5%',what:'Низкая доходимость до вебинара, падение вовлечённости аудитории, полное отсутствие аналитики по воронке вебинара — невозможно было понять, где теряются участники.',done:'Внедрена аналитика вебинаров, оптимизированы remind-цепочки, переработан сценарий ведения, запущено A/B тестирование точек выхода.',res:'Доходимость выросла до 52.5%. Выручка с вебинаров увеличилась в 2.6 раза. Значительно выросла вовлечённость аудитории.',ms:[{l:'Доходимость',v:'52.5%'},{l:'Рост выручки',v:'×2.6'},{l:'Вовлечённость',v:'+40%'}]},
-            {t:'Техническая инфраструктура автоворонок',ic:'wf',sm:'Стабилизация 4+ автоворонок, устранение дублирования',what:'Клиенты получали дубли писем, наблюдались сбои синхронизации между платформами, автоворонки работали нестабильно — это напрямую влияло на клиентский опыт.',done:'Проведён полный аудит всех автоворонок, исправлена логика триггеров, настроена корректная синхронизация GetCourse с внешними сервисами, протестирован весь клиентский путь.',res:'Устранены все дубли писем, синхронизация стабилизирована, 4+ автоворонки работают без сбоев, клиентский путь оптимизирован.',ms:[{l:'Воронок стабилизировано',v:'4+'},{l:'Дубли устранены',v:'100%'},{l:'Сбоев после fixes',v:'0'}]},
-            {t:'Оптимизация рекламной кампании «Свечи»',ic:'zap',sm:'ROMI: 0 → 1.3, конверсия: 8.79% → 18.13%',am:true,what:'Рекламная кампания работала в ноль — ROMI составлял 0. Высокая стоимость привлечения клиента (CAC 19 431 ₽) при низкой конверсии.',done:'Глубокий анализ рекламных связок, переработка креативов, сегментация аудитории, оптимизация лендингов и офферов, настройка ретаргетинга.',res:'ROMI вырос с 0 до 1.3. Конверсия увеличилась с 8.79% до 18.13%. CAC снижен с 19 431 ₽ до 15 126 ₽.',ms:[{l:'ROMI',v:'0 → 1.3'},{l:'Конверсия',v:'8.79% → 18.13%'},{l:'CAC',v:'19 431 → 15 126 ₽'}],cd:[{l:'ROMI',b:0,a:1.3},{l:'Conv',b:8.79,a:18.13},{l:'CAC K',b:19.4,a:15.1}]}
-        ];
-        return (
-            <section id="cases" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <ST title="Кейсы" subtitle="Подробный разбор каждого проекта — от проблемы до результата"/>
-                    <div ref={r} className="space-y-4">
-                        {cases.map((c,i)=>{
-                            const isO=open===i;
-                            return (
-                                <div key={i} className={`cc glass rounded-2xl af${iv?' v':''}${isO?' open':''}`} style={{transitionDelay:`${i*0.08}s`}} onClick={()=>setOpen(isO?null:i)}>
-                                    <div className="p-5 md:p-6 flex items-center justify-between">
-                                        <div className="flex items-center gap-4">
-                                            <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${c.am?'bg-amber-500/10 text-amber-400':'abg'}`}><Ic n={c.ic} s={20}/></div>
-                                            <div><h3 className="text-base font-semibold t1">{c.t}</h3><p className="text-sm t3 mt-0.5">{c.sm}</p></div>
-                                        </div>
-                                        <div className="t4 flex-shrink-0 ml-4"><Ic n="chev" className="chv"/></div>
-                                    </div>
-                                    <div className="cb px-5 md:px-6 pb-6"><div>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
-                                                <div className="text-xs font-medium uppercase tracking-wider mb-2" style={{color:'rgba(239,68,68,0.7)'}}>Что было</div>
-                                                <p className="text-sm t2 leading-relaxed">{c.what}</p>
-                                            </div>
-                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
-                                                <div className="text-xs font-medium uppercase tracking-wider mb-2 ac">Что сделано</div>
-                                                <p className="text-sm t2 leading-relaxed">{c.done}</p>
-                                            </div>
-                                            <div className="rounded-xl p-4" style={{background:'var(--card)',border:'1px solid var(--bdr)'}}>
-                                                <div className="text-xs font-medium uppercase tracking-wider mb-2 gt">Результат</div>
-                                                <p className="text-sm t2 leading-relaxed">{c.res}</p>
-                                            </div>
-                                        </div>
-                                        <div className="text-xs t4 font-medium uppercase tracking-wider mb-3">Метрики</div>
-                                        <div className="grid grid-cols-3 gap-3">
-                                            {c.ms.map((m,j)=>(
-                                                <div key={j} className="glass rounded-xl p-4 text-center">
-                                                    <div className={`text-lg font-bold ${c.am?'gtw':'gt'}`}>{m.v}</div>
-                                                    <div className="text-xs t3 mt-1">{m.l}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        {c.cd&&isO&&(
-                                            <div className="mt-5 grid grid-cols-3 gap-3">
-                                                {c.cd.map((d,j)=>(
-                                                    <div key={j} className="glass rounded-xl p-4">
-                                                        <BarC before={d.b} after={d.a} active={isO} bL={d.b.toFixed(1)} aL={d.a.toFixed(1)}/>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div></div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-        );
-    }
+/* 5 — Мобильное меню */
+(function(){
+    var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu'),o=false;
+    b.onclick=function(){o=!o;m.classList.toggle('open',o)};
+    window.closeMobile=function(){o=false;m.classList.remove('open')};
+})();
 
-    /* ===== SKILLS ===== */
-    function Skills(){
-        const[r,iv]=useIV();
-        const cats=[
-            {t:'Операционное управление',ic:'users',items:['Координация команды','Контроль дедлайнов','Построение процессов с нуля','Работа с подрядчиками','Управление задачами','Ответственность за результат']},
-            {t:'Аналитика',ic:'search',items:['Сквозная аналитика','UTM-регламент','Контроль ROMI','Дашборды и отчёты','Data Analysis','A/B тестирование']},
-            {t:'Автоматизация',ic:'zap',items:['GetCourse','Salebot','Senler','BotHelp','Интеграции платформ','Автоматизация процессов']},
-            {t:'Воронки и маркетинг',ic:'wf',items:['Автоворонки','E-mail цепочки','Telegram-воронки','Сегментация аудитории','Оптимизация клиентского пути','Ремаркетинг']},
-            {t:'Техническая инфраструктура',ic:'wrench',items:['Zoom','OnlinePBX','Smsc','OBS','Техническая поддержка платформ','Устранение сбоев']},
-            {t:'Инструменты и инструменты',ic:'settings',items:['Notion','ClickUp','Trello','Airtable','Canva','ChatGPT','Midjourney','amoCRM']}
-        ];
-        return (
-            <section id="skills" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-5xl mx-auto">
-                    <ST title="Экспертиза" subtitle="Карта компетенций — от операционного управления до технической инфраструктуры"/>
-                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {cats.map((cat,ci)=>(
-                            <div key={ci} className={`gs rounded-2xl p-5 af${iv?' v':''}`} style={{transitionDelay:`${ci*0.08}s`}}>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"><Ic n={cat.ic} s={18}/></div>
-                                    <h3 className="text-sm font-semibold t1">{cat.t}</h3>
-                                </div>
-                                <div className="flex flex-wrap gap-2">{cat.items.map((sk,si)=><span key={si} className="sb">{sk}</span>)}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-    }
+/* 6 — Частицы */
+(function(){
+    var c=document.getElementById('particles');if(!c)return;
+    var x=c.getContext('2d'),p=[];
+    function rs(){var s=c.parentElement;c.width=s.offsetWidth;c.height=s.offsetHeight}
+    rs(); window.addEventListener('resize',rs);
+    for(var i=0;i<(window.innerWidth<768?18:40);i++) p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,o:Math.random()*.25+.05});
+    (function f(){x.clearRect(0,0,c.width,c.height);p.forEach(function(v){v.x+=v.vx;v.y+=v.vy;if(v.x<0||v.x>c.width)v.vx*=-1;if(v.y<0||v.y>c.height)v.vy*=-1;x.beginPath();x.arc(v.x,v.y,v.r,0,Math.PI*2);x.fillStyle='rgba(16,185,129,'+v.o+')';x.fill()});requestAnimationFrame(f)})();
+})();
 
-    /* ===== WORKFLOW ===== */
-    function Workflow(){
-        const[r,iv]=useIV();
-        const steps=['Анализ проекта','Систематизация процессов','Оптимизация воронок','Автоматизация','Аналитика и контроль','Масштабирование'];
-        const icons=['search','layers','wf','zap','bar','trend'];
-        return (
-            <section id="workflow" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-5xl mx-auto">
-                    <ST title="Как я работаю"/>
-                    <div ref={r}>
-                        <div className="hidden md:flex items-start">
-                            {steps.map((step,i)=>(
-                                <React.Fragment key={i}>
-                                    <div className={`af${iv?' v':''}`} style={{transitionDelay:`${i*0.12}s`,flex:'0 0 auto'}}>
-                                        <div className="flex flex-col items-center text-center" style={{width:'120px'}}>
-                                            <div className="abg w-14 h-14 rounded-2xl flex items-center justify-center mb-4 relative z-10" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n={icons[i]} s={20}/></div>
-                                            <div className="text-xs t4 font-mono mb-2">0{i+1}</div>
-                                            <div className="text-sm t2 font-medium leading-snug">{step}</div>
-                                        </div>
-                                    </div>
-                                    {i<steps.length-1&&<div className={`wl${iv?' v':''}`} style={{marginTop:'28px',transitionDelay:`${i*0.12+0.2}s`}}><div className="fl"/></div>}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                        <div className="md:hidden space-y-4">
-                            {steps.map((step,i)=>(
-                                <div key={i} className={`flex items-start gap-4 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
-                                    <div className="abg w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n={icons[i]} s={18}/></div>
-                                    <div><div className="text-xs t4 font-mono mb-1">0{i+1}</div><div className="text-sm t2 font-medium">{step}</div></div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-    /* ===== EXPERIENCE ===== */
-    function Exp(){
-        const[r,iv]=useIV();
-        const blocks=[
-            {ic:'trend',t:'Тёплые запуски и вебинары',d:'Организация и проведение вебинаров и марафонов. Оптимизация remind-цепочек, работа со сценариями ведения, внедрение аналитики воронки вебинара от регистрации до продажи.',tags:['Доходимость 52.5%','Выручка ×2.6','Вовлечённость +40%']},
-            {ic:'target',t:'Холодный трафик и оптимизация',d:'Глубокий анализ рекламных кампаний, отключение убыточных связок, переработка лендингов и офферов. Системная работа с конверсией на каждом этапе воронки.',tags:['Конверсия 1.6% → 16.3%','Экономия 170K+/мес','ROMI в плюс']},
-            {ic:'search',t:'Аналитика и контроль ROMI',d:'Внедрение сквозной аналитики с нуля. Создание UTM-регламента, единых дашбордов, исправление атрибуции. Прозрачность данных по 8+ каналам трафика.',tags:['8+ каналов','Точность 95%+','Масштабируемая система']},
-            {ic:'zap',t:'Автоматизация и воронки',d:'Создание и стабилизация 4+ автоворонок на GetCourse. Telegram-воронки через Salebot и Senler. E-mail цепочки, сегментация, устранение дублей.',tags:['4+ автоворонки','0 дубликатов','Стабильная работа']},
-            {ic:'users',t:'Координация и построение процессов',d:'Координация команды, контроль дедлайнов, работа с подрядчиками. Построение процессов с нуля — от хаоса к управляемой системе с документированными регламентами.',tags:['Процессы с нуля','Контроль дедлайнов','Регламенты']},
-            {ic:'shield',t:'Техническая инфраструктура',d:'Техническое сопровождение обучающих платформ. Настройка Zoom, OnlinePBX, Smsc. Устранение технического хаоса, обеспечение стабильности.',tags:['Стабильность систем','Интеграции','Поддержка платформ']}
-        ];
-        return (
-            <section id="exp" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <ST title="Опыт работы" subtitle="Операционное лидерство, системное мышление и подтверждённые бизнес-результаты"/>
-                    <div ref={r} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        {blocks.map((b,i)=>(
-                            <div key={i} className={`gs rounded-2xl p-6 af${iv?' v':''}`} style={{transitionDelay:`${i*0.08}s`}}>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"><Ic n={b.ic} s={18}/></div>
-                                    <h3 className="text-base font-semibold t1">{b.t}</h3>
-                                </div>
-                                <p className="text-sm t2 leading-relaxed mb-4">{b.d}</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {b.tags.map((tag,j)=>(
-                                        <span key={j} className="text-xs font-medium abg rounded-lg px-3 py-1">{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-    /* ===== EDUCATION ===== */
-    function Edu(){
-        const[r,iv]=useIV();
-        const cs=[{t:'Project Manager',o:'GreenFreelance',y:'2024'},{t:'Наставничество студентов',o:'GreenFreelance',y:'2021'},{t:'Капитан GetCourse',o:'GreenFreelance',y:'2020'}];
-        return (
-            <section id="edu" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-3xl mx-auto">
-                    <ST title="Образование и сертификаты"/>
-                    <div ref={r} className="space-y-4">
-                        {cs.map((c,i)=>(
-                            <div key={i} className={`glass rounded-2xl p-5 flex items-center justify-between af${iv?' v':''}`} style={{transitionDelay:`${i*0.1}s`}}>
-                                <div className="flex items-center gap-4">
-                                    <div className="abg w-10 h-10 rounded-xl flex items-center justify-center"><Ic n="award" s={18}/></div>
-                                    <div><h4 className="text-sm font-semibold t1">{c.t}</h4><p className="text-xs t3 mt-0.5">{c.o}</p></div>
-                                </div>
-                                <span className="text-xs t4 font-mono rounded-lg px-3 py-1.5" style={{background:'var(--card)'}}>{c.y}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-    /* ===== CONTACT ===== */
-    function Contact(){
-        const[r,iv]=useIV();
-        return (
-            <section id="contact" className="relative py-24 md:py-32 px-6">
-                <div className="max-w-3xl mx-auto text-center">
-                    <div ref={r} className={`gs rounded-3xl p-10 md:p-16 relative overflow-hidden af${iv?' v':''}`}>
-                        <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 50% at 50% 50%, var(--mesh) 0%, transparent 70%)'}}/>
-                        <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full pointer-events-none" style={{background:'var(--orb1)',filter:'blur(100px)'}}/>
-                        <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full pointer-events-none" style={{background:'var(--orb2)',filter:'blur(100px)'}}/>
-                        <div className="relative z-10">
-                            <div className="abg w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{border:'1px solid rgba(16,185,129,0.15)'}}><Ic n="send" s={24}/></div>
-                            <h2 className="text-2xl md:text-3xl font-bold t1 mb-4 leading-snug">Готов обсудить ваш проект и усилить бизнес-процессы.</h2>
-                            <p className="text-sm t3 mb-8">Свяжитесь со мной удобным способом — отвечу в течение часа.</p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <a href="https://t.me/" target="_blank" rel="noopener" className="bp gb text-base py-3.5 px-8"><Ic n="send" s={18}/>Telegram</a>
-                                <a href="https://wa.me/" target="_blank" rel="noopener" className="bs text-base py-3.5 px-8"><Ic n="phone" s={18}/>WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
-    /* ===== FOOTER ===== */
-    function Foot(){
-        return (
-            <footer className="py-8 px-6" style={{borderTop:'1px solid var(--bdr)'}}>
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                    <span className="text-xs t4">{'\u00a9'} {new Date().getFullYear()} Владислав Слащевский</span>
-                    <div className="flex items-center gap-6">
-                        <a href="https://t.me/" target="_blank" rel="noopener" className="t4 hover:ac transition-colors"><Ic n="send" s={16}/></a>
-                        <a href="https://wa.me/" target="_blank" rel="noopener" className="t4 hover:ac transition-colors"><Ic n="phone" s={16}/></a>
-                    </div>
-                </div>
-            </footer>
-        );
-    }
-
-    /* ===== APP ===== */
-    function App(){
-        const[theme,setTheme]=React.useState(()=>{
-            try{return localStorage.getItem('theme')||'dark';}catch(e){return 'dark';}
-        });
-        React.useEffect(()=>{
-            document.body.classList.toggle('light',theme==='light');
-            try{localStorage.setItem('theme',theme);}catch(e){}
-            const l=document.getElementById('loader');if(l)l.remove();
-        },[theme]);
-        const toggle=()=>setTheme(t=>t==='dark'?'light':'dark');
-        return (
-            <TC.Provider value={{theme,toggle}}>
-                <div className="relative z-10">
-                    <Nav/><Hero/><About/><Impact/><Cases/><Skills/><Workflow/><Exp/><Edu/><Contact/><Foot/>
-                </div>
-            </TC.Provider>
-        );
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
-    </script>
-
-    <script>
-    /* Fast smooth scroll — overrides default CSS smooth scroll */
-    document.addEventListener('click',function(e){
-        var a=e.target.closest('a[href^="#"]');
-        if(!a)return;
-        var href=a.getAttribute('href');
-        if(href==='#')return;
-        e.preventDefault();
-        var target=document.querySelector(href);
-        if(!target)return;
-        var y=target.getBoundingClientRect().top+window.scrollY-80;
-        var start=window.scrollY;
-        var dist=y-start;
-        var dur=Math.min(Math.max(Math.abs(dist)*0.35,200),600);
-        var st=null;
-        function step(ts){
-            if(!st)st=ts;
-            var p=Math.min((ts-st)/dur,1);
-            var ease=1-Math.pow(1-p,3);
-            window.scrollTo(0,start+dist*ease);
-            if(p<1)requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
+/* 7 — Параллакс hero-карточек */
+(function(){
+    var cards=document.querySelectorAll('.hero-card'),box=document.getElementById('heroCards');
+    if(box&&window.innerWidth>=1024) document.addEventListener('mousemove',function(e){
+        var x=(e.clientX/window.innerWidth-.5)*2,y=(e.clientY/window.innerHeight-.5)*2;
+        cards.forEach(function(c,i){var f=(i+1)*6;c.style.marginLeft=x*f+'px';c.style.marginTop=y*f+'px'});
     });
-    </script>
+})();
+
+/* 8 — Счётчики */
+(function(){
+    function fmt(n,d,f){
+        var p=n.toFixed(d||0).split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+        return (f==='currency'?p.join('.')+' ₽':p.join('.'))+(arguments[3]||'');
+    }
+    new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+            if(en.isIntersecting&&!en.target.dataset.c){
+                en.target.dataset.c='1';
+                var t=parseFloat(en.target.dataset.target),d=parseInt(en.target.dataset.decimals)||0,s=en.target.dataset.suffix||'',f=en.target.dataset.format||'',st=performance.now();
+                (function step(now){
+                    var p=Math.min((now-st)/1800,1),c=1-Math.pow(1-p,4);
+                    en.target.textContent=fmt(t*c,d,f)+s;
+                    if(p<1)requestAnimationFrame(step);
+                })(st);
+            }
+        });
+    },{threshold:.3}).observe(document.querySelectorAll('.counter')[0]);
+})();
+
+/* 9 — Гарантийный fallback на случай если всё остальное не сработало */
+setTimeout(function(){
+    document.querySelectorAll('.anim:not(.vis)').forEach(function(el){ el.classList.add('vis'); });
+},3000);
+</script>
 </body>
 </html>
