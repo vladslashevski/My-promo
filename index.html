@@ -636,6 +636,22 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         });
     });
 })();
+    // 3D-наклон заголовка при движении мыши
+const title = document.querySelector('h1');
+if (title && window.innerWidth >= 768) {
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = (e.clientY / window.innerHeight) * 2 - 1;
+        const rotateX = y * 3;    // до 3 градусов
+        const rotateY = x * 3;
+        title.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        title.style.transition = 'transform 0.05s linear';
+    });
+    // возврат при уходе мыши
+    document.addEventListener('mouseleave', () => {
+        title.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+}
 </script>
 </body>
 </html>
