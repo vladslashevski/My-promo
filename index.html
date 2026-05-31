@@ -113,8 +113,6 @@
         @keyframes iconPulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.08); opacity: 1; } }
         [data-lucide] { animation: iconPulse 3s ease-in-out infinite; }
         .btn-p [data-lucide], .btn-s [data-lucide], .nav-link [data-lucide], header [data-lucide] { animation: none; }
-        @keyframes breathe { 0%, 100% { letter-spacing: -0.02em; opacity: 0.95; } 50% { letter-spacing: -0.01em; opacity: 1; } }
-        h1 { animation: breathe 4s ease-in-out infinite; }
         @keyframes gridFade { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.5; } }
         .grid-bg { animation: gridFade 8s ease-in-out infinite; }
         @keyframes metricFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
@@ -144,6 +142,30 @@
         .button--bubble:hover + .button--bubble__effect-container .circle,
         .button--bubble:hover + .button--bubble__effect-container .effect-button { background: #059669; }
         .button--bubble:active + .button--bubble__effect-container { transform: scale(0.95); }
+        /* Премиальный градиентный заголовок с мягким свечением */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.gradient-title {
+    background: linear-gradient(135deg, #ffffff, #10b981, #34d399, #a7f3d0, #10b981);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientFlow 6s ease infinite;
+    text-shadow: 0 0 12px rgba(16,185,129,0.3);
+}
+
+/* Лёгкая адаптация для светлой темы */
+html.light .gradient-title {
+    background: linear-gradient(135deg, #065f46, #10b981, #34d399, #059669);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 8px rgba(16,185,129,0.2);
+}
     </style>
 </head>
 <body class="text-white font-sans antialiased overflow-x-hidden">
@@ -222,8 +244,7 @@
             <div>
                 <div class="anim" style="transition-delay:0ms">
                     <div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-8"></div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>
-                    <p class="text-lg sm:text-xl text-emerald-400 font-medium mb-5 tracking-tight">Операционный / Project Manager<br class="hidden sm:block"> в онлайн-проектах</p>
+<h1 class="gradient-title text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>                    <p class="text-lg sm:text-xl text-emerald-400 font-medium mb-5 tracking-tight">Операционный / Project Manager<br class="hidden sm:block"> в онлайн-проектах</p>
                     <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
                     <p class="text-neutral-500 text-sm leading-relaxed mb-10 max-w-lg">5+ лет опыта в управлении онлайн-проектами, вебинарами, аналитикой, автоворонками и операционными процессами.</p>
                     <div class="flex flex-wrap gap-4">
@@ -635,23 +656,7 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
             btTl.restart();
         });
     });
-})();
-    // 3D-наклон заголовка при движении мыши
-const title = document.querySelector('h1');
-if (title && window.innerWidth >= 768) {
-    document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 2 - 1;
-        const y = (e.clientY / window.innerHeight) * 2 - 1;
-        const rotateX = y * 3;    // до 3 градусов
-        const rotateY = x * 3;
-        title.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        title.style.transition = 'transform 0.05s linear';
-    });
-    // возврат при уходе мыши
-    document.addEventListener('mouseleave', () => {
-        title.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-    });
-}
+})();    
 </script>
 </body>
 </html>
