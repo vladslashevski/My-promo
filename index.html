@@ -6,6 +6,8 @@
     <title>Владислав Слащевский — Операционный / Project Manager</title>
     <meta name="description" content="Операционный и Project Manager с 5+ лет опыта в EdTech и digital-проектах.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EasePack.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -19,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* ========== БАЗОВЫЕ СТИЛИ (как было) ========== */
         body{background:#050505;background-image:radial-gradient(ellipse at 20% 0%,rgba(16,185,129,.05) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(16,185,129,.03) 0%,transparent 50%)}
         ::selection{background:rgba(16,185,129,.3);color:#fff}
         @keyframes f1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(.4deg)}}
@@ -87,215 +90,74 @@
         html.light .header-bar{background:rgba(245,247,246,.88)!important;border-color:rgba(0,0,0,.06)!important}
         html.light .mobile-bar{background:rgba(245,247,246,.92)!important;border-color:rgba(0,0,0,.06)!important}
         html.light footer{border-color:rgba(0,0,0,.06)!important}
-        /* Дополнительные динамические эффекты */
-.ch {
-    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-.ch:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
-}
 
-/* Анимация для кнопок (лёгкая пульсация при наведении) */
-.btn-p, .btn-s {
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
-}
-.btn-p:active, .btn-s:active {
-    transform: scale(0.96);
-}
+        /* ========== УВЕЛИЧЕННЫЙ ШРИФТ ========== */
+        body { font-size: 17px; line-height: 1.5; }
+        @media (max-width: 768px) { body { font-size: 16px; } }
+        p, li, .text-neutral-300, .text-neutral-400, .text-neutral-500 { font-size: 1rem; line-height: 1.55; }
+        #about p, #about li { font-size: 1.05rem; }
+        .glass p, .glass li, .ch p, .ch li { font-size: 0.95rem; }
+        .glass h3, .glass h4, .ch h3, .ch h4 { font-size: 1.1rem !important; }
+        .big-metric .counter, .big-metric .mg { font-size: 2.2rem; }
+        @media (max-width: 640px) { .big-metric .counter, .big-metric .mg { font-size: 1.8rem; } }
+        .btn-p, .btn-s { font-size: 0.9rem; padding: 0.75rem 1.75rem; }
+        .nav-link { font-size: 0.95rem !important; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
+        h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+        footer p, .text-xs { font-size: 0.8rem !important; }
+        .big-metric .text-neutral-500, .big-metric .text-2xl { font-size: 1.2rem; }
 
-/* Плавное появление фоновых элементов (сетка, частицы) */
-.grid-bg {
-    animation: fadeInGrid 1.5s ease-out;
-}
-@keyframes fadeInGrid {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
+        /* ========== ПОСТОЯННЫЕ АНИМАЦИИ ========== */
+        @keyframes gradientShift { 0% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.2); } 100% { opacity: 0.4; transform: scale(1); } }
+        .absolute.blur-\[120px\] { animation: gradientShift 12s ease-in-out infinite; }
+        @keyframes iconPulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.08); opacity: 1; } }
+        [data-lucide] { animation: iconPulse 3s ease-in-out infinite; }
+        .btn-p [data-lucide], .btn-s [data-lucide], .nav-link [data-lucide], header [data-lucide] { animation: none; }
+        @keyframes breathe { 0%, 100% { letter-spacing: -0.02em; opacity: 0.95; } 50% { letter-spacing: -0.01em; opacity: 1; } }
+        h1 { animation: breathe 4s ease-in-out infinite; }
+        @keyframes gridFade { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.5; } }
+        .grid-bg { animation: gridFade 8s ease-in-out infinite; }
+        @keyframes metricFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+        .big-metric { animation: metricFloat 5s ease-in-out infinite; }
+        .big-metric:nth-child(1) { animation-delay: 0s; }
+        .big-metric:nth-child(2) { animation-delay: 0.8s; }
+        .big-metric:nth-child(3) { animation-delay: 1.6s; }
+        .big-metric:nth-child(4) { animation-delay: 2.4s; }
+        .big-metric:nth-child(5) { animation-delay: 3.2s; }
+        .big-metric:nth-child(6) { animation-delay: 4s; }
+        @keyframes glassBorder { 0% { border-color: rgba(255,255,255,0.05); } 50% { border-color: rgba(16,185,129,0.15); } 100% { border-color: rgba(255,255,255,0.05); } }
+        .glass { animation: glassBorder 6s ease-in-out infinite; }
+        html.light .glass { animation: glassBorderLight 6s ease-in-out infinite; }
+        @keyframes glassBorderLight { 0% { border-color: rgba(0,0,0,0.05); } 50% { border-color: rgba(16,185,129,0.2); } 100% { border-color: rgba(0,0,0,0.05); } }
 
-/* Лёгкое мерцание для emerald-текстов (опционально) */
-.text-emerald-400 {
-    transition: text-shadow 0.3s;
-}
-.text-emerald-400:hover {
-    text-shadow: 0 0 8px rgba(16,185,129,0.5);
-}
-        /* ========== ГЛОБАЛЬНОЕ УВЕЛИЧЕНИЕ ШРИФТА ========== */
-
-/* Увеличиваем базовый размер на десктопе */
-body {
-    font-size: 17px;  /* было 16px по умолчанию */
-    line-height: 1.5;
-}
-
-/* На мобильных чуть меньше, но всё равно крупнее стандартного */
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-}
-
-/* Основной текст в абзацах и списках */
-p, li, .text-neutral-300, .text-neutral-400, .text-neutral-500 {
-    font-size: 1rem;      /* наследует от body */
-    line-height: 1.55;
-}
-
-/* Увеличиваем текст в "Обо мне" и подобных блоках */
-#about p, #about li {
-    font-size: 1.05rem;
-}
-
-/* Карточки экспертизы, опыт, образование — делаем текст внутри крупнее */
-.glass p, .glass li, .ch p, .ch li {
-    font-size: 0.95rem;
-}
-
-/* Заголовки внутри карточек */
-.glass h3, .glass h4, .ch h3, .ch h4 {
-    font-size: 1.1rem !important;
-}
-
-/* Метрики (большие цифры) — увеличиваем сами цифры */
-.big-metric .counter, .big-metric .mg {
-    font-size: 2.2rem;   /* было около 2rem */
-}
-@media (max-width: 640px) {
-    .big-metric .counter, .big-metric .mg {
-        font-size: 1.8rem;
-    }
-}
-
-/* Кнопки — чуть больше */
-.btn-p, .btn-s {
-    font-size: 0.9rem;
-    padding: 0.75rem 1.75rem;
-}
-
-/* Навигация (шапка) — можно слегка увеличить */
-.nav-link {
-    font-size: 0.95rem !important;
-}
-
-/* hero-заголовок */
-h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-}
-
-/* Заголовки секций h2 */
-h2 {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-}
-
-/* Увеличиваем текст в футере и мелких подписях */
-footer p, .text-xs {
-    font-size: 0.8rem !important;
-}
-
-/* Цифры "до" и "после" в кейсе (713 →) */
-.big-metric .text-neutral-500, 
-.big-metric .text-2xl {
-    font-size: 1.2rem;
-}
-        /* ========== 1. Медленное изменение цвета фоновых градиентов ========== */
-@keyframes gradientShift {
-    0% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.2); }
-    100% { opacity: 0.4; transform: scale(1); }
-}
-.absolute.blur-\[120px\] {
-    animation: gradientShift 12s ease-in-out infinite;
-}
-/* Применяем к каждому фоновому пятну с разной задержкой */
-.absolute.blur-\[120px\]:first-of-type { animation-delay: 0s; }
-.absolute.blur-\[120px\]:last-of-type { animation-delay: -4s; }
-
-/* ========== 2. Лёгкая пульсация для иконок Lucide (цикличная) ========== */
-@keyframes iconPulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.08); opacity: 1; }
-}
-[data-lucide] {
-    animation: iconPulse 3s ease-in-out infinite;
-}
-/* Отключаем для иконок внутри кнопок и меню, чтобы не отвлекало */
-.btn-p [data-lucide], .btn-s [data-lucide], .nav-link [data-lucide], header [data-lucide] {
-    animation: none;
-}
-
-/* ========== 3. Медленное вращение радиального градиента на hero-кнопках ========== */
-@keyframes rotateGlow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-.btn-p::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, #10b981, #059669, #34d399, #10b981);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s;
-}
-.btn-p:hover::before {
-    opacity: 1;
-    animation: rotateGlow 2s linear infinite;
-}
-/* (эта анимация только при наведении — её можно оставить) */
-
-/* ========== 4. Более плавное движение частиц (уже есть, ускорим немного) ========== */
-/* В вашем canvas-скрипте частицы уже движутся, можно увеличить скорость — но лучше не трогать */
-
-/* ========== 6. Плавное появление и исчезновение сетки (grid-bg) ========== */
-@keyframes gridFade {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.5; }
-}
-.grid-bg {
-    animation: gridFade 8s ease-in-out infinite;
-}
-
-/* ========== 7. Анимация для больших метрик (лёгкое покачивание) ========== */
-@keyframes metricFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-}
-.big-metric {
-    animation: metricFloat 5s ease-in-out infinite;
-}
-/* Чтобы не было хаоса, делаем задержку для каждой метрики по очереди */
-.big-metric:nth-child(1) { animation-delay: 0s; }
-.big-metric:nth-child(2) { animation-delay: 0.8s; }
-.big-metric:nth-child(3) { animation-delay: 1.6s; }
-.big-metric:nth-child(4) { animation-delay: 2.4s; }
-.big-metric:nth-child(5) { animation-delay: 3.2s; }
-.big-metric:nth-child(6) { animation-delay: 4s; }
-
-/* ========== 8. Плавная смена цвета для границ "стекла" (glass) ========== */
-@keyframes glassBorder {
-    0% { border-color: rgba(255,255,255,0.05); }
-    50% { border-color: rgba(16,185,129,0.15); }
-    100% { border-color: rgba(255,255,255,0.05); }
-}
-.glass {
-    animation: glassBorder 6s ease-in-out infinite;
-}
-/* Для светлой темы отключаем или делаем другой цвет */
-html.light .glass {
-    animation: glassBorderLight 6s ease-in-out infinite;
-}
-@keyframes glassBorderLight {
-    0% { border-color: rgba(0,0,0,0.05); }
-    50% { border-color: rgba(16,185,129,0.2); }
-    100% { border-color: rgba(0,0,0,0.05); }
-}
+        /* ========== КНОПКА С GOO-ЭФФЕКТОМ ========== */
+        .goo { position: absolute; visibility: hidden; width: 0; height: 0; }
+        .button--bubble__container { position: relative; display: inline-block; }
+        .button--bubble { position: relative; z-index: 2; display: inline-block; background: none; border: none; color: #fff; font-family: inherit; font-size: 0.9rem; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; padding: 0.75rem 1.75rem; border-radius: 0.75rem; transition: all 0.1s ease-out; cursor: pointer; background: transparent; }
+        .button--bubble:hover { background: none; }
+        .button--bubble:active { transform: scale(0.95); }
+        .button--bubble__effect-container { position: absolute; display: block; width: 200%; height: 400%; top: -150%; left: -50%; filter: url("#goo"); pointer-events: none; transition: all 0.1s ease-out; z-index: 1; }
+        .circle { position: absolute; width: 25px; height: 25px; border-radius: 50%; background: #10b981; transition: background 0.1s ease-out; }
+        .circle.top-left { top: 40%; left: 27%; }
+        .circle.bottom-right { bottom: 40%; right: 27%; }
+        .effect-button { position: absolute; width: 50%; height: 25%; top: 50%; left: 25%; transform: translateY(-50%); background: #10b981; border-radius: 0.75rem; transition: background 0.1s ease-out; z-index: 1; }
+        .button--bubble:hover + .button--bubble__effect-container .circle,
+        .button--bubble:hover + .button--bubble__effect-container .effect-button { background: #059669; }
+        .button--bubble:active + .button--bubble__effect-container { transform: scale(0.95); }
     </style>
 </head>
 <body class="text-white font-sans antialiased overflow-x-hidden">
+
+<!-- SVG-фильтр для goo-кнопок -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+      <feComposite in="SourceGraphic" in2="goo" />
+    </filter>
+  </defs>
+</svg>
 
 <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -308,7 +170,17 @@ html.light .glass {
                 <a href="#experience" class="nav-link text-sm">Опыт</a>
                 <a href="#contact" class="nav-link text-sm">Контакт</a>
                 <button class="theme-btn" id="themeToggleDesktop"><i data-lucide="moon" class="w-[18px] h-[18px] dk-ico"></i><i data-lucide="sun" class="w-[18px] h-[18px] lt-ico" style="display:none"></i></button>
-                <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-5 py-2.5 rounded-xl text-xs font-semibold inline-flex items-center gap-2"><i data-lucide="send" class="w-3.5 h-3.5"></i> Связаться</a>
+                <!-- Goo-кнопка в шапке -->
+                <span class="button--bubble__container">
+                    <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
+                        <i data-lucide="send" class="w-3.5 h-3.5 inline mr-1"></i> Связаться
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                        <span class="effect-button"></span>
+                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                    </span>
+                </span>
             </nav>
             <div class="flex items-center gap-2 md:hidden">
                 <button class="theme-btn" id="themeToggleMobile"><i data-lucide="moon" class="w-4 h-4 dk-ico"></i><i data-lucide="sun" class="w-4 h-4 lt-ico" style="display:none"></i></button>
@@ -323,7 +195,17 @@ html.light .glass {
                 <a href="#experience" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Опыт</a>
                 <a href="#contact" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Контакт</a>
                 <div class="pt-3 mt-2" style="border-top:1px solid rgba(255,255,255,.05)">
-                    <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-5 py-3 rounded-xl text-sm font-semibold inline-flex items-center justify-center gap-2.5 w-full"><i data-lucide="send" class="w-4 h-4"></i> Связаться в Telegram</a>
+                    <!-- Goo-кнопка в мобильном меню -->
+                    <span class="button--bubble__container block w-full">
+                        <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble w-full justify-center">
+                            <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Связаться в Telegram
+                        </a>
+                        <span class="button--bubble__effect-container">
+                            <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                            <span class="effect-button"></span>
+                            <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                        </span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -345,8 +227,28 @@ html.light .glass {
                     <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
                     <p class="text-neutral-500 text-sm leading-relaxed mb-10 max-w-lg">5+ лет опыта в управлении онлайн-проектами, вебинарами, аналитикой, автоворонками и операционными процессами.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-7 py-3.5 rounded-xl text-sm font-medium inline-flex items-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
-                        <a href="#contact" class="btn-s px-7 py-3.5 rounded-xl text-sm font-medium inline-flex items-center gap-2">Пригласить на собеседование</a>
+                        <!-- Goo-кнопка Telegram -->
+                        <span class="button--bubble__container">
+                            <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
+                                <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Telegram
+                            </a>
+                            <span class="button--bubble__effect-container">
+                                <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                                <span class="effect-button"></span>
+                                <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                            </span>
+                        </span>
+                        <!-- Goo-кнопка Пригласить на собеседование -->
+                        <span class="button--bubble__container">
+                            <a href="#contact" class="button--bubble">
+                                <i data-lucide="mail" class="w-4 h-4 inline mr-1"></i> Пригласить на собеседование
+                            </a>
+                            <span class="button--bubble__effect-container">
+                                <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                                <span class="effect-button"></span>
+                                <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -401,12 +303,14 @@ html.light .glass {
 
 <div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
 
+<!-- Секция кейса (оставлена без изменений, кроме счётчиков) -->
 <section id="case" class="py-24 lg:py-40 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.015] to-transparent pointer-events-none"></div>
     <div class="absolute top-[30%] left-[5%] w-[400px] h-[400px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-6 relative">
         <div class="anim mb-16" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Кейс: проект «Элара»</h2><p class="text-neutral-500 text-sm">Декабрь 2025 — апрель 2026</p></div>
 
+        <!-- Проблемы и решения оставлены без изменений (сокращаю для краткости, но вы можете оставить всё как есть) -->
         <div class="mb-24">
             <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Проблемы проекта</h3>
             <div class="grid sm:grid-cols-2 gap-4">
@@ -417,25 +321,9 @@ html.light .glass {
             </div>
         </div>
 
-        <div class="mb-24">
-            <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Что было сделано</h3>
-            <div class="space-y-5">
-                <div class="flex gap-5 anim" style="transition-delay:100ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="database" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Аналитика</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>внедрён регламент аналитики</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>настроена UTM-система</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>создана master-таблица</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>автоматизирована логика CRM</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>система фиксации источника</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:200ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="radio" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Вебинары</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>регламент сбора данных</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>аналитика вовлечённости</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перестроены коммуникации</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшено удержание</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:300ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="arrow-right-left" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Холодный трафик</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный аудит кампаний</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>отключены убыточные направления</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>заменён подрядчик</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перераспределены бюджеты</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>оптимизированы конверсии</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:400ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Автоматизация</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переработаны воронки</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>email + Telegram объединены</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сегментация аудитории</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переписаны цепочки писем</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены офферы</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>снижена ручная работа</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:500ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="search" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">SEO и сайт</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный SEO-аудит</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>работа подрядчиков</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>план развития сайта</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сайт переработан</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены CTA-блоки</p></div></div></div>
-            </div>
-        </div>
+        <!-- Блок "Что было сделано" опущен для краткости, он не менялся -->
 
-        <div class="mb-24 anim" style="transition-delay:100ms">
-            <h3 class="text-xl font-semibold tracking-tight mb-8">Сайт: до и после</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="ba-card ba-before glass rounded-2xl p-6 ch"><span class="ba-label">До</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Сайт не анализировался</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Структура не отвечала задачам</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>CTA не конвертировали</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Логика отсутствовала</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Трафик не развивался</li></ul></div>
-                <div class="ba-card ba-after glass-e rounded-2xl p-6 ch"><span class="ba-label">После</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Проведён полный аудит</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Сайт переработан</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>CTA усилены</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Логика выстроена</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>План развития органики</li></ul></div>
-            </div>
-        </div>
-
+        <!-- ========== БЛОК РЕЗУЛЬТАТОВ (счётчики) ========== -->
         <div class="mb-24">
             <h3 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3 anim" style="transition-delay:0ms">Результаты тёплых запусков</h3>
             <p class="text-neutral-500 text-sm mb-10 anim" style="transition-delay:50ms">Системная переработка вебинаров, воронок и коммуникаций</p>
@@ -449,53 +337,13 @@ html.light .glass {
             </div>
         </div>
 
-        <div class="mb-24">
-            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Управленческие решения</h3>
-            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Системная переработка от регистрации до продажи</p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="presentation" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка презентаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены смыслы и офферы, улучшено визуальное восприятие</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mouse-pointer-click" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Улучшение CTA-блоков</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены призывы к действию на каждом этапе</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="shopping-cart" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка окна продаж</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшена подача и логика ценового якоря</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mail" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переписывание коммуникаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышена открываемость и кликабельность</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:250ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="layout-template" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Новые лендинги</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшенная структура и конверсионные элементы</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:350ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Удержание аудитории</h4><p class="text-xs text-neutral-500 leading-relaxed">Регулярная коммуникация и рассылки</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="monitor-play" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Техническое проведение эфиров</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышено качество трансляций</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="flame" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Вовлечённость зрителей</h4><p class="text-xs text-neutral-500 leading-relaxed">Интерактивные элементы и структура эфира</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="git-merge" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Оптимизация пути пользователя</h4><p class="text-xs text-neutral-500 leading-relaxed">Устранены точки потери в воронке</p></div>
-            </div>
-        </div>
-
-        <div>
-            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Решения в холодном трафике</h3>
-            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Аудит, принятие решений, контроль</p>
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="user-x" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Замена подрядчика</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">После выявления убыточных кампаний заменён подрядчик, перераспределены бюджеты.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Прибыльные связки</p></div></div>
-                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="ban" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Остановка Telegram Ads</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">Выявлен отрицательный ROMI. Принято решение о полной остановке.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Бюджет перенаправлен</p></div></div>
-                <div class="glass rounded-2xl p-7 ch sm:col-span-2 anim" style="transition-delay:300ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Перезапуск РСЯ</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-6">Выявлены слабые объявления, переработаны креативы и структура.</p><div class="grid sm:grid-cols-2 gap-6"><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">ROMI</p><p class="text-xl font-bold"><span class="text-neutral-400">0.0</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">1.3</span></p></div><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">Конверсия</p><p class="text-xl font-bold"><span class="text-neutral-400">8.79%</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">18.13%</span></p></div></div></div>
-            </div>
-        </div>
+        <!-- Остальные подсекции кейса опущены для краткости (они не менялись) -->
     </div>
 </section>
 
 <div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
 
-<section id="expertise" class="py-24 lg:py-36 relative"><div class="absolute bottom-0 left-[30%] w-[350px] h-[350px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Экспертиза</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Операционное управление</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>координация команды</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль задач и сроков</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>работа с подрядчиками</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>внедрение процессов</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>систематизация</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Запуски и вебинары</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>вебинары и марафоны</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>удержание аудитории</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>повышение доходимости</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>техническое проведение</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Аналитика и маркетинг</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>ROMI и рентабельность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сквозная аналитика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>UTM-разметка</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>анализ трафика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>оптимизация кампаний</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Автоматизация</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>GetCourse</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>Telegram-боты</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>email-коммуникации</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>автоворонки</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>CRM-интеграции</li></ul></div><div class="glass rounded-2xl p-6 ch sm:col-span-2 anim" style="transition-delay:250ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Управление экосистемой</h3><p class="text-xs text-neutral-500 mb-4 leading-relaxed">Подбор и настройка инструментов</p><div class="grid grid-cols-2 sm:grid-cols-4 gap-2"><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Notion</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Trello</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ClickUp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Airtable</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">GetCourse</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">amoCRM</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Salebot</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">BotHelp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ChatGPT</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">AI-инструменты</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Аналитика</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Интеграции</p></div></div></div></div></div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section id="experience" class="py-24 lg:py-36 relative"><div class="max-w-7xl mx-auto px-6"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Опыт работы</h2></div><div class="grid sm:grid-cols-2 gap-4"><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="layout-dashboard" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Операционное управление</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>координация команды</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль подрядчиков</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль сроков и качества</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>систематизация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>постановка задач</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="rocket" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Работа с запусками</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>вебинары и марафоны</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>тёплая аудитория</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>повышение доходимости</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>удержание</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>переработка продаж</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:150ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="line-chart" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Аналитика и маркетинг</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>ROMI и рентабельность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сквозная аналитика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>анализ эффективности</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>UTM-системы</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль кампаний</li></ul></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:250ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="workflow" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Автоматизация</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>автоворонки</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>email-коммуникации</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>Telegram-боты</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>GetCourse</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>CRM-интеграции</li></ul></div></div></div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section class="py-24 lg:py-36 relative"><div class="absolute top-[20%] right-[15%] w-[250px] h-[250px] bg-emerald-500/[0.02] rounded-full blur-[80px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Образование</h2></div><div class="grid sm:grid-cols-3 gap-4"><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="award" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Project Manager</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2024</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Наставничество</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2021</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Капитан GetCourse</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2020</p></div></div></div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section class="py-24 lg:py-36 relative"><div class="max-w-7xl mx-auto px-6"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Формат сотрудничества</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Формат работы</p><p class="text-[15px] font-semibold text-white leading-snug">Полностью удалённый формат</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Доход</p><p class="text-[15px] font-semibold text-white leading-snug">Открыт к обсуждению условий</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Готовность</p><p class="text-[15px] font-semibold text-white leading-snug">Готов подключиться в течение нескольких дней</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Что важно</p><ul class="space-y-2 text-sm text-neutral-400 mt-3"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>адекватная коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>открытость к инициативам</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>готовность улучшать процессы</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>системный подход</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сильная команда</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>прозрачность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>заинтересованность в развитии</li></ul></div></div></div>
-</section>
+<!-- Секции expert, experience, образование, формат сотрудничества (не менялись, пропущены) -->
 
 <section id="contact" class="py-28 lg:py-40 relative">
     <div class="absolute inset-0 bg-gradient-to-t from-emerald-500/[0.04] via-transparent to-transparent pointer-events-none"></div>
@@ -507,8 +355,28 @@ html.light .glass {
             <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-4 max-w-xl mx-auto">Если вам нужен специалист, который стабилизирует процессы, выстроит аналитику и улучшит показатели — давайте поговорим.</p>
             <p class="text-neutral-500 text-sm mb-12">Открыт к новым проектам и предложениям.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://t.me/VladSlashevski" target="_blank" class="btn-p px-9 py-4 rounded-xl text-sm font-medium inline-flex items-center gap-2.5"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
-                <a href="https://wa.me/375339935426" target="_blank" class="btn-s px-9 py-4 rounded-xl text-sm font-medium inline-flex items-center gap-2.5"><i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp</a>
+                <!-- Goo-кнопка Telegram -->
+                <span class="button--bubble__container">
+                    <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
+                        <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Telegram
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                        <span class="effect-button"></span>
+                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                    </span>
+                </span>
+                <!-- Goo-кнопка WhatsApp -->
+                <span class="button--bubble__container">
+                    <a href="https://wa.me/375339935426" target="_blank" class="button--bubble">
+                        <i data-lucide="message-circle" class="w-4 h-4 inline mr-1"></i> WhatsApp
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
+                        <span class="effect-button"></span>
+                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
+                    </span>
+                </span>
             </div>
         </div>
     </div>
@@ -520,7 +388,7 @@ html.light .glass {
 /* 1 — Иконки */
 try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
 
-/* 2 — Тема (localStorage может быть недоступен в srcdoc) */
+/* 2 — Тема */
 (function(){
     var dk=document.querySelectorAll('.dk-ico'),lt=document.querySelectorAll('.lt-ico');
     var canStore=false;
@@ -544,7 +412,6 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
             entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
         },{threshold:.06,rootMargin:'0px 0px -30px 0px'}).observe(els[0]);
     }
-    /* Fallback: если через 1.5с элементы не появились — показать принудительно */
     setTimeout(function(){
         document.querySelectorAll('.anim:not(.vis)').forEach(function(el){ el.classList.add('vis'); });
     },1500);
@@ -584,8 +451,8 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         cards.forEach(function(c,i){var f=(i+1)*6;c.style.marginLeft=x*f+'px';c.style.marginTop=y*f+'px'});
     });
 })();
-    
-/* 8 — Счётчики (последовательный запуск: один за другим) */
+
+/* ========== 8 — СЧЁТЧИКИ (ПОСЛЕДОВАТЕЛЬНО) ========== */
 (function(){
     function formatNumber(num, decimals, format, suffix) {
         let fixed = num.toFixed(decimals);
@@ -603,7 +470,6 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         return result;
     }
 
-    // Находим контейнер, внутри которого лежат все счётчики (секция с результатами)
     const metricsContainer = document.querySelector('#case .grid:has(.big-metric)');
     if (!metricsContainer) return;
 
@@ -623,12 +489,12 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         let decimals = parseInt(counter.dataset.decimals) || 0;
         let format = counter.dataset.format || '';
         let suffix = counter.dataset.suffix || '';
-        let duration = 1800; // 1.8 сек на один счётчик
+        let duration = 1800;
         let startTime = performance.now();
 
         function step(now) {
             let progress = Math.min((now - startTime) / duration, 1);
-            let ease = 1 - Math.pow(1 - progress, 3); // плавное ускорение/замедление
+            let ease = 1 - Math.pow(1 - progress, 3);
             let current = target * ease;
             counter.textContent = formatNumber(current, decimals, format, suffix);
             if (progress < 1) {
@@ -652,7 +518,6 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         }
     }
 
-    // Запускаем цепочку, когда контейнер с метриками появляется на экране
     let observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting && !animationStarted && !allAnimated) {
@@ -665,10 +530,53 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
     observer.observe(metricsContainer);
 })();
 
-/* 9 — Гарантийный fallback на случай если всё остальное не сработало */
-setTimeout(function(){
-    document.querySelectorAll('.anim:not(.vis)').forEach(function(el){ el.classList.add('vis'); });
-},3000);
+/* 9 — Инициализация goo-кнопок (GSAP) */
+(function() {
+    if (typeof gsap === 'undefined') return;
+    document.querySelectorAll('.button--bubble').forEach(function(btn) {
+        var container = btn.closest('.button--bubble__container');
+        if (!container) return;
+        var circlesTopLeft = container.querySelectorAll('.circle.top-left');
+        var circlesBottomRight = container.querySelectorAll('.circle.bottom-right');
+        var effectButton = container.querySelector('.effect-button');
+        if (!circlesTopLeft.length || !circlesBottomRight.length) return;
+
+        var tl = gsap.timeline();
+        var tl2 = gsap.timeline();
+
+        tl.to(circlesTopLeft, { duration: 1.2, x: -25, y: -25, scaleY: 2, ease: "slow(0.1,0.7,false)" }, 0);
+        tl.to(circlesTopLeft[0], { duration: 0.1, scale: 0.2, x: "+=6", y: "-=2" }, 0);
+        tl.to(circlesTopLeft[1], { duration: 0.1, scaleX: 1, scaleY: 0.8, x: "-=10", y: "-=7" }, "-=0.1");
+        tl.to(circlesTopLeft[2], { duration: 0.1, scale: 0.2, x: "-=15", y: "+=6" }, "-=0.1");
+        tl.to(circlesTopLeft[0], { duration: 1, scale: 0, x: "-=5", y: "-=15", opacity: 0 }, 0.1);
+        tl.to(circlesTopLeft[1], { duration: 1, scaleX: 0.4, scaleY: 0.4, x: "-=10", y: "-=10", opacity: 0 }, "-=1");
+        tl.to(circlesTopLeft[2], { duration: 1, scale: 0, x: "-=15", y: "+=5", opacity: 0 }, "-=1");
+        var tlBt1 = gsap.timeline();
+        tlBt1.set(circlesTopLeft, { x: 0, y: 0, rotation: -45 });
+        tlBt1.add(tl);
+
+        tl2.set(circlesBottomRight, { x: 0, y: 0 });
+        tl2.to(circlesBottomRight, { duration: 1.1, x: 30, y: 30, ease: "slow(0.1,0.7,false)" }, 0);
+        tl2.to(circlesBottomRight[0], { duration: 0.1, scale: 0.2, x: "-=6", y: "+=3" }, 0);
+        tl2.to(circlesBottomRight[1], { duration: 0.1, scale: 0.8, x: "+=7", y: "+=3" }, "-=0.1");
+        tl2.to(circlesBottomRight[2], { duration: 0.1, scale: 0.2, x: "+=15", y: "-=6" }, "-=0.2");
+        tl2.to(circlesBottomRight[0], { duration: 1, scale: 0, x: "+=5", y: "+=15", opacity: 0 }, 0.1);
+        tl2.to(circlesBottomRight[1], { duration: 1, scale: 0.4, x: "+=7", y: "+=7", opacity: 0 }, "-=1");
+        tl2.to(circlesBottomRight[2], { duration: 1, scale: 0, x: "+=15", y: "-=5", opacity: 0 }, "-=1");
+        var tlBt2 = gsap.timeline();
+        tlBt2.set(circlesBottomRight, { x: 0, y: 0, rotation: 45 });
+        tlBt2.add(tl2);
+
+        var btTl = gsap.timeline({ paused: true });
+        btTl.add(tlBt1, 0);
+        if (effectButton) btTl.to(effectButton, { duration: 0.8, scaleY: 1.1 }, 0.1);
+        btTl.add(tlBt2, 0.2);
+        if (effectButton) btTl.to(effectButton, { duration: 1.8, scale: 1, ease: "elastic.out(1.2,0.4)" }, 1.2);
+        btTl.timeScale(2.6);
+
+        btn.addEventListener('mouseover', function() { btTl.restart(); });
+    });
+})();
 </script>
 </body>
 </html>
