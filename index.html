@@ -142,29 +142,25 @@
         .button--bubble:hover + .button--bubble__effect-container .circle,
         .button--bubble:hover + .button--bubble__effect-container .effect-button { background: #059669; }
         .button--bubble:active + .button--bubble__effect-container { transform: scale(0.95); }
-        /* Премиальный градиентный заголовок с мягким свечением */
-@keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+        
+        /* Премиальный заголовок — статика + лёгкое свечение при наведении */
+.premium-title {
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+    display: inline-block;
 }
-.gradient-title {
-    background: linear-gradient(135deg, #ffffff, #10b981, #34d399, #a7f3d0, #10b981);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientFlow 6s ease infinite;
-    text-shadow: 0 0 12px rgba(16,185,129,0.3);
+.premium-title:hover {
+    text-shadow: 0 0 12px rgba(16,185,129,0.5);
+    transform: translateY(-1px);
 }
-
-/* Лёгкая адаптация для светлой темы */
-html.light .gradient-title {
-    background: linear-gradient(135deg, #065f46, #10b981, #34d399, #059669);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: 0 0 8px rgba(16,185,129,0.2);
+/* Для светлой темы — тёмный текст */
+html.light .premium-title {
+    color: #111827;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+html.light .premium-title:hover {
+    text-shadow: 0 0 8px rgba(16,185,129,0.4);
 }
     </style>
 </head>
@@ -244,8 +240,7 @@ html.light .gradient-title {
             <div>
                 <div class="anim" style="transition-delay:0ms">
                     <div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-8"></div>
-<h1 class="gradient-title text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>                    <p class="text-lg sm:text-xl text-emerald-400 font-medium mb-5 tracking-tight">Операционный / Project Manager<br class="hidden sm:block"> в онлайн-проектах</p>
-                    <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
+<h1 class="premium-title text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>                    <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
                     <p class="text-neutral-500 text-sm leading-relaxed mb-10 max-w-lg">5+ лет опыта в управлении онлайн-проектами, вебинарами, аналитикой, автоворонками и операционными процессами.</p>
                     <div class="flex flex-wrap gap-4">
                         <!-- Goo-кнопка Telegram -->
