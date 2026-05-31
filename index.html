@@ -87,6 +87,39 @@
         html.light .header-bar{background:rgba(245,247,246,.88)!important;border-color:rgba(0,0,0,.06)!important}
         html.light .mobile-bar{background:rgba(245,247,246,.92)!important;border-color:rgba(0,0,0,.06)!important}
         html.light footer{border-color:rgba(0,0,0,.06)!important}
+        /* Дополнительные динамические эффекты */
+.ch {
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.ch:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+}
+
+/* Анимация для кнопок (лёгкая пульсация при наведении) */
+.btn-p, .btn-s {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+}
+.btn-p:active, .btn-s:active {
+    transform: scale(0.96);
+}
+
+/* Плавное появление фоновых элементов (сетка, частицы) */
+.grid-bg {
+    animation: fadeInGrid 1.5s ease-out;
+}
+@keyframes fadeInGrid {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Лёгкое мерцание для emerald-текстов (опционально) */
+.text-emerald-400 {
+    transition: text-shadow 0.3s;
+}
+.text-emerald-400:hover {
+    text-shadow: 0 0 8px rgba(16,185,129,0.5);
+}
     </style>
 </head>
 <body class="text-white font-sans antialiased overflow-x-hidden">
@@ -378,26 +411,54 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
         cards.forEach(function(c,i){var f=(i+1)*6;c.style.marginLeft=x*f+'px';c.style.marginTop=y*f+'px'});
     });
 })();
-
-/* 8 — Счётчики */
+    
+/* 8 — Счётчики (для всех элементов) */
 (function(){
-    function fmt(n,d,f){
-        var p=n.toFixed(d||0).split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ');
-        return (f==='currency'?p.join('.')+' ₽':p.join('.'))+(arguments[3]||'');
+    function formatNumber(num, decimals, format, suffix) {
+        let fixed = num.toFixed(decimals);
+        if (format === 'currency') {
+            let parts = fixed.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            return parts[0] + (decimals > 0 ? '.' + parts[1] : '') + ' ₽';
+        }
+        let parts = fixed.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        return parts[0] + (decimals > 0 ? '.' + parts[1] : '') + (suffix || '');
     }
-    new IntersectionObserver(function(entries){
-        entries.forEach(function(en){
-            if(en.isIntersecting&&!en.target.dataset.c){
-                en.target.dataset.c='1';
-                var t=parseFloat(en.target.dataset.target),d=parseInt(en.target.dataset.decimals)||0,s=en.target.dataset.suffix||'',f=en.target.dataset.format||'',st=performance.now();
-                (function step(now){
-                    var p=Math.min((now-st)/1800,1),c=1-Math.pow(1-p,4);
-                    en.target.textContent=fmt(t*c,d,f)+s;
-                    if(p<1)requestAnimationFrame(step);
-                })(st);
+
+    let counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+
+    let observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = '1';
+                let target = parseFloat(entry.target.dataset.target);
+                let decimals = parseInt(entry.target.dataset.decimals) || 0;
+                let format = entry.target.dataset.format || '';
+                let suffix = entry.target.dataset.suffix || '';
+                let duration = 1800; // мс
+                let startTime = performance.now();
+                let startValue = 0;
+
+                function step(now) {
+                    let progress = Math.min((now - startTime) / duration, 1);
+                    // плавная кривая easeOutCubic
+                    let ease = 1 - Math.pow(1 - progress, 3);
+                    let current = target * ease;
+                    entry.target.textContent = formatNumber(current, decimals, format, suffix);
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        entry.target.textContent = formatNumber(target, decimals, format, suffix);
+                    }
+                }
+                requestAnimationFrame(step);
             }
         });
-    },{threshold:.3}).observe(document.querySelectorAll('.counter')[0]);
+    }, { threshold: 0.3 });
+
+    counters.forEach(counter => observer.observe(counter));
 })();
 
 /* 9 — Гарантийный fallback на случай если всё остальное не сработало */
