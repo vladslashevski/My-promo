@@ -120,6 +120,188 @@
 .text-emerald-400:hover {
     text-shadow: 0 0 8px rgba(16,185,129,0.5);
 }
+        /* ========== ГЛОБАЛЬНОЕ УВЕЛИЧЕНИЕ ШРИФТА ========== */
+
+/* Увеличиваем базовый размер на десктопе */
+body {
+    font-size: 17px;  /* было 16px по умолчанию */
+    line-height: 1.5;
+}
+
+/* На мобильных чуть меньше, но всё равно крупнее стандартного */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Основной текст в абзацах и списках */
+p, li, .text-neutral-300, .text-neutral-400, .text-neutral-500 {
+    font-size: 1rem;      /* наследует от body */
+    line-height: 1.55;
+}
+
+/* Увеличиваем текст в "Обо мне" и подобных блоках */
+#about p, #about li {
+    font-size: 1.05rem;
+}
+
+/* Карточки экспертизы, опыт, образование — делаем текст внутри крупнее */
+.glass p, .glass li, .ch p, .ch li {
+    font-size: 0.95rem;
+}
+
+/* Заголовки внутри карточек */
+.glass h3, .glass h4, .ch h3, .ch h4 {
+    font-size: 1.1rem !important;
+}
+
+/* Метрики (большие цифры) — увеличиваем сами цифры */
+.big-metric .counter, .big-metric .mg {
+    font-size: 2.2rem;   /* было около 2rem */
+}
+@media (max-width: 640px) {
+    .big-metric .counter, .big-metric .mg {
+        font-size: 1.8rem;
+    }
+}
+
+/* Кнопки — чуть больше */
+.btn-p, .btn-s {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+}
+
+/* Навигация (шапка) — можно слегка увеличить */
+.nav-link {
+    font-size: 0.95rem !important;
+}
+
+/* hero-заголовок */
+h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+/* Заголовки секций h2 */
+h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+/* Увеличиваем текст в футере и мелких подписях */
+footer p, .text-xs {
+    font-size: 0.8rem !important;
+}
+
+/* Цифры "до" и "после" в кейсе (713 →) */
+.big-metric .text-neutral-500, 
+.big-metric .text-2xl {
+    font-size: 1.2rem;
+}
+        /* ========== 1. Медленное изменение цвета фоновых градиентов ========== */
+@keyframes gradientShift {
+    0% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0.4; transform: scale(1); }
+}
+.absolute.blur-\[120px\] {
+    animation: gradientShift 12s ease-in-out infinite;
+}
+/* Применяем к каждому фоновому пятну с разной задержкой */
+.absolute.blur-\[120px\]:first-of-type { animation-delay: 0s; }
+.absolute.blur-\[120px\]:last-of-type { animation-delay: -4s; }
+
+/* ========== 2. Лёгкая пульсация для иконок Lucide (цикличная) ========== */
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+[data-lucide] {
+    animation: iconPulse 3s ease-in-out infinite;
+}
+/* Отключаем для иконок внутри кнопок и меню, чтобы не отвлекало */
+.btn-p [data-lucide], .btn-s [data-lucide], .nav-link [data-lucide], header [data-lucide] {
+    animation: none;
+}
+
+/* ========== 3. Медленное вращение радиального градиента на hero-кнопках ========== */
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.btn-p::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #10b981, #059669, #34d399, #10b981);
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s;
+}
+.btn-p:hover::before {
+    opacity: 1;
+    animation: rotateGlow 2s linear infinite;
+}
+/* (эта анимация только при наведении — её можно оставить) */
+
+/* ========== 4. Более плавное движение частиц (уже есть, ускорим немного) ========== */
+/* В вашем canvas-скрипте частицы уже движутся, можно увеличить скорость — но лучше не трогать */
+
+/* ========== 5. «Дыхание» для текста в hero-заголовке ========== */
+@keyframes breathe {
+    0%, 100% { letter-spacing: -0.02em; opacity: 0.95; }
+    50% { letter-spacing: -0.01em; opacity: 1; }
+}
+h1 {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+/* ========== 6. Плавное появление и исчезновение сетки (grid-bg) ========== */
+@keyframes gridFade {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+}
+.grid-bg {
+    animation: gridFade 8s ease-in-out infinite;
+}
+
+/* ========== 7. Анимация для больших метрик (лёгкое покачивание) ========== */
+@keyframes metricFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+.big-metric {
+    animation: metricFloat 5s ease-in-out infinite;
+}
+/* Чтобы не было хаоса, делаем задержку для каждой метрики по очереди */
+.big-metric:nth-child(1) { animation-delay: 0s; }
+.big-metric:nth-child(2) { animation-delay: 0.8s; }
+.big-metric:nth-child(3) { animation-delay: 1.6s; }
+.big-metric:nth-child(4) { animation-delay: 2.4s; }
+.big-metric:nth-child(5) { animation-delay: 3.2s; }
+.big-metric:nth-child(6) { animation-delay: 4s; }
+
+/* ========== 8. Плавная смена цвета для границ "стекла" (glass) ========== */
+@keyframes glassBorder {
+    0% { border-color: rgba(255,255,255,0.05); }
+    50% { border-color: rgba(16,185,129,0.15); }
+    100% { border-color: rgba(255,255,255,0.05); }
+}
+.glass {
+    animation: glassBorder 6s ease-in-out infinite;
+}
+/* Для светлой темы отключаем или делаем другой цвет */
+html.light .glass {
+    animation: glassBorderLight 6s ease-in-out infinite;
+}
+@keyframes glassBorderLight {
+    0% { border-color: rgba(0,0,0,0.05); }
+    50% { border-color: rgba(16,185,129,0.2); }
+    100% { border-color: rgba(0,0,0,0.05); }
+}
     </style>
 </head>
 <body class="text-white font-sans antialiased overflow-x-hidden">
@@ -412,18 +594,26 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
     });
 })();
     
-/* 8 — Счётчики (для всех элементов) */
+/* 8 — Счётчики (все элементы, исправлен перенос валюты) */
 (function(){
     function formatNumber(num, decimals, format, suffix) {
         let fixed = num.toFixed(decimals);
-        if (format === 'currency') {
-            let parts = fixed.split('.');
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            return parts[0] + (decimals > 0 ? '.' + parts[1] : '') + ' ₽';
-        }
         let parts = fixed.split('.');
+        // добавляем пробелы как разделители тысяч
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        return parts[0] + (decimals > 0 ? '.' + parts[1] : '') + (suffix || '');
+        let integerPart = parts[0];
+        let fractionalPart = decimals > 0 ? '.' + parts[1] : '';
+        let result = integerPart + fractionalPart;
+        
+        if (format === 'currency') {
+            // используем неразрывный пробел перед ₽
+            result = result + '\u00A0₽';
+        }
+        if (suffix) {
+            // для суффикса тоже неразрывный пробел, если суффикс не пустой
+            result = result + '\u00A0' + suffix;
+        }
+        return result;
     }
 
     let counters = document.querySelectorAll('.counter');
@@ -437,13 +627,11 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
                 let decimals = parseInt(entry.target.dataset.decimals) || 0;
                 let format = entry.target.dataset.format || '';
                 let suffix = entry.target.dataset.suffix || '';
-                let duration = 1800; // мс
+                let duration = 1800;
                 let startTime = performance.now();
-                let startValue = 0;
 
                 function step(now) {
                     let progress = Math.min((now - startTime) / duration, 1);
-                    // плавная кривая easeOutCubic
                     let ease = 1 - Math.pow(1 - progress, 3);
                     let current = target * ease;
                     entry.target.textContent = formatNumber(current, decimals, format, suffix);
