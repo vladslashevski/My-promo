@@ -585,59 +585,84 @@ try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
     });
 })();
     
-/* 8 — Счётчики (все элементы, исправлен перенос валюты) */
+/* 8 — Счётчики (последовательный запуск: один за другим) */
 (function(){
     function formatNumber(num, decimals, format, suffix) {
         let fixed = num.toFixed(decimals);
         let parts = fixed.split('.');
-        // добавляем пробелы как разделители тысяч
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
         let integerPart = parts[0];
         let fractionalPart = decimals > 0 ? '.' + parts[1] : '';
         let result = integerPart + fractionalPart;
-        
         if (format === 'currency') {
-            // используем неразрывный пробел перед ₽
             result = result + '\u00A0₽';
         }
         if (suffix) {
-            // для суффикса тоже неразрывный пробел, если суффикс не пустой
             result = result + '\u00A0' + suffix;
         }
         return result;
     }
 
-    let counters = document.querySelectorAll('.counter');
-    if (!counters.length) return;
+    // Находим контейнер, внутри которого лежат все счётчики (секция с результатами)
+    const metricsContainer = document.querySelector('#case .grid:has(.big-metric)');
+    if (!metricsContainer) return;
 
+    let counters = Array.from(metricsContainer.querySelectorAll('.counter'));
+    if (counters.length === 0) return;
+
+    let animationStarted = false;
+    let currentIndex = 0;
+    let allAnimated = false;
+
+    function animateCounter(counter, onComplete) {
+        if (!counter || counter.dataset.animated === '1') {
+            if (onComplete) onComplete();
+            return;
+        }
+        let target = parseFloat(counter.dataset.target);
+        let decimals = parseInt(counter.dataset.decimals) || 0;
+        let format = counter.dataset.format || '';
+        let suffix = counter.dataset.suffix || '';
+        let duration = 1800; // 1.8 сек на один счётчик
+        let startTime = performance.now();
+
+        function step(now) {
+            let progress = Math.min((now - startTime) / duration, 1);
+            let ease = 1 - Math.pow(1 - progress, 3); // плавное ускорение/замедление
+            let current = target * ease;
+            counter.textContent = formatNumber(current, decimals, format, suffix);
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                counter.textContent = formatNumber(target, decimals, format, suffix);
+                counter.dataset.animated = '1';
+                if (onComplete) onComplete();
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    function startNext() {
+        if (currentIndex < counters.length) {
+            let counter = counters[currentIndex];
+            currentIndex++;
+            animateCounter(counter, startNext);
+        } else {
+            allAnimated = true;
+        }
+    }
+
+    // Запускаем цепочку, когда контейнер с метриками появляется на экране
     let observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.dataset.animated) {
-                entry.target.dataset.animated = '1';
-                let target = parseFloat(entry.target.dataset.target);
-                let decimals = parseInt(entry.target.dataset.decimals) || 0;
-                let format = entry.target.dataset.format || '';
-                let suffix = entry.target.dataset.suffix || '';
-                let duration = 1800;
-                let startTime = performance.now();
-
-                function step(now) {
-                    let progress = Math.min((now - startTime) / duration, 1);
-                    let ease = 1 - Math.pow(1 - progress, 3);
-                    let current = target * ease;
-                    entry.target.textContent = formatNumber(current, decimals, format, suffix);
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        entry.target.textContent = formatNumber(target, decimals, format, suffix);
-                    }
-                }
-                requestAnimationFrame(step);
+            if (entry.isIntersecting && !animationStarted && !allAnimated) {
+                animationStarted = true;
+                startNext();
             }
         });
     }, { threshold: 0.3 });
 
-    counters.forEach(counter => observer.observe(counter));
+    observer.observe(metricsContainer);
 })();
 
 /* 9 — Гарантийный fallback на случай если всё остальное не сработало */
