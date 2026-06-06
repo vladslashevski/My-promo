@@ -1,654 +1,543 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Владислав Слащевский — Операционный / Project Manager</title>
-    <meta name="description" content="Операционный и Project Manager с 5+ лет опыта в EdTech и digital-проектах.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EasePack.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    animation: { 'f1':'f1 7s ease-in-out infinite','f2':'f2 8s ease-in-out infinite','f3':'f3 6s ease-in-out infinite','f4':'f4 7.5s ease-in-out infinite' }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* ========== БАЗОВЫЕ СТИЛИ (как было) ========== */
-        body{background:#050505;background-image:radial-gradient(ellipse at 20% 0%,rgba(16,185,129,.05) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(16,185,129,.03) 0%,transparent 50%)}
-        ::selection{background:rgba(16,185,129,.3);color:#fff}
-        @keyframes f1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(.4deg)}}
-        @keyframes f2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(-.3deg)}}
-        @keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-        @keyframes f4{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(.25deg)}}
-        .glass{background:rgba(255,255,255,.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.06)}
-        .glass-e{background:rgba(16,185,129,.04);backdrop-filter:blur(24px);border:1px solid rgba(16,185,129,.1)}
-        .glass-r{background:rgba(239,68,68,.03);backdrop-filter:blur(24px);border:1px solid rgba(239,68,68,.08)}
-        .anim{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
-        .anim.vis{opacity:1;transform:translateY(0)}
-        .btn-p{background:#10b981;color:#fff;transition:all .3s ease;position:relative;overflow:hidden}
-        .btn-p::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s}
-        .btn-p:hover{background:#059669;box-shadow:0 8px 40px rgba(16,185,129,.35);transform:translateY(-2px)}
-        .btn-p:hover::after{opacity:1}
-        .btn-s{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;transition:all .3s ease}
-        .btn-s:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-        .mg{text-shadow:0 0 60px rgba(16,185,129,.3)}
-        .ch{transition:all .5s cubic-bezier(.16,1,.3,1)}
-        .ch:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.1);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-        .hero-card{transition:all .5s cubic-bezier(.16,1,.3,1);cursor:default}
-        .hero-card:hover{transform:scale(1.04)!important;box-shadow:0 0 50px rgba(16,185,129,.12),0 20px 60px rgba(0,0,0,.4);border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.06)}
-        .sep{display:flex;align-items:center;justify-content:center;padding:0}
-        .sep::before,.sep::after{content:'';height:1px;width:64px}
-        .sep::before{background:linear-gradient(90deg,transparent,rgba(16,185,129,.25))}
-        .sep::after{background:linear-gradient(270deg,transparent,rgba(16,185,129,.25))}
-        .nav-link{position:relative;color:#a3a3a3;transition:color .3s;font-weight:500}
-        .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:#10b981;transition:width .3s}
-        .nav-link:hover{color:#fff}
-        .nav-link:hover::after{width:100%}
-        .big-metric{background:linear-gradient(135deg,rgba(16,185,129,.04),rgba(16,185,129,.01));border:1px solid rgba(16,185,129,.1);position:relative;overflow:hidden}
-        .big-metric::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(16,185,129,.06),transparent 70%);pointer-events:none}
-        .grid-bg{background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px}
-        #particles{position:absolute;inset:0;pointer-events:none}
-        .mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
-        .mobile-menu.open{max-height:500px}
-        .ba-card{position:relative;overflow:hidden}
-        .ba-card .ba-label{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:6px}
-        .ba-before .ba-label{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.15)}
-        .ba-after .ba-label{background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.15)}
-        .theme-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#a3a3a3;transition:all .3s ease;cursor:pointer;flex-shrink:0}
-        .theme-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}
-        html.light body{background:#f5f7f6;background-image:radial-gradient(ellipse at 20% 0%,rgba(16,185,129,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(16,185,129,.04) 0%,transparent 50%)}
-        html.light ::selection{background:rgba(16,185,129,.2);color:#111}
-        html.light .text-white{color:#111827}
-        html.light .text-neutral-200{color:#1f2937}
-        html.light .text-neutral-300{color:#374151}
-        html.light .text-neutral-400{color:#6b7280}
-        html.light .text-neutral-500{color:#9ca3af}
-        html.light .text-neutral-600{color:#c7c9cc}
-        html.light .text-neutral-700{color:#e0e1e2}
-        html.light .glass{background:rgba(255,255,255,.78);border-color:rgba(0,0,0,.07)}
-        html.light .glass-e{background:rgba(16,185,129,.05);border-color:rgba(16,185,129,.12)}
-        html.light .glass-r{background:rgba(239,68,68,.03);border-color:rgba(239,68,68,.1)}
-        html.light .big-metric{background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(16,185,129,.02));border-color:rgba(16,185,129,.15)}
-        html.light .btn-p{color:#fff!important;background:#059669}
-        html.light .btn-s{color:#111827!important;border-color:rgba(0,0,0,.12)!important;background:rgba(255,255,255,.6)!important}
-        html.light .mg{text-shadow:none}
-        html.light .ch:hover{border-color:rgba(0,0,0,.12);box-shadow:0 24px 60px rgba(0,0,0,.06)}
-        html.light .hero-card:hover{box-shadow:0 0 50px rgba(16,185,129,.08),0 20px 60px rgba(0,0,0,.06);border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.06)}
-        html.light .grid-bg{background-image:linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px)}
-        html.light .nav-link{color:#6b7280}
-        html.light .nav-link:hover{color:#111827}
-        html.light .theme-btn{border-color:rgba(0,0,0,.08);background:rgba(255,255,255,.5);color:#6b7280}
-        html.light .theme-btn:hover{background:rgba(255,255,255,.8);border-color:rgba(0,0,0,.12);color:#111}
-        html.light .header-bar{background:rgba(245,247,246,.88)!important;border-color:rgba(0,0,0,.06)!important}
-        html.light .mobile-bar{background:rgba(245,247,246,.92)!important;border-color:rgba(0,0,0,.06)!important}
-        html.light footer{border-color:rgba(0,0,0,.06)!important}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Владислав Слашевский — Операционный менеджер</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#050505;color:#e5e5e5;font-weight:300;line-height:1.7;overflow-x:hidden}
+::selection{background:#10b981;color:#fff}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#050505}
+::-webkit-scrollbar-thumb{background:#10b981;border-radius:3px}
 
-        /* ========== УВЕЛИЧЕННЫЙ ШРИФТ ========== */
-        body { font-size: 17px; line-height: 1.5; }
-        @media (max-width: 768px) { body { font-size: 16px; } }
-        p, li, .text-neutral-300, .text-neutral-400, .text-neutral-500 { font-size: 1rem; line-height: 1.55; }
-        #about p, #about li { font-size: 1.05rem; }
-        .glass p, .glass li, .ch p, .ch li { font-size: 0.95rem; }
-        .glass h3, .glass h4, .ch h3, .ch h4 { font-size: 1.1rem !important; }
-        .big-metric .counter, .big-metric .mg { font-size: 2.2rem; }
-        @media (max-width: 640px) { .big-metric .counter, .big-metric .mg { font-size: 1.8rem; } }
-        .btn-p, .btn-s { font-size: 0.9rem; padding: 0.75rem 1.75rem; }
-        .nav-link { font-size: 0.95rem !important; }
-        h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
-        h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-        footer p, .text-xs { font-size: 0.8rem !important; }
-        .big-metric .text-neutral-500, .big-metric .text-2xl { font-size: 1.2rem; }
+.t-main{color:#e5e5e5}.t-dim1{color:rgba(255,255,255,0.5)}.t-dim2{color:rgba(255,255,255,0.45)}.t-dim3{color:rgba(255,255,255,0.4)}.t-dim4{color:rgba(255,255,255,0.35)}.t-dim5{color:rgba(255,255,255,0.2)}
+.t-card{color:#e5e5e5}.t-heading{color:#e5e5e5}.t-problem{color:rgba(239,68,68,0.8)}.t-accent{color:#10b981}
+.t-metric-old{color:rgba(255,255,255,0.22)}.t-metric-arrow{color:rgba(16,185,129,0.35)}.t-metric-label{color:rgba(255,255,255,0.4)}
+.t-badge-dim{color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.05)}.t-subtitle{color:rgba(255,255,255,0.35)}.t-footer{color:rgba(255,255,255,0.2)}
+.t-case-name{color:#e5e5e5}.t-case-desc{color:rgba(255,255,255,0.4)}
 
-        /* ========== ПОСТОЯННЫЕ АНИМАЦИИ ========== */
-        @keyframes gradientShift { 0% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.2); } 100% { opacity: 0.4; transform: scale(1); } }
-        .absolute.blur-\[120px\] { animation: gradientShift 12s ease-in-out infinite; }
-        @keyframes iconPulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.08); opacity: 1; } }
-        [data-lucide] { animation: iconPulse 3s ease-in-out infinite; }
-        .btn-p [data-lucide], .btn-s [data-lucide], .nav-link [data-lucide], header [data-lucide] { animation: none; }
-        @keyframes gridFade { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.5; } }
-        .grid-bg { animation: gridFade 8s ease-in-out infinite; }
-        @keyframes metricFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-        .big-metric { animation: metricFloat 5s ease-in-out infinite; }
-        .big-metric:nth-child(1) { animation-delay: 0s; }
-        .big-metric:nth-child(2) { animation-delay: 0.8s; }
-        .big-metric:nth-child(3) { animation-delay: 1.6s; }
-        .big-metric:nth-child(4) { animation-delay: 2.4s; }
-        .big-metric:nth-child(5) { animation-delay: 3.2s; }
-        .big-metric:nth-child(6) { animation-delay: 4s; }
-        @keyframes glassBorder { 0% { border-color: rgba(255,255,255,0.05); } 50% { border-color: rgba(16,185,129,0.15); } 100% { border-color: rgba(255,255,255,0.05); } }
-        .glass { animation: glassBorder 6s ease-in-out infinite; }
-        html.light .glass { animation: glassBorderLight 6s ease-in-out infinite; }
-        @keyframes glassBorderLight { 0% { border-color: rgba(0,0,0,0.05); } 50% { border-color: rgba(16,185,129,0.2); } 100% { border-color: rgba(0,0,0,0.05); } }
+html.light body{background:#f7f7f8;color:#1a1a1a}
+html.light .t-main{color:#1a1a1a}html.light .t-dim1{color:rgba(0,0,0,0.55)}html.light .t-dim2{color:rgba(0,0,0,0.5)}html.light .t-dim3{color:rgba(0,0,0,0.45)}html.light .t-dim4{color:rgba(0,0,0,0.4)}html.light .t-dim5{color:rgba(0,0,0,0.25)}
+html.light .t-card{color:#1a1a1a}html.light .t-heading{color:#1a1a1a}html.light .t-problem{color:rgba(200,40,40,0.75)}
+html.light .t-metric-old{color:rgba(0,0,0,0.2)}html.light .t-metric-arrow{color:rgba(5,150,105,0.3)}html.light .t-metric-label{color:rgba(0,0,0,0.4)}
+html.light .t-badge-dim{color:rgba(0,0,0,0.4);background:rgba(0,0,0,0.05)}html.light .t-subtitle{color:rgba(0,0,0,0.4)}html.light .t-footer{color:rgba(0,0,0,0.25)}
+html.light .t-case-name{color:#1a1a1a}html.light .t-case-desc{color:rgba(0,0,0,0.4)}
+html.light ::-webkit-scrollbar-track{background:#f7f7f8}
 
-        /* ========== КНОПКА С GOO-ЭФФЕКТОМ ========== */
-        .goo { position: absolute; visibility: hidden; width: 0; height: 0; }
-        .button--bubble__container { position: relative; display: inline-block; }
-        .button--bubble { position: relative; z-index: 2; display: inline-block; background: none; border: none; color: #fff; font-family: inherit; font-size: 0.9rem; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; padding: 0.75rem 1.75rem; border-radius: 0.75rem; transition: all 0.1s ease-out; cursor: pointer; background: transparent; }
-        .button--bubble:hover { background: none; }
-        .button--bubble:active { transform: scale(0.95); }
-        .button--bubble__effect-container { position: absolute; display: block; width: 200%; height: 400%; top: -150%; left: -50%; filter: url("#goo"); pointer-events: none; transition: all 0.1s ease-out; z-index: 1; }
-        .circle { position: absolute; width: 25px; height: 25px; border-radius: 50%; background: #10b981; transition: background 0.1s ease-out; }
-        .circle.top-left { top: 40%; left: 27%; }
-        .circle.bottom-right { bottom: 40%; right: 27%; }
-        .effect-button { position: absolute; width: 50%; height: 25%; top: 50%; left: 25%; transform: translateY(-50%); background: #10b981; border-radius: 0.75rem; transition: background 0.1s ease-out; z-index: 1; }
-        .button--bubble:hover + .button--bubble__effect-container .circle,
-        .button--bubble:hover + .button--bubble__effect-container .effect-button { background: #059669; }
-        .button--bubble:active + .button--bubble__effect-container { transform: scale(0.95); }
-        
-        /* Премиальный заголовок — статика + лёгкое свечение при наведении */
-.premium-title {
-    color: #ffffff;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: text-shadow 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+.glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;transition:all .4s ease}
+.glass:hover{border-color:rgba(16,185,129,0.2);background:rgba(255,255,255,0.05)}
+.glass-e{background:rgba(16,185,129,0.05);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(16,185,129,0.15);border-radius:16px;transition:all .4s ease}
+.glass-e:hover{border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.08)}
+.glass-r{background:rgba(239,68,68,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(239,68,68,0.12);border-radius:16px;transition:all .4s ease}
+.glass-r:hover{border-color:rgba(239,68,68,0.25);background:rgba(239,68,68,0.07)}
+html.light .glass{background:rgba(255,255,255,0.7);border-color:rgba(0,0,0,0.06)}
+html.light .glass:hover{border-color:rgba(5,150,105,0.2);background:rgba(255,255,255,0.85)}
+html.light .glass-e{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.15)}
+html.light .glass-r{background:rgba(239,68,68,0.04);border-color:rgba(239,68,68,0.1)}
+
+.big-metric{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.02));border:1px solid rgba(16,185,129,0.15);border-radius:16px;padding:24px 20px;text-align:center;position:relative;overflow:hidden}
+.big-metric::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(16,185,129,0.06),transparent 60%);animation:metricGlow 4s ease-in-out infinite}
+html.light .big-metric{background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(16,185,129,0.01));border-color:rgba(16,185,129,0.12)}
+@keyframes metricGlow{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.metric-row{display:flex;align-items:baseline;justify-content:center;gap:6px;white-space:nowrap}
+.metric-old-lg{font-size:22px;font-weight:600}.metric-old-md{font-size:18px;font-weight:600}
+.metric-arrow-lg{font-size:22px;font-weight:300}.metric-arrow-md{font-size:18px;font-weight:300}
+.metric-value{font-size:34px;font-weight:800;color:#10b981;line-height:1.1}
+.metric-value-sm{font-size:26px;font-weight:800;color:#10b981;line-height:1.1}
+.metric-label{font-size:13px;margin-top:8px;font-weight:400}
+.metric-badge{display:inline-block;background:rgba(16,185,129,0.12);color:#10b981;font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:8px}
+.metric-stack{display:flex;flex-direction:column;align-items:center;gap:2px}
+.metric-text{font-size:20px;font-weight:700;color:#10b981;line-height:1.3}
+
+.btn{display:inline-flex;align-items:center;gap:8px;background:#10b981;color:#fff;padding:14px 32px;border-radius:50px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.02em;text-decoration:none;white-space:nowrap;transition:background .35s ease,box-shadow .35s ease,transform .25s ease}
+.btn:hover{background:#0d9668;box-shadow:0 4px 24px rgba(16,185,129,0.2);transform:translateY(-1px)}
+.btn:active{transform:translateY(0);box-shadow:0 2px 12px rgba(16,185,129,0.15)}
+.btn-outline{background:transparent;border:1.5px solid rgba(16,185,129,0.4);color:#10b981}
+.btn-outline:hover{background:rgba(16,185,129,0.08);border-color:#10b981;box-shadow:0 4px 24px rgba(16,185,129,0.1)}
+
+.hero-section{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(16,185,129,0.07),transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%,rgba(16,185,129,0.04),transparent 60%),radial-gradient(ellipse 50% 40% at 80% 20%,rgba(16,185,129,0.03),transparent 60%)}
+html.light .hero-bg{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(16,185,129,0.05),transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%,rgba(16,185,129,0.03),transparent 60%)}
+#heroCanvas{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-photo{position:relative;width:100%;max-width:360px;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid rgba(16,185,129,0.12);box-shadow:0 0 50px rgba(16,185,129,0.06)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(5,5,5,0.4));pointer-events:none}
+html.light .hero-photo{border-color:rgba(5,150,105,0.15);box-shadow:0 0 50px rgba(5,150,105,0.06)}
+html.light .hero-photo::after{background:linear-gradient(180deg,transparent 60%,rgba(247,247,248,0.3))}
+
+@keyframes metricFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes glassBorder{0%,100%{border-color:rgba(16,185,129,0.15)}50%{border-color:rgba(16,185,129,0.35)}}
+@keyframes iconPulse{0%,100%{transform:scale(1);opacity:0.7}50%{transform:scale(1.15);opacity:1}}
+
+.sep{display:flex;align-items:center;justify-content:center;gap:16px;padding:48px 0}
+.sep-line{height:1px;width:120px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent)}
+html.light .sep-line{background:linear-gradient(90deg,transparent,rgba(5,150,105,0.25),transparent)}
+.sep-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 10px rgba(16,185,129,0.5)}
+
+.anim{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.anim.visible{opacity:1;transform:translateY(0)}
+.anim-delay-1{transition-delay:.1s}.anim-delay-2{transition-delay:.2s}.anim-delay-3{transition-delay:.3s}.anim-delay-4{transition-delay:.4s}.anim-delay-5{transition-delay:.5s}.anim-delay-6{transition-delay:.6s}
+
+.nav-link{position:relative;color:rgba(255,255,255,0.5);font-size:14px;font-weight:400;transition:color .3s ease;text-decoration:none}
+.nav-link:hover,.nav-link.active{color:#10b981}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#10b981;border-radius:1px;transition:width .3s ease}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+html.light .nav-link{color:rgba(0,0,0,0.4)}html.light .nav-link:hover,html.light .nav-link.active{color:#059669}html.light .nav-link::after{background:#059669}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s ease}
+.header.scrolled{background:rgba(5,5,5,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);padding:10px 0}
+html.light .header.scrolled{background:rgba(247,247,248,0.9);border-bottom-color:rgba(0,0,0,0.06)}
+
+.section-title{font-size:12px;font-weight:700;letter-spacing:0.2em;color:#10b981;text-transform:uppercase;margin-bottom:8px}
+.section-subtitle{font-size:28px;font-weight:700;line-height:1.3;margin-bottom:24px}
+
+.emerald-list{list-style:none;padding:0}
+.emerald-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:15px;line-height:1.6}
+.emerald-list li::before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 8px rgba(16,185,129,0.4)}
+
+.before-after-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ba-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.ba-label--red{background:rgba(239,68,68,0.12);color:#ef4444}
+.ba-label--green{background:rgba(16,185,129,0.12);color:#10b981}
+
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(5,5,5,0.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s ease}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-size:24px;font-weight:600;text-decoration:none;transition:color .3s}
+html.light .mobile-menu{background:rgba(247,247,248,0.97)}
+.conclusion-border{padding-left:16px;border-left:2px solid rgba(16,185,129,0.2)}
+.conclusion-border-red{padding-left:16px;border-left:2px solid rgba(239,68,68,0.2)}
+
+/* Case accordion */
+.case-item{margin-bottom:12px}
+.case-header{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;cursor:pointer;transition:all .35s ease;text-align:left;font-family:'Inter',sans-serif}
+.case-header:hover{border-color:rgba(16,185,129,0.2);background:rgba(255,255,255,0.05)}
+.case-item.open .case-header{border-color:rgba(16,185,129,0.25);border-bottom-left-radius:0;border-bottom-right-radius:0;background:rgba(16,185,129,0.05)}
+.case-chevron{transition:transform .35s ease;flex-shrink:0;margin-left:16px;color:rgba(255,255,255,0.3)}
+.case-item.open .case-chevron{transform:rotate(180deg);color:#10b981}
+.case-content{overflow:hidden;height:0;background:rgba(255,255,255,0.015);border:1px solid rgba(16,185,129,0.15);border-top:none;border-bottom-left-radius:16px;border-bottom-right-radius:16px}
+.case-content-inner{padding:32px 24px}
+html.light .case-header{background:rgba(255,255,255,0.7);border-color:rgba(0,0,0,0.06)}
+html.light .case-header:hover{border-color:rgba(5,150,105,0.2)}
+html.light .case-item.open .case-header{border-color:rgba(5,150,105,0.2);background:rgba(16,185,129,0.04)}
+html.light .case-chevron{color:rgba(0,0,0,0.3)}
+html.light .case-content{background:rgba(255,255,255,0.4);border-color:rgba(5,150,105,0.12)}
+
+.tool-gave{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.35);margin-top:8px;padding-left:12px;border-left:2px solid rgba(16,185,129,0.2)}
+html.light .tool-gave{color:rgba(0,0,0,0.4)}
+
+@media(max-width:768px){
+  .before-after-grid{grid-template-columns:1fr}
+  .metric-value{font-size:26px}.metric-value-sm{font-size:22px}
+  .metric-old-lg{font-size:18px}.metric-old-md{font-size:15px}
+  .metric-arrow-lg{font-size:18px}.metric-arrow-md{font-size:15px}
+  .metric-text{font-size:17px}.section-subtitle{font-size:22px}
+  .sep{padding:32px 0}.metric-row{gap:4px}
+  .case-header{padding:16px 18px}
+  .case-content-inner{padding:24px 16px}
 }
-.premium-title:hover {
-    text-shadow: 0 0 12px rgba(16,185,129,0.5);
-    transform: translateY(-1px);
-}
-/* Для светлой темы — тёмный текст */
-html.light .premium-title {
-    color: #111827;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-html.light .premium-title:hover {
-    text-shadow: 0 0 8px rgba(16,185,129,0.4);
-}
-    </style>
+</style>
 </head>
-<body class="text-white font-sans antialiased overflow-x-hidden">
+<body>
 
-<!-- SVG-фильтр для goo-кнопок -->
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-  <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-      <feComposite in="SourceGraphic" in2="goo" />
-    </filter>
-  </defs>
-</svg>
-
-<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 opacity-0 -translate-y-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="header-bar flex items-center justify-between py-3.5 rounded-b-2xl" style="background:rgba(5,5,5,.82);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.05);padding-left:20px;padding-right:20px">
-            <a href="#" class="text-sm font-bold tracking-tight text-white">В. Слащевский</a>
-            <nav class="hidden md:flex items-center gap-7">
-                <a href="#about" class="nav-link text-sm">Обо мне</a>
-                <a href="#case" class="nav-link text-sm">Кейс</a>
-                <a href="#expertise" class="nav-link text-sm">Экспертиза</a>
-                <a href="#experience" class="nav-link text-sm">Опыт</a>
-                <a href="#contact" class="nav-link text-sm">Контакт</a>
-                <button class="theme-btn" id="themeToggleDesktop"><i data-lucide="moon" class="w-[18px] h-[18px] dk-ico"></i><i data-lucide="sun" class="w-[18px] h-[18px] lt-ico" style="display:none"></i></button>
-                <!-- Goo-кнопка в шапке -->
-                <span class="button--bubble__container">
-                    <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
-                        <i data-lucide="send" class="w-3.5 h-3.5 inline mr-1"></i> Связаться
-                    </a>
-                    <span class="button--bubble__effect-container">
-                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                        <span class="effect-button"></span>
-                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                    </span>
-                </span>
-            </nav>
-            <div class="flex items-center gap-2 md:hidden">
-                <button class="theme-btn" id="themeToggleMobile"><i data-lucide="moon" class="w-4 h-4 dk-ico"></i><i data-lucide="sun" class="w-4 h-4 lt-ico" style="display:none"></i></button>
-                <button id="menuBtn" class="w-9 h-9 flex items-center justify-center rounded-xl text-neutral-400" style="background:rgba(255,255,255,.05)"><i data-lucide="menu" class="w-5 h-5"></i></button>
-            </div>
-        </div>
-        <div class="mobile-menu md:hidden" id="mobileMenu">
-            <div class="mobile-bar py-4 flex flex-col gap-1" style="background:rgba(5,5,5,.92);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.05);border-top:none;border-radius:0 0 16px 16px;padding:16px 20px">
-                <a href="#about" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Обо мне</a>
-                <a href="#case" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Кейс</a>
-                <a href="#expertise" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Экспертиза</a>
-                <a href="#experience" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Опыт</a>
-                <a href="#contact" class="nav-link text-sm py-2.5 block" onclick="closeMobile()">Контакт</a>
-                <div class="pt-3 mt-2" style="border-top:1px solid rgba(255,255,255,.05)">
-                    <!-- Goo-кнопка в мобильном меню -->
-                    <span class="button--bubble__container block w-full">
-                        <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble w-full justify-center">
-                            <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Связаться в Telegram
-                        </a>
-                        <span class="button--bubble__effect-container">
-                            <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                            <span class="effect-button"></span>
-                            <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                        </span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+<header class="header" id="header">
+<div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+  <a href="#" class="text-sm font-bold tracking-wider t-accent">VS</a>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="#about" class="nav-link">Обо мне</a>
+    <a href="#case" class="nav-link">Кейсы</a>
+    <a href="#education" class="nav-link">Обучение</a>
+    <a href="#format" class="nav-link">Формат</a>
+    <a href="#contacts" class="nav-link">Контакты</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <button class="t-dim5" id="themeToggle" style="background:none;border:none;cursor:pointer;padding:6px;transition:color .3s">
+      <i data-lucide="moon" style="width:18px;height:18px"></i>
+    </button>
+    <button class="md:hidden t-dim3" id="menuToggle" style="background:none;border:none;cursor:pointer;padding:6px">
+      <i data-lucide="menu" style="width:22px;height:22px"></i>
+    </button>
+  </div>
+</div>
 </header>
 
-<section class="min-h-screen flex items-center relative overflow-hidden">
-    <canvas id="particles"></canvas>
-    <div class="grid-bg absolute inset-0 pointer-events-none"></div>
-    <div class="absolute top-1/4 left-[10%] w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-1/4 right-[5%] w-[400px] h-[400px] bg-emerald-500/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-6 w-full py-28 lg:py-0 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div>
-                <div class="anim" style="transition-delay:0ms">
-                    <div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-8"></div>
-<h1 class="premium-title text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold tracking-tight leading-[1.06] mb-6">Владислав<br>Слащевский</h1>                    <p class="text-neutral-300 text-base sm:text-[17px] leading-relaxed mb-4 max-w-lg">Выстраиваю процессы, аналитику и систему управления в EdTech и digital-проектах.</p>
-                    <p class="text-neutral-500 text-sm leading-relaxed mb-10 max-w-lg">5+ лет опыта в управлении онлайн-проектами, вебинарами, аналитикой, автоворонками и операционными процессами.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <!-- Goo-кнопка Telegram -->
-                        <span class="button--bubble__container">
-                            <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
-                                <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Telegram
-                            </a>
-                            <span class="button--bubble__effect-container">
-                                <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                                <span class="effect-button"></span>
-                                <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                            </span>
-                        </span>
-                        <!-- Goo-кнопка Пригласить на собеседование -->
-                        <span class="button--bubble__container">
-                            <a href="#contact" class="button--bubble">
-                                <i data-lucide="mail" class="w-4 h-4 inline mr-1"></i> Пригласить на собеседование
-                            </a>
-                            <span class="button--bubble__effect-container">
-                                <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                                <span class="effect-button"></span>
-                                <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                            </span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden lg:block relative h-[560px]" id="heroCards">
-                <div class="hero-card absolute top-0 left-0 w-[260px] glass rounded-2xl p-6 animate-f1"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="folder-kanban" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Управление онлайн-проектами</p><p class="text-xs text-neutral-500 leading-relaxed">Координация, контроль сроков, выстраивание процессов</p></div>
-                <div class="hero-card absolute top-[180px] right-0 w-[250px] glass rounded-2xl p-6 animate-f2"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Аналитика и ROMI</p><p class="text-xs text-neutral-500 leading-relaxed">Сквозная аналитика, UTM, контроль эффективности</p></div>
-                <div class="hero-card absolute bottom-[120px] left-4 w-[255px] glass rounded-2xl p-6 animate-f3"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Воронки и вебинары</p><p class="text-xs text-neutral-500 leading-relaxed">Запуски, автоматизация, удержание аудитории</p></div>
-                <div class="hero-card absolute bottom-0 right-8 w-[245px] glass rounded-2xl p-6 animate-f4"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-emerald-400"></i></div><p class="text-[15px] font-semibold text-white leading-snug mb-2">Оптимизация рекламы</p><p class="text-xs text-neutral-500 leading-relaxed">Аудит кампаний, перераспределение бюджетов</p></div>
-            </div>
-            <div class="lg:hidden grid grid-cols-2 gap-3">
-                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="folder-kanban" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Управление проектами</p><p class="text-[10px] text-neutral-500 leading-relaxed">Координация, процессы</p></div>
-                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Аналитика и ROMI</p><p class="text-[10px] text-neutral-500 leading-relaxed">Сквозная аналитика</p></div>
-                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="radio" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Воронки и вебинары</p><p class="text-[10px] text-neutral-500 leading-relaxed">Запуски, автоматизация</p></div>
-                <div class="glass rounded-2xl p-4 ch"><div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center mb-3"><i data-lucide="target" class="w-4 h-4 text-emerald-400"></i></div><p class="text-xs font-semibold text-white leading-snug mb-1">Оптимизация рекламы</p><p class="text-[10px] text-neutral-500 leading-relaxed">Бюджеты, кампании</p></div>
-            </div>
-        </div>
+<div class="mobile-menu" id="mobileMenu">
+  <button id="menuClose" style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;padding:6px" class="t-dim3">
+    <i data-lucide="x" style="width:26px;height:26px"></i>
+  </button>
+  <a href="#about" class="mobile-link t-dim3">Обо мне</a>
+  <a href="#case" class="mobile-link t-dim3">Кейсы</a>
+  <a href="#education" class="mobile-link t-dim3">Обучение</a>
+  <a href="#format" class="mobile-link t-dim3">Формат</a>
+  <a href="#contacts" class="mobile-link t-dim3">Контакты</a>
+</div>
+
+<!-- Hero -->
+<section class="hero-section" id="hero">
+<div class="hero-bg"></div>
+<canvas id="heroCanvas"></canvas>
+<div class="max-w-6xl mx-auto px-5 relative z-10 pt-32 pb-20 w-full">
+  <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div>
+      <p class="text-sm font-medium tracking-widest mb-5 anim t-accent">ОПЕРАЦИОННЫЙ МЕНЕДЖЕР / PROJECT MANAGER</p>
+      <h1 class="t-heading text-4xl md:text-5xl lg:text-6xl font-black leading-none mb-6 anim anim-delay-1">Владислав<br>Слашевский</h1>
+      <div class="anim anim-delay-2" style="max-width:520px">
+        <p class="t-dim2 text-lg md:text-xl" style="line-height:1.75">Помогаю образовательным проектам расти за счёт сильной операционной системы, эффективных процессов и управления командой.</p>
+        <p class="t-dim2 text-lg md:text-xl mt-4" style="line-height:1.75">Беру на себя координацию ключевых направлений проекта, контроль задач и ответственность за достижение бизнес-целей.</p>
+      </div>
+      <div class="mt-10 anim anim-delay-3">
+        <a href="#contacts" class="btn"><i data-lucide="briefcase" style="width:16px;height:16px"></i> Пригласить на собеседование</a>
+      </div>
     </div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section id="about" class="py-24 lg:py-36 relative">
-    <div class="absolute top-0 right-[20%] w-[300px] h-[300px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-        <div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Обо мне</h2></div>
-        <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
-            <div class="lg:col-span-3 anim" style="transition-delay:100ms">
-                <p class="text-neutral-200 text-base leading-[1.75] mb-5">Я — Владислав Слащевский, операционный и технический специалист с опытом более 5 лет в онлайн-проектах.</p>
-                <p class="text-neutral-400 text-[15px] leading-[1.75] mb-8">Работал с командами, выстраивал процессы с нуля, контролировал задачи, сроки и качество выполнения. Умею быстро погружаться в проект, систематизировать хаос и выстраивать понятную структуру работы.</p>
-                <p class="text-neutral-500 text-sm font-medium mb-3">Мой опыт включает:</p>
-                <ul class="space-y-2.5 text-sm text-neutral-400 leading-relaxed">
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>операционное управление командами и проектами</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>аналитику и контроль эффективности процессов</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>работу с вебинарами и комплексными запусками</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>автоматизацию процессов и коммуникаций</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>управление подрядчиками и контроль качества</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>контроль рекламных кампаний и бюджетов</li>
-                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 mt-1.5 flex-shrink-0"></span>внедрение CRM-систем и воронок продаж</li>
-                </ul>
-            </div>
-            <div class="lg:col-span-2 space-y-3 anim" style="transition-delay:250ms">
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Операционное управление</p><p class="text-xs text-neutral-500 leading-relaxed">Координация команд, контроль задач и сроков, систематизация хаоса.</p></div>
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Аналитика и ROMI</p><p class="text-xs text-neutral-500 leading-relaxed">Сквозная аналитика, UTM-системы, контроль рентабельности.</p></div>
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Вебинары и запуски</p><p class="text-xs text-neutral-500 leading-relaxed">Полный цикл: от регистрации до продажи.</p></div>
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Автоматизация процессов</p><p class="text-xs text-neutral-500 leading-relaxed">Автоворонки, email + Telegram, сегментация.</p></div>
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">Управление подрядчиками</p><p class="text-xs text-neutral-500 leading-relaxed">Подбор, контроль качества, замена при неэффективности.</p></div>
-                <div class="glass rounded-xl p-5 ch"><p class="text-sm font-semibold text-white mb-1.5">CRM и воронки</p><p class="text-xs text-neutral-500 leading-relaxed">Внедрение, настройка логики, интеграция сервисов.</p></div>
-            </div>
-        </div>
+    <div class="hidden md:flex justify-end anim anim-delay-4">
+      <div class="hero-photo"><img src="https://github.com/vladslashevski/My-promo/blob/main/Images/photo_2026-06-06%2014.20.21.jpeg" alt="Владислав Слашевский"></div>
     </div>
+  </div>
+</div>
 </section>
 
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-<section id="case" class="py-24 lg:py-40 relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.015] to-transparent pointer-events-none"></div>
-    <div class="absolute top-[30%] left-[5%] w-[400px] h-[400px] bg-emerald-500/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-        <div class="anim mb-16" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Кейс: проект «Элара»</h2><p class="text-neutral-500 text-sm">Декабрь 2025 — апрель 2026</p></div>
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
 
-        <!-- Проблемы проекта -->
-        <div class="mb-24">
-            <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Проблемы проекта</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="eye-off" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Аналитика отсутствовала</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не было сквозной аналитики</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>источники путались</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>ROMI невозможно определить</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>партнёрские данные искажали картину</li></ul></div>
-                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="scan-eye" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Вебинары анализировались поверхностно</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не отслеживалась доходимость</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>не было аналитики вовлечённости</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>данные терялись через 3 месяца</li></ul></div>
-                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="trending-down" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">Холодный трафик работал в минус</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>рекламные кампании убыточны</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Telegram Ads сливали бюджет</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>конверсии 1.6–1.8%</li></ul></div>
-                <div class="glass-r rounded-2xl p-6 ch anim" style="transition-delay:400ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center"><i data-lucide="file-x" class="w-[18px] h-[18px] text-red-400"></i></div><h4 class="text-sm font-semibold text-white">SEO отсутствовало системно</h4></div><ul class="space-y-2 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>сайт не анализировался</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>ошибки не исправлялись</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>органический трафик не развивался</li></ul></div>
-            </div>
-        </div>
-
-        <!-- Что было сделано -->
-        <div class="mb-24">
-            <h3 class="text-xl font-semibold tracking-tight mb-8 anim" style="transition-delay:0ms">Что было сделано</h3>
-            <div class="space-y-5">
-                <div class="flex gap-5 anim" style="transition-delay:100ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="database" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Аналитика</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>внедрён регламент аналитики</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>настроена UTM-система</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>создана master-таблица</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>автоматизирована логика CRM</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>система фиксации источника</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:200ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="radio" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Вебинары</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>регламент сбора данных</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>аналитика вовлечённости</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перестроены коммуникации</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшено удержание</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:300ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="arrow-right-left" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Холодный трафик</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный аудит кампаний</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>отключены убыточные направления</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>заменён подрядчик</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>перераспределены бюджеты</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>оптимизированы конверсии</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:400ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Автоматизация</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переработаны воронки</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>email + Telegram объединены</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сегментация аудитории</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>переписаны цепочки писем</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены офферы</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>снижена ручная работа</p></div></div></div>
-                <div class="flex gap-5 anim" style="transition-delay:500ms"><div class="w-1 rounded-full bg-emerald-500/20 flex-shrink-0"></div><div class="glass rounded-2xl p-6 flex-1 ch"><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center"><i data-lucide="search" class="w-4 h-4 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">SEO и сайт</h4></div><div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-neutral-400"><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>полный SEO-аудит</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>работа подрядчиков</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>план развития сайта</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>сайт переработан</p><p class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">+</span>улучшены CTA-блоки</p></div></div></div>
-            </div>
-        </div>
-
-        <!-- Сайт: до и после -->
-        <div class="mb-24 anim" style="transition-delay:100ms">
-            <h3 class="text-xl font-semibold tracking-tight mb-8">Сайт: до и после</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="ba-card ba-before glass rounded-2xl p-6 ch"><span class="ba-label">До</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Сайт не анализировался</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Структура не отвечала задачам</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>CTA не конвертировали</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Логика отсутствовала</li><li class="flex items-start gap-2.5"><span class="text-red-400/50 mt-0.5">—</span>Трафик не развивался</li></ul></div>
-                <div class="ba-card ba-after glass-e rounded-2xl p-6 ch"><span class="ba-label">После</span><ul class="space-y-3 text-sm text-neutral-400 mt-4"><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Проведён полный аудит</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Сайт переработан</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>CTA усилены</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>Логика выстроена</li><li class="flex items-start gap-2.5"><span class="text-emerald-500 mt-0.5">+</span>План развития органики</li></ul></div>
-            </div>
-        </div>
-
-        <!-- Результаты тёплых запусков (счётчики) -->
-        <div class="mb-24">
-            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3 anim" style="transition-delay:0ms">Результаты тёплых запусков</h3>
-            <p class="text-neutral-500 text-sm mb-10 anim" style="transition-delay:50ms">Системная переработка вебинаров, воронок и коммуникаций</p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:100ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост регистраций</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">713</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="1227" data-decimals="0">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">+72%</p><p class="text-xs text-neutral-500 leading-relaxed">Среднее количество регистраций на мероприятие</p></div>
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:200ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост средней выручки</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-xl font-light">161 771 ₽</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="418426" data-decimals="0" data-format="currency">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">×2.6</p><p class="text-xs text-neutral-500 leading-relaxed">Средняя выручка после оптимизации</p></div>
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:150ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост оплаченных заказов</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">9</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="19" data-decimals="0">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">+111%</p><p class="text-xs text-neutral-500 leading-relaxed">Среднее оплаченных заказов на мероприятие</p></div>
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:250ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Средняя доходимость вебинаров</p><div class="mb-3"><span class="text-5xl sm:text-6xl font-bold text-emerald-400 mg counter" data-target="52.5" data-decimals="1" data-suffix="%">0</span></div><p class="text-xs text-neutral-500 leading-relaxed">Более половины доходят до эфира</p></div>
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:300ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">Рост конверсии лендингов</p><div class="flex items-end gap-3 mb-3"><span class="text-neutral-500 text-2xl font-light">1.6%</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg counter" data-target="16.3" data-decimals="1" data-suffix="%">0</span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">×10.2</p><p class="text-xs text-neutral-500 leading-relaxed">После оптимизации кампаний</p></div>
-                <div class="big-metric rounded-2xl p-8 anim" style="transition-delay:350ms"><p class="text-xs text-neutral-500 mb-5 uppercase tracking-wider font-medium">ROMI рекламных кампаний</p><div class="flex items-end gap-3 mb-3"><span class="text-red-400 text-2xl font-light">–1.0</span><span class="text-emerald-600 text-xl mb-0.5">→</span><span class="text-4xl sm:text-5xl font-bold text-emerald-400 mg">+<span class="counter" data-target="4.6" data-decimals="1">0</span></span></div><p class="text-xs text-emerald-400/70 font-semibold mb-2">Убыточность → прибыльность</p><p class="text-xs text-neutral-500 leading-relaxed">Переход к прибыльным связкам</p></div>
-            </div>
-        </div>
-
-        <!-- Управленческие решения -->
-        <div class="mb-24">
-            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Управленческие решения</h3>
-            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Системная переработка от регистрации до продажи</p>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="presentation" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка презентаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены смыслы и офферы, улучшено визуальное восприятие</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mouse-pointer-click" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Улучшение CTA-блоков</h4><p class="text-xs text-neutral-500 leading-relaxed">Усилены призывы к действию на каждом этапе</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="shopping-cart" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переработка окна продаж</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшена подача и логика ценового якоря</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="mail" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Переписывание коммуникаций</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышена открываемость и кликабельность</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:250ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="layout-template" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Новые лендинги</h4><p class="text-xs text-neutral-500 leading-relaxed">Улучшенная структура и конверсионные элементы</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:350ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Удержание аудитории</h4><p class="text-xs text-neutral-500 leading-relaxed">Регулярная коммуникация и рассылки</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="monitor-play" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Техническое проведение эфиров</h4><p class="text-xs text-neutral-500 leading-relaxed">Повышено качество трансляций</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="flame" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Вовлечённость зрителей</h4><p class="text-xs text-neutral-500 leading-relaxed">Интерактивные элементы и структура эфира</p></div>
-                <div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="git-merge" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white mb-2">Оптимизация пути пользователя</h4><p class="text-xs text-neutral-500 leading-relaxed">Устранены точки потери в воронке</p></div>
-            </div>
-        </div>
-
-        <!-- Решения в холодном трафике -->
-        <div>
-            <h3 class="text-xl font-semibold tracking-tight mb-3 anim" style="transition-delay:0ms">Решения в холодном трафике</h3>
-            <p class="text-neutral-500 text-sm mb-8 anim" style="transition-delay:50ms">Аудит, принятие решений, контроль</p>
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="user-x" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Замена подрядчика</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">После выявления убыточных кампаний заменён подрядчик, перераспределены бюджеты.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Прибыльные связки</p></div></div>
-                <div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="ban" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Остановка Telegram Ads</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-5">Выявлен отрицательный ROMI. Принято решение о полной остановке.</p><div class="pt-4 border-t border-white/[0.05]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-1">Результат</p><p class="text-sm text-emerald-400 font-medium">Бюджет перенаправлен</p></div></div>
-                <div class="glass rounded-2xl p-7 ch sm:col-span-2 anim" style="transition-delay:300ms"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center"><i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-400"></i></div><h4 class="text-sm font-semibold text-white">Перезапуск РСЯ</h4></div><p class="text-sm text-neutral-400 leading-relaxed mb-6">Выявлены слабые объявления, переработаны креативы и структура.</p><div class="grid sm:grid-cols-2 gap-6"><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">ROMI</p><p class="text-xl font-bold"><span class="text-neutral-400">0.0</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">1.3</span></p></div><div class="bg-white/[0.02] rounded-xl p-4 border border-white/[0.04]"><p class="text-[10px] text-neutral-600 uppercase tracking-wider mb-2">Конверсия</p><p class="text-xl font-bold"><span class="text-neutral-400">8.79%</span> <span class="text-emerald-600 mx-1.5">→</span> <span class="text-emerald-400">18.13%</span></p></div></div></div>
-            </div>
-        </div>
+<!-- About -->
+<section id="about" class="max-w-6xl mx-auto px-5 py-10">
+  <div class="grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="section-title anim">ОБО МНЕ</p>
+      <h2 class="section-subtitle t-heading anim anim-delay-1">Кто я и чем занимаюсь</h2>
+      <p class="t-dim2 anim anim-delay-2" style="font-size:16px;line-height:1.85">Моя задача — обеспечивать стабильную работу проекта и помогать команде достигать поставленных целей. За последние годы участвовал в развитии образовательных проектов, где отвечал за организацию процессов, управление подрядчиками, координацию работы команды, внедрение новых решений и контроль ключевых показателей. Умею быстро погружаться в проект, находить слабые места в процессах и выстраивать работу таким образом, чтобы команда работала эффективнее, а собственник получал прозрачную картину происходящего.</p>
     </div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section id="expertise" class="py-24 lg:py-36 relative"><div class="absolute bottom-0 left-[30%] w-[350px] h-[350px] bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Экспертиза</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Операционное управление</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>координация команды</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>контроль задач и сроков</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>работа с подрядчиками</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>внедрение процессов</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>систематизация</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Запуски и вебинары</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>вебинары и марафоны</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>удержание аудитории</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>повышение доходимости</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>техническое проведение</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Аналитика и маркетинг</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>ROMI и рентабельность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сквозная аналитика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>UTM-разметка</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>анализ трафика</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>оптимизация кампаний</li></ul></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:150ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Автоматизация</h3><ul class="space-y-2.5 text-sm text-neutral-400"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>GetCourse</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>Telegram-боты</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>email-коммуникации</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>автоворонки</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>CRM-интеграции</li></ul></div><div class="glass rounded-2xl p-6 ch sm:col-span-2 anim" style="transition-delay:250ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-4">Управление экосистемой</h3><p class="text-xs text-neutral-500 mb-4 leading-relaxed">Подбор и настройка инструментов</p><div class="grid grid-cols-2 sm:grid-cols-4 gap-2"><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Notion</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Trello</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ClickUp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Airtable</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">GetCourse</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">amoCRM</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Salebot</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">BotHelp</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">ChatGPT</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">AI-инструменты</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Аналитика</p></div><div class="text-center bg-white/[0.02] rounded-lg py-2.5 px-2 border border-white/[0.04]"><p class="text-xs text-neutral-300 font-medium">Интеграции</p></div></div></div></div></div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section class="py-24 lg:py-36 relative"><div class="absolute top-[20%] right-[15%] w-[250px] h-[250px] bg-emerald-500/[0.02] rounded-full blur-[80px] pointer-events-none"></div><div class="max-w-7xl mx-auto px-6 relative"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Образование</h2></div><div class="grid sm:grid-cols-3 gap-4"><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:100ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="award" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Project Manager</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2024</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:200ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="users" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Наставничество</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2021</p></div><div class="glass rounded-2xl p-7 ch anim" style="transition-delay:300ms"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/15 to-emerald-500/5 flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i></div><h3 class="text-sm font-semibold text-white mb-1.5">Капитан GetCourse</h3><p class="text-xs text-neutral-500 mb-4">GreenFreelance</p><p class="text-xs text-emerald-400/60 font-medium">2020</p></div></div></div>
-</section>
-
-<div class="sep my-4"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500/30 mx-4"></div></div>
-
-<section class="py-24 lg:py-36 relative"><div class="max-w-7xl mx-auto px-6"><div class="anim" style="transition-delay:0ms"><div class="w-12 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent mb-6"></div><h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-10">Формат сотрудничества</h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:100ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Формат работы</p><p class="text-[15px] font-semibold text-white leading-snug">Полностью удалённый формат</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:200ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Доход</p><p class="text-[15px] font-semibold text-white leading-snug">Открыт к обсуждению условий</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:300ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Готовность</p><p class="text-[15px] font-semibold text-white leading-snug">Готов подключиться в течение нескольких дней</p></div><div class="glass rounded-2xl p-6 ch anim" style="transition-delay:400ms"><p class="text-[10px] text-neutral-600 uppercase tracking-wider font-medium mb-4">Что важно</p><ul class="space-y-2 text-sm text-neutral-400 mt-3"><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>адекватная коммуникация</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>открытость к инициативам</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>готовность улучшать процессы</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>системный подход</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>сильная команда</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>прозрачность</li><li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 mt-1.5 flex-shrink-0"></span>заинтересованность в развитии</li></ul></div></div></div>
-</section>
-<section id="contact" class="py-28 lg:py-40 relative">
-    <div class="absolute inset-0 bg-gradient-to-t from-emerald-500/[0.04] via-transparent to-transparent pointer-events-none"></div>
-    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/[0.03] rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
-        <div class="anim" style="transition-delay:0ms">
-            <div class="w-12 h-[2px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent mb-10 mx-auto"></div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] mb-6">Готов обсудить проект<br>и усилить бизнес-процессы</h2>
-            <p class="text-neutral-400 text-base sm:text-lg leading-relaxed mb-4 max-w-xl mx-auto">Если вам нужен специалист, который стабилизирует процессы, выстроит аналитику и улучшит показатели — давайте поговорим.</p>
-            <p class="text-neutral-500 text-sm mb-12">Открыт к новым проектам и предложениям.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <!-- Goo-кнопка Telegram -->
-                <span class="button--bubble__container">
-                    <a href="https://t.me/VladSlashevski" target="_blank" class="button--bubble">
-                        <i data-lucide="send" class="w-4 h-4 inline mr-1"></i> Telegram
-                    </a>
-                    <span class="button--bubble__effect-container">
-                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                        <span class="effect-button"></span>
-                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                    </span>
-                </span>
-                <!-- Goo-кнопка WhatsApp -->
-                <span class="button--bubble__container">
-                    <a href="https://wa.me/375339935426" target="_blank" class="button--bubble">
-                        <i data-lucide="message-circle" class="w-4 h-4 inline mr-1"></i> WhatsApp
-                    </a>
-                    <span class="button--bubble__effect-container">
-                        <span class="circle top-left"></span><span class="circle top-left"></span><span class="circle top-left"></span>
-                        <span class="effect-button"></span>
-                        <span class="circle bottom-right"></span><span class="circle bottom-right"></span><span class="circle bottom-right"></span>
-                    </span>
-                </span>
-            </div>
-        </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="glass-e p-4 anim anim-delay-1" style="animation:glassBorder 4s ease-in-out infinite"><i data-lucide="settings" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite"></i><p class="text-sm font-semibold t-card">Операционное управление</p></div>
+      <div class="glass-e p-4 anim anim-delay-2" style="animation:glassBorder 4s ease-in-out infinite .5s"><i data-lucide="bar-chart-3" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite .4s"></i><p class="text-sm font-semibold t-card">Аналитика и ROMI</p></div>
+      <div class="glass-e p-4 anim anim-delay-3" style="animation:glassBorder 4s ease-in-out infinite 1s"><i data-lucide="video" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite .8s"></i><p class="text-sm font-semibold t-card">Вебинары и запуски</p></div>
+      <div class="glass-e p-4 anim anim-delay-4" style="animation:glassBorder 4s ease-in-out infinite 1.5s"><i data-lucide="bot" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite 1.2s"></i><p class="text-sm font-semibold t-card">Автоматизация процессов</p></div>
+      <div class="glass-e p-4 anim anim-delay-5" style="animation:glassBorder 4s ease-in-out infinite 2s"><i data-lucide="users" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite 1.6s"></i><p class="text-sm font-semibold t-card">Управление подрядчиками</p></div>
+      <div class="glass-e p-4 anim anim-delay-6" style="animation:glassBorder 4s ease-in-out infinite 2.5s"><i data-lucide="filter" style="width:20px;height:20px;color:#10b981;margin-bottom:8px;animation:iconPulse 3s ease-in-out infinite 2s"></i><p class="text-sm font-semibold t-card">CRM и воронки</p></div>
     </div>
+  </div>
 </section>
 
-<footer class="py-10 text-center border-t border-white/[0.03]"><p class="text-xs text-neutral-700">© 2025 Владислав Слащевский</p></footer>
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- Cases -->
+<section id="case" class="max-w-6xl mx-auto px-5 py-10">
+  <p class="section-title anim">КЕЙСЫ</p>
+  <h2 class="section-subtitle t-heading anim anim-delay-1">Опыт работы над проектами</h2>
+
+  <!-- Case 1: Элара -->
+  <div class="case-item open anim anim-delay-2">
+    <button class="case-header" onclick="toggleCase(0)">
+      <div><span class="t-case-name font-semibold text-base block">Онлайн-школа «Элара»</span><span class="t-case-desc text-xs block mt-1">Операционный менеджер · Декабрь 2025 — Март 2026</span></div>
+      <i data-lucide="chevron-down" style="width:20px;height:20px" class="case-chevron"></i>
+    </button>
+    <div class="case-content" id="case-0">
+    <div class="case-content-inner">
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Исходная ситуация</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Аналитика отсутствовала</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Не было единой системы, источники путались, ROMI невозможно определить</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Вебинары анализировались поверхностно</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Не отслеживалась доходимость, не было аналитики вовлечённости, данные терялись</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Холодный трафик работал в минус</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Рекламные кампании убыточны, конверсии 1.62%</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">SEO отсутствовало системно</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Сайт не анализировался, ошибки не исправлялись, органика не развивалась</p></div>
+      </div>
+      <p class="t-dim4 conclusion-border-red" style="font-size:15px;margin-bottom:48px;line-height:1.7">В результате многие решения принимались на основе отдельных наблюдений, а точки роста проекта оставались неочевидными.</p>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Моя роль и зона ответственности</h3>
+      <ul class="emerald-list t-dim2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <li>Координация работы команды и подрядчиков</li><li>Контроль выполнения задач</li><li>Развитие системы аналитики и отчётности</li><li>Контроль маркетинговых активностей</li><li>Участие в запуске вебинаров и мероприятий</li><li>Оптимизация процессов</li><li>Внедрение новых инструментов и решений</li><li>Взаимодействие между отделами проекта</li><li>Поиск точек роста и контроль результатов изменений</li><li class="md:col-span-2">Команда в управлении: от 5 штатных сотрудников и от 9 подрядчиков различных направлений.</li>
+      </ul>
+
+      <h3 class="text-lg font-bold mb-2 t-heading">Холодный трафик</h3>
+      <p class="text-sm font-medium mb-6 t-accent">Построение системы принятия решений на основе данных</p>
+      <h4 class="text-sm font-semibold mb-3 t-dim2">Что сделано:</h4>
+      <ul class="emerald-list t-dim2 mb-8 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <li>Разработан и внедрён регламент аналитики</li><li>Создана единая система отчётности</li><li>Настроена UTM-разметка и фиксация источников</li><li>Проведён аудит всех рекламных направлений</li><li>Выявлены нерентабельные источники трафика</li><li>Перераспределены рекламные бюджеты</li><li>Найдён и внедрён новый подрядчик</li><li>Запущены новые рекламные гипотезы</li><li>Проведены тесты альтернативных источников привлечения</li><li>Масштабированы эффективные рекламные связки</li>
+      </ul>
+      <h4 class="text-sm font-semibold mb-4 t-dim2">Ключевые итоги:</h4>
+      <div class="grid md:grid-cols-3 gap-4 mb-16">
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite"><div class="metric-row"><span class="metric-old-lg t-metric-old">−1.3</span><span class="metric-arrow-lg t-metric-arrow">→</span><span class="metric-value counter" data-end="1.3" data-decimals="1">0</span></div><div class="metric-label t-metric-label">ROMI</div></div>
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite .8s"><div class="metric-row"><span class="metric-old-lg t-metric-old">8.79%</span><span class="metric-arrow-lg t-metric-arrow">→</span><span class="metric-value counter" data-end="18.13" data-decimals="2" data-suffix="%">0</span></div><div class="metric-label t-metric-label">Конверсия в заявку</div></div>
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite 1.6s"><div class="metric-row"><span class="metric-old-lg t-metric-old">1.62%</span><span class="metric-arrow-lg t-metric-arrow">→</span><span class="metric-value counter" data-end="15.73" data-decimals="2" data-suffix="%">0</span></div><div class="metric-label t-metric-label">Конверсия сайта</div></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-2 t-heading">Тёплые запуски</h3>
+      <p class="text-sm font-medium mb-6 t-accent">Системная переработка вебинаров, коммуникаций и продающей воронки</p>
+      <h4 class="text-sm font-semibold mb-4 t-dim2">Ключевые итоги:</h4>
+      <div class="grid md:grid-cols-2 gap-4 mb-10">
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite"><p class="metric-text">Среднее количество регистраций выросло на +52%</p></div>
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite .6s"><div class="metric-stack"><span class="metric-old-md t-metric-old">161 771 ₽</span><span class="metric-arrow-md t-metric-arrow" style="display:block">→</span><span class="metric-value-sm"><span class="counter" data-end="418426" data-decimals="0">0</span> ₽</span></div><div class="metric-label t-metric-label">Средняя выручка мероприятия</div><div class="metric-badge">×2.6</div></div>
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite 1.2s"><div class="metric-value-sm counter" data-end="52.5" data-decimals="1" data-suffix="%">0</div><div class="metric-label t-metric-label">Средняя доходимость вебинаров</div><div class="metric-badge t-badge-dim">более половины доходят до эфира</div></div>
+        <div class="big-metric" style="animation:metricFloat 5s ease-in-out infinite 1.8s"><div class="metric-row"><span class="metric-old-md t-metric-old">1.6%</span><span class="metric-arrow-md t-metric-arrow">→</span><span class="metric-value-sm counter" data-end="16.3" data-decimals="1" data-suffix="%">0</span></div><div class="metric-label t-metric-label">Конверсия лендингов</div><div class="metric-badge">×10.2</div></div>
+      </div>
+      <h4 class="text-sm font-semibold mb-4 t-dim2">Что сделано:</h4>
+      <div class="grid md:grid-cols-2 gap-4 mb-16">
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Вебинары</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Переработка презентаций, усиление смыслов и офферов, улучшение визуальной подачи.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Коммуникации</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Переписаны Email-цепочки, обновлены Telegram-коммуникации, повышена открываемость и кликабельность.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Лендинги</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Разработаны новые страницы, улучшена структура, усилены CTA-блоки, добавлены конверсионные элементы.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Продажи</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Переработано окно продаж, улучшена логика ценового якоря, усилены офферы.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Удержание аудитории</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Система напоминаний, регулярные касания, дополнительный прогрев участников.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-1 t-accent">Проведение эфиров</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Улучшена техническая организация, внедрены механики вовлечения, переработана структура эфиров.</p></div>
+        <div class="glass p-5 md:col-span-2"><p class="text-sm font-semibold mb-1 t-accent">Пользовательский путь</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Устранены точки потери аудитории, оптимизирован путь от регистрации до покупки.</p></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-2 t-heading">SEO и развитие сайта</h3>
+      <p class="text-sm font-medium mb-6 t-accent">Комплексная работа по развитию сайта</p>
+      <div class="before-after-grid mb-8">
+        <div class="glass-r p-6"><span class="ba-label ba-label--red">До</span><ul class="emerald-list"><li class="t-dim3" style="font-size:15px">Технические ошибки</li><li class="t-dim3" style="font-size:15px">Устаревшая структура страниц</li><li class="t-dim3" style="font-size:15px">Отсутствие системной SEO-работы</li><li class="t-dim3" style="font-size:15px">Низкая конверсионность отдельных блоков</li><li class="t-dim3" style="font-size:15px">Устаревшие элементы интерфейса</li><li class="t-dim3" style="font-size:15px">Слабая структура части посадочных страниц</li></ul></div>
+        <div class="glass-e p-6"><span class="ba-label ba-label--green">После</span><ul class="emerald-list"><li class="t-dim2" style="font-size:15px">Проведён SEO-аудит</li><li class="t-dim2" style="font-size:15px">Сформирован план развития сайта</li><li class="t-dim2" style="font-size:15px">Поставлены задачи подрядчикам</li><li class="t-dim2" style="font-size:15px">Организован контроль выполнения работ</li><li class="t-dim2" style="font-size:15px">Переработаны отдельные страницы</li><li class="t-dim2" style="font-size:15px">Улучшена структура сайта</li><li class="t-dim2" style="font-size:15px">Устранена часть технических ошибок</li><li class="t-dim2" style="font-size:15px">Внедрены рекомендации по SEO-оптимизации</li></ul></div>
+      </div>
+      <p class="t-dim2 conclusion-border" style="font-size:15px;line-height:1.7">Результат: Создан фундамент для дальнейшего органического роста и улучшения пользовательского опыта.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Case 2: Study Taro -->
+  <div class="case-item anim anim-delay-3">
+    <button class="case-header" onclick="toggleCase(1)">
+      <div><span class="t-case-name font-semibold text-base block">Проект «Study Taro»</span><span class="t-case-desc text-xs block mt-1">Руководитель технического отдела</span></div>
+      <i data-lucide="chevron-down" style="width:20px;height:20px" class="case-chevron"></i>
+    </button>
+    <div class="case-content" id="case-1">
+    <div class="case-content-inner">
+
+      <p class="text-sm font-medium mb-2 t-accent">Системное управление технической инфраструктурой онлайн-школы</p>
+      <p class="t-dim2 mb-10" style="font-size:15px;line-height:1.75">От ручного контроля, разрозненных задач и постоянных технических вопросов — к стабильной системе запусков, обучения, аналитики, поддержки и взаимодействия с подрядчиками.</p>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Исходная ситуация</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Техническая часть запусков держалась на ручном контроле</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Страницы, рассылки, доступы, интеграции, формы и обучающие платформы требовали постоянной проверки и оперативного вмешательства.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Не было единой системы управления задачами</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Задачи поступали из разных источников, часть процессов зависела от личного контроля, постоянных напоминаний и ручной сверки.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Команда часто отвлекалась на технические вопросы</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Менеджеры, студенты и участники запусков регулярно обращались по доступам, материалам, платформе, оплатам и навигации внутри обучения.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Аналитика была разрозненной</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Данные по регистрациям, заявкам, оплатам, конверсиям и источникам трафика фиксировались в разных местах. Из-за этого было сложнее быстро оценивать эффективность запусков и рекламных связок.</p></div>
+        <div class="glass-r p-5 md:col-span-2"><p class="text-sm font-semibold mb-1 t-problem">Взаимодействие с подрядчиками требовало контроля</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Подрядчики по холодному трафику нуждались в корректных ссылках, UTM-метках, формах, посадочных страницах и понятной фиксации результатов.</p></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-4 t-heading">Моя роль и зона ответственности</h3>
+      <p class="t-dim2 mb-5" style="font-size:15px;line-height:1.75">Я отвечал не только за выполнение технических задач, а за управление всей технической системой проекта: от подготовки запусков и контроля команды до поддержки аналитики, работы с подрядчиками и стабильной выдачи доступов студентам.</p>
+      <p class="t-dim2 mb-4 font-medium" style="font-size:14px">В зоне ответственности были:</p>
+      <ul class="emerald-list t-dim2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <li>Техническая подготовка запусков</li><li>Постановка и контроль задач технической команды</li><li>Взаимодействие с подрядчиками по холодному трафику</li><li>Настройка страниц, форм, рассылок, воронок и интеграций</li><li>Контроль корректной выдачи доступов</li><li>Загрузка и структурирование обучающих материалов</li><li>Поддержка студентов, менеджеров и команды</li><li>Проверка автоматизаций перед стартами</li><li>Ведение аналитических таблиц</li><li>Контроль данных по регистрациям, заявкам, оплатам и конверсиям</li><li>Фиксация ошибок, точек потерь и технических доработок</li><li>Подготовка мини-отчётов по воронкам и процессам</li>
+      </ul>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Инструменты управления</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Таск-трекеры и рабочие таблицы</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Использовались для постановки задач, распределения ответственности, контроля дедлайнов и фиксации статусов.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> задачи перестали теряться, у каждой задачи появился исполнитель, срок и понятный результат.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Чек-листы запусков</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Для каждого запуска фиксировались ключевые этапы: страницы, формы, оплаты, рассылки, доступы, платформа, уроки, бот, аналитика и финальное тестирование.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> снизился риск пропущенных задач и технических ошибок перед стартом продаж или обучения.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Карты воронок</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Технические цепочки собирались по пользовательскому пути: регистрация, рассылка, бот, оплата, выдача доступа, обучение, напоминания.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> команда видела всю цепочку целиком, а не отдельные куски, которые обычно живут своей нелепой жизнью.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Аналитические таблицы</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Были выстроены и поддерживались таблицы для фиксации ключевых показателей: регистрации, заявки, оплаты, конверсии, источники, рекламные связки и результаты запусков.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> руководитель и команда могли быстрее видеть, где возникают потери и какие направления требуют доработки.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Регламенты и инструкции</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Повторяющиеся процессы переводились в инструкции: как открыть доступ, загрузить урок, проверить страницу, протестировать рассылку, передать данные подрядчику.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> команда меньше зависела от устных объяснений и памяти одного человека, что для проекта почти всегда спасение от мини-катастроф.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Тестирование и контроль качества</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Перед стартами проверялись формы, оплаты, ссылки, UTM-метки, рассылки, доступы, уроки, уведомления и корректность автоматизаций.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> пользователь проходил путь от регистрации до обучения без критичных технических сбоев.</p></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Что было сделано</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Управление технической частью запусков</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Организована полная техническая сборка запусков</li><li style="font-size:14px">Настроены страницы, формы, воронки, рассылки и интеграции</li><li style="font-size:14px">Выстроена система проверки перед стартом продаж и обучения</li><li style="font-size:14px">Внедрён контроль корректной выдачи доступов</li><li style="font-size:14px">Снижены риски технических сбоев в периоды активных запусков</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Управление командой и подрядчиками</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Задачи распределялись между исполнителями с понятными сроками и зонами ответственности</li><li style="font-size:14px">Контролировалось выполнение задач по дедлайнам</li><li style="font-size:14px">Подрядчики получали конкретные технические задания</li><li style="font-size:14px">Ошибки и доработки фиксировались в рабочей системе</li><li style="font-size:14px">Взаимодействие между командой, руководителем и подрядчиками стало прозрачнее</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Аналитика и холодный трафик</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Выстроена техническая поддержка аналитики по запускам и воронкам</li><li style="font-size:14px">Созданы и велись таблицы для контроля ключевых показателей</li><li style="font-size:14px">Фиксировались данные по регистрациям, заявкам, оплатам, конверсиям и источникам трафика</li><li style="font-size:14px">Контролировалась корректность UTM-меток и передачи данных</li><li style="font-size:14px">Проверялись формы регистрации, ссылки и посадочные страницы перед запуском рекламы</li><li style="font-size:14px">Обеспечивалось взаимодействие с подрядчиками по холодному трафику</li><li style="font-size:14px">Результаты рекламных гипотез и связок фиксировались в понятном формате</li><li style="font-size:14px">Данные приводились в систему для анализа и принятия решений</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Организация обучающей платформы</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Загружены и оформлены учебные модули</li><li style="font-size:14px">Структурированы уроки, материалы и дополнительные файлы</li><li style="font-size:14px">Улучшена навигация внутри программ</li><li style="font-size:14px">Проверялась корректность отображения материалов</li><li style="font-size:14px">Снижалось количество вопросов от студентов по доступам и поиску уроков</li></ul></div>
+        <div class="glass p-5 md:col-span-2"><p class="text-sm font-semibold mb-2 t-accent">Поддержка процессов и пользователей / Автоматизации и стабильность</p><ul class="emerald-list t-dim3 grid grid-cols-1 md:grid-cols-2 gap-x-6"><li style="font-size:14px">Обрабатывались технические вопросы студентов и менеджеров</li><li style="font-size:14px">Решались проблемы с доступами, оплатами, платформой и материалами</li><li style="font-size:14px">Повторяющиеся вопросы переводились в инструкции и понятные алгоритмы</li><li style="font-size:14px">Команда быстрее получала решения по техническим ситуациям</li><li style="font-size:14px">Руководитель проекта меньше погружался в операционную текучку</li><li style="font-size:14px">Проверялись цепочки рассылок, ботов и выдачи доступов</li><li style="font-size:14px">Настраивались технические связи между сервисами</li><li style="font-size:14px">Устранялись ошибки в автоматизациях</li><li style="font-size:14px">Снижалась доля ручных действий</li><li style="font-size:14px">Повторяющиеся процессы переводились в более стабильный формат</li></ul></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Ключевые итоги</h3>
+      <ul class="emerald-list t-dim2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <li><span class="font-medium t-card">Запуски стали стабильнее</span> — техническая подготовка запусков стала проходить по понятной системе: задачи, сроки, ответственные, чек-листы, аналитика и финальное тестирование.</li>
+        <li><span class="font-medium t-card">Аналитика стала опорой для решений</span> — данные по регистрациям, заявкам, оплатам, конверсиям и источникам трафика были собраны в рабочую систему. Команда могла видеть точки потерь и быстрее принимать решения по воронкам.</li>
+        <li><span class="font-medium t-card">Работа с подрядчиками стала прозрачнее</span> — подрядчики по холодному трафику получали корректные ссылки, метки, формы и вводные. Результаты их работы фиксировались через таблицы и отчётность.</li>
+        <li><span class="font-medium t-card">Снизилось количество технических ошибок</span> — за счёт предварительной проверки страниц, форм, оплат, рассылок, доступов, UTM-меток, обучающих материалов и автоматизаций.</li>
+        <li><span class="font-medium t-card">Команда стала работать быстрее</span> — менеджеры, подрядчики и исполнители получали более понятные задачи, инструкции и точки контроля.</li>
+        <li><span class="font-medium t-card">Студентам стало проще проходить обучение</span> — была улучшена структура материалов и навигация внутри платформы, из-за чего снизилось количество вопросов по доступам и урокам.</li>
+        <li class="md:col-span-2"><span class="font-medium t-card">Руководитель проекта был разгружен от операционной текучки</span> — технический отдел забрал на себя контроль запусков, поддержку команды, проверку процессов, работу с аналитикой и решение текущих технических вопросов.</li>
+      </ul>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">До / После</h3>
+      <div class="before-after-grid mb-8">
+        <div class="glass-r p-6"><span class="ba-label ba-label--red">До</span><ul class="emerald-list"><li class="t-dim3" style="font-size:14px">Технические задачи контролировались вручную</li><li class="t-dim3" style="font-size:14px">Запуски зависели от постоянной проверки</li><li class="t-dim3" style="font-size:14px">Задачи поступали из разных источников и могли теряться</li><li class="t-dim3" style="font-size:14px">Команда часто отвлекалась на вопросы по доступам и платформе</li><li class="t-dim3" style="font-size:14px">Обучающие материалы были структурированы неравномерно</li><li class="t-dim3" style="font-size:14px">Аналитика велась разрозненно и требовала ручной сверки</li><li class="t-dim3" style="font-size:14px">Данные по воронкам и источникам трафика не всегда были прозрачны</li><li class="t-dim3" style="font-size:14px">Взаимодействие с подрядчиками по холодному трафику требовало постоянного контроля</li><li class="t-dim3" style="font-size:14px">Автоматизации нуждались в регулярной проверке и ручном вмешательстве</li></ul></div>
+        <div class="glass-e p-6"><span class="ba-label ba-label--green">После</span><ul class="emerald-list"><li class="t-dim2" style="font-size:14px">Запуски проходили по чек-листам и понятной структуре</li><li class="t-dim2" style="font-size:14px">Задачи получили сроки, ответственных и статусы</li><li class="t-dim2" style="font-size:14px">Появился регулярный контроль технических процессов</li><li class="t-dim2" style="font-size:14px">Материалы на платформе были упорядочены</li><li class="t-dim2" style="font-size:14px">Аналитика была собрана в рабочие таблицы</li><li class="t-dim2" style="font-size:14px">Команда видела ключевые показатели по воронкам и запускам</li><li class="t-dim2" style="font-size:14px">Работа с подрядчиками по холодному трафику стала прозрачнее</li><li class="t-dim2" style="font-size:14px">Снизилось количество вопросов по доступам, урокам и навигации</li><li class="t-dim2" style="font-size:14px">Техническая система стала поддерживать не только обучение, но и продажи</li></ul></div>
+      </div>
+      <p class="t-dim2 conclusion-border" style="font-size:15px;line-height:1.8">Технический отдел перестал быть просто «исполнителем задач» и стал системой, которая поддерживала запуски, обучение, аналитику, работу с трафиком и ежедневную операционку проекта. Были выстроены процессы контроля, аналитические таблицы, техническая проверка воронок, взаимодействие с подрядчиками и поддержка команды. Это снизило хаос в операционных процессах, ускорило подготовку запусков и дало руководителю более прозрачную картину по проекту.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Case 3: TG Money -->
+  <div class="case-item anim anim-delay-4">
+    <button class="case-header" onclick="toggleCase(2)">
+      <div><span class="t-case-name font-semibold text-base block">Проект «TG Money»</span><span class="t-case-desc text-xs block mt-1">Специалист по технической аналитике и структуре запусков</span></div>
+      <i data-lucide="chevron-down" style="width:20px;height:20px" class="case-chevron"></i>
+    </button>
+    <div class="case-content" id="case-2">
+    <div class="case-content-inner">
+
+      <p class="text-sm font-medium mb-2 t-accent">Разработка технической и аналитической структуры проекта с нуля</p>
+      <p class="t-dim2 mb-4" style="font-size:15px;line-height:1.75">От отсутствия понятной технической системы, разрозненных таблиц и ручного контроля — к выстроенной структуре запусков, аналитики, сервисов, документации и операционных процессов.</p>
+      <p class="t-dim2 mb-10" style="font-size:15px;line-height:1.75">Задача заключалась не просто в технической настройке отдельных инструментов, а в том, чтобы с нуля собрать рабочую систему: подобрать оптимальные сервисы, не раздуть расходы, связать между собой платформы, формы, чат-боты, рассылки, таблицы, интеграции и аналитику так, чтобы всё работало стабильно и предсказуемо.</p>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Исходная ситуация</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Не было единой технической структуры проекта</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Платформы, формы, рассылки, таблицы, доступы, задачи и документация существовали как отдельные элементы. Их нужно было собрать в понятную систему, чтобы запуск не держался на ручном контроле.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">На старте нужно было подобрать оптимальные сервисы</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Для запуска требовалось выбрать технический стек: платформу, чат-боты, рассылки, формы, таблицы, интеграции и инструменты аналитики. При этом было важно не подключать лишние сервисы и не раздувать расходы проекта.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Аналитика не была выстроена</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Не было цельной структуры таблиц, где можно было быстро видеть ключевые показатели: регистрации, заявки, оплаты, конверсии, источники трафика, эффективность воронок и рекламных связок.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Процессы подготовки занимали слишком много времени</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Повторяющиеся задачи выполнялись вручную, часть действий приходилось каждый раз пересобирать заново. Это замедляло подготовку запусков и повышало риск ошибок.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Документация и рабочие таблицы были несистемными</p><p class="t-dim3" style="font-size:15px;line-height:1.65">Данные, задачи, статусы и материалы были разбросаны. Команда тратила время не только на работу, но и на поиск нужной информации. Гениальная схема, если цель — страдать красиво, но бизнесу она обычно мешает.</p></div>
+        <div class="glass-r p-5"><p class="text-sm font-semibold mb-1 t-problem">Руководитель был перегружен операционкой</p><p class="t-dim3" style="font-size:15px;line-height:1.65">На руководителе оставалось много технических, организационных и контрольных вопросов: от проверки готовности запусков до координации подрядчиков и актуальности данных.</p></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-4 t-heading">Моя роль и зона ответственности</h3>
+      <p class="t-dim2 mb-5" style="font-size:15px;line-height:1.75">Я отвечал за разработку и внедрение технической и аналитической структуры проекта с нуля: от подбора оптимальных сервисов на старте до настройки платформ, форм, чат-ботов, рассылок, интеграций, таблиц, документации и операционного порядка.</p>
+      <p class="t-dim2 mb-4" style="font-size:15px;line-height:1.75">Ключевая задача — собрать такую систему, которая закрывала реальные задачи запуска, не создавала лишних расходов, не плодила дублирующие инструменты и работала стабильно без постоянного ручного вмешательства.</p>
+      <p class="t-dim2 mb-4 font-medium" style="font-size:14px">В зоне ответственности были:</p>
+      <ul class="emerald-list t-dim2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <li>Разработка технической структуры проекта с нуля</li><li>Подбор оптимальных сервисов для запуска</li><li>Оценка инструментов по стоимости, функциональности и удобству для команды</li><li>Настройка технического стека без раздутия расходов</li><li>Создание и ведение аналитических таблиц</li><li>Настройка платформ, чат-ботов, форм, рассылок и интеграций</li><li>Подготовка технической базы для образовательных и продуктовых запусков</li><li>Контроль данных по регистрациям, заявкам, оплатам и конверсиям</li><li>Фиксация источников трафика и результатов рекламных связок</li><li>Тестирование технических цепочек перед стартами</li><li>Координация задач между командой, подрядчиками и руководителем</li><li>Ведение операционных таблиц, отчётности и документации</li><li>Структурирование материалов и рабочих процессов</li><li>Обработка технических запросов от команды и клиентов</li><li>Снижение ручной работы за счёт оптимизации и автоматизации процессов</li>
+      </ul>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Инструменты</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Подбор и оптимизация сервисов</p><p class="t-dim3" style="font-size:14px;line-height:1.6">На старте были подобраны сервисы для запуска: платформы, чат-боты, формы, рассылки, таблицы, интеграции и инструменты аналитики. При выборе учитывались стоимость, функциональность, удобство для команды, масштабируемость и отсутствие лишних функций.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> проект получил рабочий технический стек без раздутых расходов. Сервисы были связаны между собой так, чтобы система работала стабильно, а команда не тратила время на лишние ручные действия.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Аналитические таблицы</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Создавались таблицы для фиксации и контроля ключевых показателей: регистрации, заявки, оплаты, конверсии, источники трафика, статусы задач и результаты запусков.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> проект получил понятную систему данных, по которой можно было видеть реальную картину запуска, а не собирать цифры вручную из разных мест.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Технические карты процессов</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Выстраивалась логика всех цепочек: форма регистрации, страница, рассылка, бот, оплата, выдача доступа, обучение, напоминания, фиксация данных.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> стало понятно, где начинается процесс, где он может сломаться и кто отвечает за каждый этап.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Рабочие таблицы и контроль задач</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Использовались для постановки задач, фиксации сроков, контроля дедлайнов, распределения ответственности и отслеживания статусов.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> задачи перестали жить в переписках и получили нормальный маршрут выполнения.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Чек-листы тестирования</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Перед стартами проверялись формы, ссылки, оплаты, рассылки, чат-боты, доступы, страницы, уведомления и передача данных.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> снизился риск технических ошибок в момент запуска.</p></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Документация и инструкции</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Повторяющиеся действия фиксировались в понятных инструкциях: как проверить цепочку, где смотреть данные, как обновлять таблицы, как передавать задачи подрядчикам.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> команда меньше зависела от устных объяснений и могла быстрее включаться в работу.</p></div>
+        <div class="glass p-5 md:col-span-2"><p class="text-sm font-semibold mb-2 t-accent">Коммуникация с подрядчиками</p><p class="t-dim3" style="font-size:14px;line-height:1.6">Подрядчики получали понятные вводные, ссылки, данные, задачи и точки контроля. Результаты фиксировались в рабочих таблицах и отчётности.</p><p class="tool-gave"><span class="font-medium t-accent">Что это дало:</span> взаимодействие стало прозрачнее, а руководителю стало проще контролировать реальную ситуацию по запуску.</p></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Что было сделано</h3>
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Разработка структуры с нуля</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Сформирована техническая структура проекта</li><li style="font-size:14px">Собраны ключевые рабочие процессы в единую систему</li><li style="font-size:14px">Настроена логика взаимодействия между платформами, формами, ботами, рассылками, таблицами и интеграциями</li><li style="font-size:14px">Создан порядок в операционных задачах и документации</li><li style="font-size:14px">Повторяющиеся процессы переведены из хаоса в понятные алгоритмы</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Подбор сервисов и оптимизация технического стека</p><ul class="emerald-list t-dim3"><li style="font-size:14px">На старте подобраны оптимальные сервисы для запуска проекта</li><li style="font-size:14px">Проведена оценка инструментов по стоимости, функциональности и удобству использования</li><li style="font-size:14px">Исключены лишние сервисы, которые могли раздуть расходы без реальной пользы</li><li style="font-size:14px">Настроена связка платформ, чат-ботов, рассылок, форм, таблиц и интеграций</li><li style="font-size:14px">Оптимизирована логика работы сервисов между собой</li><li style="font-size:14px">Повторяющиеся процессы были упрощены и частично автоматизированы</li><li style="font-size:14px">Система была выстроена так, чтобы работать стабильно, без постоянного ручного контроля</li><li style="font-size:14px">Техническая база проекта стала понятной, экономной и удобной для дальнейшего масштабирования</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Аналитика и отчётность</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Созданы и велись аналитические таблицы по запускам</li><li style="font-size:14px">Фиксировались данные по регистрациям, заявкам, оплатам и конверсиям</li><li style="font-size:14px">Настроена структура контроля источников трафика и рекламных связок</li><li style="font-size:14px">Данные приводились в понятный формат для руководителя</li><li style="font-size:14px">Упрощён анализ эффективности запусков и воронок</li></ul></div>
+        <div class="glass p-5"><p class="text-sm font-semibold mb-2 t-accent">Техническая подготовка запусков</p><ul class="emerald-list t-dim3"><li style="font-size:14px">Настроены платформы, чат-боты, рассылки, формы регистрации и интеграции</li><li style="font-size:14px">Подготовлены технические цепочки для образовательных и продуктовых запусков</li><li style="font-size:14px">Проверялась корректность работы страниц, ссылок, оплат, доступов и уведомлений</li><li style="font-size:14px">Перед стартами проводилось тестирование всех ключевых элементов</li><li style="font-size:14px">Ошибки фиксировались и устранялись до запуска</li></ul></div>
+        <div class="glass p-5 md:col-span-2"><p class="text-sm font-semibold mb-2 t-accent">Операционные процессы / Поддержка команды и клиентов</p><ul class="emerald-list t-dim3 grid grid-cols-1 md:grid-cols-2 gap-x-6"><li style="font-size:14px">Наведён порядок в рабочих таблицах и документации</li><li style="font-size:14px">Организован контроль дедлайнов и статусов задач</li><li style="font-size:14px">Упрощено взаимодействие между командой, подрядчиками и руководителем</li><li style="font-size:14px">Снижена нагрузка на руководителя за счёт передачи операционных задач</li><li style="font-size:14px">Повышена скорость подготовки проектов к запуску</li><li style="font-size:14px">Обрабатывались технические запросы от команды и клиентов</li><li style="font-size:14px">Решались вопросы по доступам, платформам, материалам и оплатам</li><li style="font-size:14px">Структурировались материалы для дальнейшей работы</li><li style="font-size:14px">Повторяющиеся вопросы переводились в инструкции и понятные процессы</li><li style="font-size:14px">Команда быстрее получала решения по техническим ситуациям</li></ul></div>
+      </div>
+
+      <h3 class="text-lg font-bold mb-5 t-heading">Финальный результат</h3>
+      <p class="t-dim2 conclusion-border" style="font-size:15px;line-height:1.85">За 5 месяцев была разработана техническая и аналитическая структура проекта с нуля: подобраны оптимальные сервисы для запуска, настроены рабочие процессы, таблицы, документация, платформы, чат-боты, рассылки, формы и интеграции.</p>
+      <p class="t-dim2 conclusion-border mt-4" style="font-size:15px;line-height:1.85">Особое внимание уделялось тому, чтобы технический стек не раздувал расходы проекта: сервисы подбирались под реальные задачи, без лишних инструментов и дублирующих решений.</p>
+      <p class="t-dim2 conclusion-border mt-4" style="font-size:15px;line-height:1.85">Все процессы были оптимизированы так, чтобы система работала стабильно, предсказуемо и без постоянного ручного контроля. Проект получил понятную систему управления запуском, данными, задачами и подрядчиками.</p>
+      <p class="t-dim2 mt-4" style="font-size:15px;line-height:1.85">Это позволило сократить время подготовки продуктов на 20–30%, снизить количество технических ошибок, разгрузить руководителя от операционной текучки и сделать аналитику более прозрачной для принятия решений.</p>
+
+    </div></div>
+  </div>
+
+</section>
+
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- Education -->
+<section id="education" class="max-w-6xl mx-auto px-5 py-10">
+  <p class="section-title anim">ОБУЧЕНИЕ И РАЗВИТИЕ</p>
+  <h2 class="section-subtitle t-heading anim anim-delay-1">Компетенции и курсы</h2>
+  <p class="t-dim2 anim anim-delay-2" style="font-size:16px;max-width:540px;margin-bottom:32px;line-height:1.75">Постоянно развиваю компетенции в управлении проектами, маркетинге и современных цифровых инструментах.</p>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="glass-e p-5 anim anim-delay-1"><i data-lucide="graduation-cap" style="width:20px;height:20px;color:#10b981;margin-bottom:10px;animation:iconPulse 3s ease-in-out infinite"></i><p class="text-sm font-semibold t-card" style="font-size:15px;line-height:1.6">GreenFreelance — курс Project Manager</p></div>
+    <div class="glass-e p-5 anim anim-delay-2"><i data-lucide="book-open" style="width:20px;height:20px;color:#10b981;margin-bottom:10px;animation:iconPulse 3s ease-in-out infinite .4s"></i><p class="text-sm font-semibold t-card" style="font-size:15px;line-height:1.6">GreenFreelance — обучение по GetCourse</p></div>
+    <div class="glass-e p-5 anim anim-delay-3"><i data-lucide="users" style="width:20px;height:20px;color:#10b981;margin-bottom:10px;animation:iconPulse 3s ease-in-out infinite .8s"></i><p class="text-sm font-semibold t-card" style="font-size:15px;line-height:1.6">Наставник на обучении специалистов GetCourse (разбор реальных кейсов и рабочих процессов)</p></div>
+    <div class="glass-e p-5 anim anim-delay-4"><i data-lucide="brain" style="width:20px;height:20px;color:#10b981;margin-bottom:10px;animation:iconPulse 3s ease-in-out infinite 1.2s"></i><p class="text-sm font-semibold t-card" style="font-size:15px;line-height:1.6">Курсы по нейросетям и AI-инструментам</p></div>
+    <div class="glass-e p-5 anim anim-delay-5 md:col-span-2 lg:col-span-2"><i data-lucide="zap" style="width:20px;height:20px;color:#10b981;margin-bottom:10px;animation:iconPulse 3s ease-in-out infinite 1.6s"></i><p class="text-sm font-semibold t-card" style="font-size:15px;line-height:1.6">Обучение современным инструментам автоматизации, AI и созданию цифровых решений без необходимости программирования</p></div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- Format -->
+<section id="format" class="max-w-6xl mx-auto px-5 py-10">
+  <p class="section-title anim">ФОРМАТ СОТРУДНИЧЕСТВА</p>
+  <h2 class="section-subtitle t-heading anim anim-delay-1">Условия работы</h2>
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="glass p-6 anim anim-delay-1" style="animation:glassBorder 5s ease-in-out infinite"><i data-lucide="briefcase" style="width:22px;height:22px;color:#10b981;margin-bottom:12px"></i><p class="text-base font-bold mb-3 t-card">Полная занятость</p><p class="t-dim3" style="font-size:15px;line-height:1.75">Удалённый формат, полный рабочий день, период адаптации около 1 месяца, от 100 000 ₽ в месяц.</p></div>
+    <div class="glass p-6 anim anim-delay-2" style="animation:glassBorder 5s ease-in-out infinite 1s"><i data-lucide="clipboard-list" style="width:22px;height:22px;color:#10b981;margin-bottom:12px"></i><p class="text-base font-bold mb-3 t-card">Проектная работа</p><p class="t-dim3" style="font-size:15px;line-height:1.75">Рассматриваю проектное сотрудничество и разовые задачи, формат, сроки и стоимость обсуждаются индивидуально.</p></div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+<!-- Contacts -->
+<section id="contacts" class="max-w-6xl mx-auto px-5 py-16 text-center">
+  <p class="section-title anim">КОНТАКТЫ</p>
+  <p class="t-dim2 anim anim-delay-1" style="font-size:17px;max-width:600px;margin:0 auto 36px;line-height:1.85">Если вашему проекту нужен руководитель, который умеет организовывать процессы, координировать команду и доводить задачи до результата — буду рад обсудить сотрудничество.</p>
+  <div class="flex flex-wrap justify-center gap-4 anim anim-delay-2">
+    <a href="https://t.me/VladSlashevski" target="_blank" class="btn"><i data-lucide="send" style="width:16px;height:16px"></i> Написать в Telegram</a>
+    <a href="https://wa.me/375339935426" target="_blank" class="btn btn-outline"><i data-lucide="message-circle" style="width:16px;height:16px"></i> Написать в WhatsApp</a>
+  </div>
+</section>
+
+<footer class="border-t" style="border-color:rgba(255,255,255,0.04);padding:24px 0">
+<div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+  <p class="text-xs t-footer">© 2025 Владислав Слашевский</p>
+  <a href="https://t.me/VladSlashevski" target="_blank" class="text-xs t-footer" style="text-decoration:none;transition:color .3s" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Telegram</a>
+</div>
+</footer>
 
 <script>
-/* 1 — Иконки */
-try { if(typeof lucide!=='undefined') lucide.createIcons(); } catch(e){}
+lucide.createIcons();
 
-/* 2 — Тема (localStorage может быть недоступен в srcdoc) */
-(function(){
-    var dk=document.querySelectorAll('.dk-ico'),lt=document.querySelectorAll('.lt-ico');
-    var canStore=false;
-    try{var t='_t';localStorage.setItem(t,'1');localStorage.removeItem(t);canStore=true}catch(e){}
-    function apply(l){
-        document.documentElement.classList.toggle('light',l);
-        for(var i=0;i<dk.length;i++) dk[i].style.display=l?'none':'block';
-        for(var i=0;i<lt.length;i++) lt[i].style.display=l?'block':'none';
-        if(canStore) try{localStorage.setItem('theme',l?'light':'dark')}catch(e){}
-    }
-    if(canStore&&localStorage.getItem('theme')==='light') apply(true);
-    document.getElementById('themeToggleDesktop').onclick=function(){apply(!document.documentElement.classList.contains('light'))};
-    document.getElementById('themeToggleMobile').onclick=function(){apply(!document.documentElement.classList.contains('light'))};
-})();
+// Theme
+const html=document.documentElement,themeBtn=document.getElementById('themeToggle');
+let isLight=false;
+themeBtn.addEventListener('click',()=>{
+  isLight=!isLight;html.classList.toggle('light',isLight);
+  themeBtn.innerHTML=isLight?'<i data-lucide="sun" style="width:18px;height:18px"></i>':'<i data-lucide="moon" style="width:18px;height:18px"></i>';
+  lucide.createIcons();
+});
 
-/* 3 — Анимации при скролле */
-(function(){
-    var els=document.querySelectorAll('.anim');
-    if('IntersectionObserver' in window){
-        new IntersectionObserver(function(entries){
-            entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
-        },{threshold:.06,rootMargin:'0px 0px -30px 0px'}).observe(els[0]);
-    }
-    /* Fallback: если через 1.5с элементы не появились — показать принудительно */
-    setTimeout(function(){
-        document.querySelectorAll('.anim:not(.vis)').forEach(function(el){ el.classList.add('vis'); });
-    },1500);
-})();
+// Header
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>60));
 
-/* 4 — Хедер */
-(function(){
-    var h=document.getElementById('header');
-    window.addEventListener('scroll',function(){
-        if(window.scrollY>500){h.classList.remove('opacity-0','-translate-y-full');h.classList.add('opacity-100','translate-y-0')}
-        else{h.classList.add('opacity-0','-translate-y-full');h.classList.remove('opacity-100','translate-y-0')}
-    },{passive:true});
-})();
+// Mobile menu
+const mobileMenu=document.getElementById('mobileMenu');
+document.getElementById('menuToggle').addEventListener('click',()=>mobileMenu.classList.add('open'));
+document.getElementById('menuClose').addEventListener('click',()=>mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.remove('open')));
 
-/* 5 — Мобильное меню */
-(function(){
-    var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu'),o=false;
-    b.onclick=function(){o=!o;m.classList.toggle('open',o)};
-    window.closeMobile=function(){o=false;m.classList.remove('open')};
-})();
+// Scroll anim
+const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim').forEach(el=>animObs.observe(el));
 
-/* 6 — Частицы */
-(function(){
-    var c=document.getElementById('particles');if(!c)return;
-    var x=c.getContext('2d'),p=[];
-    function rs(){var s=c.parentElement;c.width=s.offsetWidth;c.height=s.offsetHeight}
-    rs(); window.addEventListener('resize',rs);
-    for(var i=0;i<(window.innerWidth<768?18:40);i++) p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,o:Math.random()*.25+.05});
-    (function f(){x.clearRect(0,0,c.width,c.height);p.forEach(function(v){v.x+=v.vx;v.y+=v.vy;if(v.x<0||v.x>c.width)v.vx*=-1;if(v.y<0||v.y>c.height)v.vy*=-1;x.beginPath();x.arc(v.x,v.y,v.r,0,Math.PI*2);x.fillStyle='rgba(16,185,129,'+v.o+')';x.fill()});requestAnimationFrame(f)})();
-})();
+// Counters
+const counterObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const el=x.target,end=parseFloat(el.dataset.end),dec=parseInt(el.dataset.decimals)||0,suffix=el.dataset.suffix||'',obj={val:0};gsap.to(obj,{val:end,duration:2,ease:'power2.out',onUpdate:()=>{el.textContent=obj.val.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+suffix}});counterObs.unobserve(el)}})},{threshold:0.3});
+document.querySelectorAll('.counter').forEach(c=>counterObs.observe(c));
 
-/* 7 — Параллакс hero-карточек */
-(function(){
-    var cards=document.querySelectorAll('.hero-card'),box=document.getElementById('heroCards');
-    if(box&&window.innerWidth>=1024) document.addEventListener('mousemove',function(e){
-        var x=(e.clientX/window.innerWidth-.5)*2,y=(e.clientY/window.innerHeight-.5)*2;
-        cards.forEach(function(c,i){var f=(i+1)*6;c.style.marginLeft=x*f+'px';c.style.marginTop=y*f+'px'});
-    });
-})();
+// Accordion
+function toggleCase(index){
+  const content=document.getElementById('case-'+index);
+  const item=content.closest('.case-item');
+  const headerEl=item.querySelector('.case-header');
+  const isOpen=item.classList.contains('open');
 
-/* 8 — СЧЁТЧИКИ (последовательный запуск) */
-(function(){
-    function formatNumber(num, decimals, format, suffix) {
-        let fixed = num.toFixed(decimals);
-        let parts = fixed.split('.');
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        let integerPart = parts[0];
-        let fractionalPart = decimals > 0 ? '.' + parts[1] : '';
-        let result = integerPart + fractionalPart;
-        if (format === 'currency') {
-            result = result + '\u00A0₽';
-        }
-        if (suffix) {
-            result = result + '\u00A0' + suffix;
-        }
-        return result;
-    }
+  // Close all
+  document.querySelectorAll('.case-item.open').forEach(openItem=>{
+    openItem.classList.remove('open');
+    gsap.to(openItem.querySelector('.case-content'),{height:0,duration:0.45,ease:'power2.inOut'});
+  });
 
-    const metricsContainer = document.querySelector('#case .grid:has(.big-metric)');
-    if (!metricsContainer) return;
+  if(!isOpen){
+    item.classList.add('open');
+    gsap.to(content,{height:content.scrollHeight,duration:0.45,ease:'power2.inOut'});
+    setTimeout(()=>{headerEl.scrollIntoView({behavior:'smooth',block:'start'})},120);
+  }
+}
 
-    let counters = Array.from(metricsContainer.querySelectorAll('.counter'));
-    if (counters.length === 0) return;
+// Particles
+const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
+let particles=[];const PC=50;
+function resizeCanvas(){const s=document.querySelector('.hero-section');canvas.width=s.offsetWidth;canvas.height=s.offsetHeight}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+class P{constructor(){this.r()}r(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.s=Math.random()*1.6+.5;this.sx=(Math.random()-.5)*.3;this.sy=(Math.random()-.5)*.3;this.o=Math.random()*.3+.08}u(){this.x+=this.sx;this.y+=this.sy;if(this.x<0||this.x>canvas.width)this.sx*=-1;if(this.y<0||this.y>canvas.height)this.sy*=-1}d(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle=`rgba(16,185,129,${this.o})`;ctx.fill()}}
+for(let i=0;i<PC;i++)particles.push(new P);
+function aP(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.u();p.d()});for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<100){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(16,185,129,${.05*(1-dist/100)})`;ctx.lineWidth=.5;ctx.stroke()}}requestAnimationFrame(aP)}
+aP();
 
-    let animationStarted = false;
-    let currentIndex = 0;
-    let allAnimated = false;
-
-    function animateCounter(counter, onComplete) {
-        if (!counter || counter.dataset.animated === '1') {
-            if (onComplete) onComplete();
-            return;
-        }
-        let target = parseFloat(counter.dataset.target);
-        let decimals = parseInt(counter.dataset.decimals) || 0;
-        let format = counter.dataset.format || '';
-        let suffix = counter.dataset.suffix || '';
-        let duration = 1800;
-        let startTime = performance.now();
-
-        function step(now) {
-            let progress = Math.min((now - startTime) / duration, 1);
-            let ease = 1 - Math.pow(1 - progress, 3);
-            let current = target * ease;
-            counter.textContent = formatNumber(current, decimals, format, suffix);
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                counter.textContent = formatNumber(target, decimals, format, suffix);
-                counter.dataset.animated = '1';
-                if (onComplete) onComplete();
-            }
-        }
-        requestAnimationFrame(step);
-    }
-
-    function startNext() {
-        if (currentIndex < counters.length) {
-            let counter = counters[currentIndex];
-            currentIndex++;
-            animateCounter(counter, startNext);
-        } else {
-            allAnimated = true;
-        }
-    }
-
-    let observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animationStarted && !allAnimated) {
-                animationStarted = true;
-                startNext();
-            }
-        });
-    }, { threshold: 0.3 });
-
-    observer.observe(metricsContainer);
-})();
-
-/* 9 — Инициализация goo-кнопок (исправленная анимация с полным сбросом) */
-(function() {
-    if (typeof gsap === 'undefined') return;
-    document.querySelectorAll('.button--bubble').forEach(function(btn) {
-        var container = btn.closest('.button--bubble__container');
-        if (!container) return;
-        var circlesTopLeft = container.querySelectorAll('.circle.top-left');
-        var circlesBottomRight = container.querySelectorAll('.circle.bottom-right');
-        var effectButton = container.querySelector('.effect-button');
-        if (!circlesTopLeft.length || !circlesBottomRight.length) return;
-
-        function resetCircles() {
-            gsap.set(circlesTopLeft, { x: 0, y: 0, scale: 1, rotation: -45, opacity: 1 });
-            gsap.set(circlesBottomRight, { x: 0, y: 0, scale: 1, rotation: 45, opacity: 1 });
-            if (effectButton) gsap.set(effectButton, { scale: 1, scaleY: 1 });
-        }
-
-        var btTl = gsap.timeline({ paused: true });
-        
-        btTl.call(resetCircles)
-             .to(circlesTopLeft, { duration: 1.2, x: -25, y: -25, scaleY: 2, ease: "slow(0.1,0.7,false)" }, 0)
-             .to(circlesTopLeft[0], { duration: 0.1, scale: 0.2, x: "+=6", y: "-=2" }, 0)
-             .to(circlesTopLeft[1], { duration: 0.1, scaleX: 1, scaleY: 0.8, x: "-=10", y: "-=7" }, "-=0.1")
-             .to(circlesTopLeft[2], { duration: 0.1, scale: 0.2, x: "-=15", y: "+=6" }, "-=0.1")
-             .to(circlesTopLeft[0], { duration: 1, scale: 0, x: "-=5", y: "-=15", opacity: 0 }, 0.1)
-             .to(circlesTopLeft[1], { duration: 1, scaleX: 0.4, scaleY: 0.4, x: "-=10", y: "-=10", opacity: 0 }, "-=1")
-             .to(circlesTopLeft[2], { duration: 1, scale: 0, x: "-=15", y: "+=5", opacity: 0 }, "-=1")
-             .to(circlesBottomRight, { duration: 1.1, x: 30, y: 30, ease: "slow(0.1,0.7,false)" }, 0.2)
-             .to(circlesBottomRight[0], { duration: 0.1, scale: 0.2, x: "-=6", y: "+=3" }, "+=0")
-             .to(circlesBottomRight[1], { duration: 0.1, scale: 0.8, x: "+=7", y: "+=3" }, "-=0.1")
-             .to(circlesBottomRight[2], { duration: 0.1, scale: 0.2, x: "+=15", y: "-=6" }, "-=0.2")
-             .to(circlesBottomRight[0], { duration: 1, scale: 0, x: "+=5", y: "+=15", opacity: 0 }, "+=0.1")
-             .to(circlesBottomRight[1], { duration: 1, scale: 0.4, x: "+=7", y: "+=7", opacity: 0 }, "-=1")
-             .to(circlesBottomRight[2], { duration: 1, scale: 0, x: "+=15", y: "-=5", opacity: 0 }, "-=1");
-
-        if (effectButton) {
-            btTl.to(effectButton, { duration: 0.8, scaleY: 1.1 }, 0.1)
-                .to(effectButton, { duration: 1.8, scale: 1, ease: "elastic.out(1.2,0.4)" }, 1.3);
-        }
-
-        btTl.timeScale(2.6);
-
-        btn.addEventListener('mouseover', function() {
-            btTl.restart();
-        });
-    });
-})();    
+// Active nav
+const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-link');
+const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-link[href="#${x.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:0.3});
+sections.forEach(s=>navObs.observe(s));
 </script>
 </body>
 </html>
