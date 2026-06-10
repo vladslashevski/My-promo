@@ -132,6 +132,8 @@ html.light .case-content{background:rgba(255,255,255,0.4);border-color:rgba(5,15
 .tool-gave{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.35);margin-top:8px;padding-left:12px;border-left:2px solid rgba(16,185,129,0.2)}
 html.light .tool-gave{color:rgba(0,0,0,0.4)}
 
+.case-item{scroll-margin-top:80px}
+  
 @media(max-width:768px){
   .before-after-grid{grid-template-columns:1fr}
   .metric-value{font-size:26px}.metric-value-sm{font-size:22px}
@@ -508,22 +510,36 @@ document.querySelectorAll('.counter').forEach(c=>counterObs.observe(c));
 function toggleCase(index){
   const content=document.getElementById('case-'+index);
   const item=content.closest('.case-item');
-  const headerEl=item.querySelector('.case-header');
   const isOpen=item.classList.contains('open');
 
-  // Close all
+  // Закрываем другие кейсы мгновенно, без анимации — чтобы не было скачка
   document.querySelectorAll('.case-item.open').forEach(openItem=>{
-    openItem.classList.remove('open');
-    gsap.to(openItem.querySelector('.case-content'),{height:0,duration:0.45,ease:'power2.inOut'});
+    if(openItem !== item){
+      openItem.classList.remove('open');
+      gsap.set(openItem.querySelector('.case-content'),{height:0});
+    }
   });
 
-  if(!isOpen){
+  if(isOpen){
+    // Закрыть текущий
+    item.classList.remove('open');
+    gsap.to(content,{height:0,duration:0.35,ease:'power2.inOut'});
+  } else {
+    // Открыть текущий
     item.classList.add('open');
-    gsap.to(content,{height:content.scrollHeight,duration:0.45,ease:'power2.inOut'});
-    setTimeout(()=>{headerEl.scrollIntoView({behavior:'smooth',block:'start'})},120);
+    gsap.to(content,{
+      height:content.scrollHeight,
+      duration:0.4,
+      ease:'power2.inOut',
+      onComplete:()=>{
+        // Скроллим к началу заголовка кейса после завершения анимации
+        const headerEl=item.querySelector('.case-header');
+        const top=headerEl.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({top:top,behavior:'smooth'});
+      }
+    });
   }
 }
-
 // Particles
 const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
 let particles=[];const PC=50;
